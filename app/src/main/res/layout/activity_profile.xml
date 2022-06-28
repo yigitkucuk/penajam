@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/attachment_summary_on"
+            android:padding="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:background=" @color/cardview_dark_background"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_settings"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:shapeAppearanceOverlay="@style/Circular"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        app:strokeWidth="4dp"
+        app:strokeColor="@android:color/black"
+
+        android:src="@drawable/defaulthuman" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@id/profile_icon"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_back_secondary_100"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="Edit Profile Picture"
+        android:textAllCaps="false"
+        android:textColor="@color/primary" />
+
+    <LinearLayout
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_below="@id/edit_profile"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/round_back_whiite10_20"
+        android:orientation="vertical"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/register_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_profile"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        android:hint="new username"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_email"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        android:hint="old password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/new_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_password"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        android:hint="new password"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chart"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Delete Account :(" />
+
+    <RelativeLayout
+        android:id="@+id/Menu_icons"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/round_back_third_100"
+
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/btn_Assig"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentLeft="true"
+            android:background=" @color/cardview_dark_background"
+            android:src="@drawable/ic_baseline_attach_file_24" />
+
+
+        <ImageButton
+            android:id="@+id/btn_MainScreen"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:background=" @color/cardview_dark_background"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_baseline_amp_stories_24" />
+
+        <ImageButton
+            android:id="@+id/btn_Settings"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:background=" @color/cardview_dark_background"
+            android:src="@drawable/ic_baseline_settings_24" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+
+
+

@@ -21,7 +21,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText email, password;
-    private Button btnRegister;
+    private Button btnRegister, btnLogin;
     private TextView textLogin;
 
     @Override
@@ -31,11 +31,19 @@ public class MainActivity extends AppCompatActivity {
         final EditText edit_username = findViewById(R.id.register_username);
         final EditText edit_realname = findViewById(R.id.register_realname);
 
+        btnLogin = findViewById(R.id.text_login);
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.register_email);
         password = findViewById(R.id.register_password);
         btnRegister = findViewById(R.id.register);
         textLogin = findViewById(R.id.text_login);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
 
         Userbase dao = new Userbase();
         User emp_edit = (User) getIntent().getSerializableExtra("EDIT");
@@ -94,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(MainActivity.this, "User registered succesfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, MainActivity.class));
+                        startActivity(new Intent(MainActivity.this, MainScreenActivity.class));
                     } else {
                         Toast.makeText(MainActivity.this, "Registration failed" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
