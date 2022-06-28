@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final EditText edit_name = findViewById(R.id.register_username);
-        final EditText edit_position = findViewById(R.id.register_realname);
+        final EditText edit_username = findViewById(R.id.register_username);
+        final EditText edit_realname = findViewById(R.id.register_realname);
 
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.register_email);
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         User emp_edit = (User) getIntent().getSerializableExtra("EDIT");
         if (emp_edit != null) {
             btnRegister.setText("UPDATE");
-            edit_name.setText(emp_edit.getName());
-            edit_position.setText(emp_edit.getPosition());
+            edit_username.setText(emp_edit.getName());
+            edit_realname.setText(emp_edit.getPosition());
 
         } else {
             btnRegister.setText("SUBMIT");
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(v ->
         {
             register();
-            User emp = new User(edit_name.getText().toString(), edit_position.getText().toString());
+            User emp = new User(edit_username.getText().toString(), edit_realname.getText().toString());
             if (emp_edit == null) {
                 dao.add(emp).addOnSuccessListener(suc ->
                 {
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 });
             } else {
                 HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("Username", edit_name.getText().toString());
-                hashMap.put("Real Name", edit_position.getText().toString());
+                hashMap.put("Username", edit_username.getText().toString());
+                hashMap.put("Real Name", edit_realname.getText().toString());
                 dao.update(emp_edit.getKey(), hashMap).addOnSuccessListener(suc ->
                 {
                     Toast.makeText(this, "Record is updated", Toast.LENGTH_SHORT).show();
