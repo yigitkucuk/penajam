@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "620034767006",
+    "firebase_url": "https://penajam-b-default-rtdb.firebaseio.com",
+    "project_id": "penajam-b",
+    "storage_bucket": "penajam-b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620034767006:android:c15490162ebc2d210ee38f",
+        "android_client_info": {
+          "package_name": "com.example.penajam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620034767006-ik93qi3cjb4sojog9ffpsadgcinuna75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIGRX9uOIYP7MuBcGVchq_OVD551sZmbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620034767006-ik93qi3cjb4sojog9ffpsadgcinuna75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620034767006:android:6486350ab8d345fb0ee38f",
+        "android_client_info": {
+          "package_name": "com.example.penajamm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620034767006-ik93qi3cjb4sojog9ffpsadgcinuna75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIGRX9uOIYP7MuBcGVchq_OVD551sZmbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620034767006-ik93qi3cjb4sojog9ffpsadgcinuna75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620034767006:android:4ce809495dc7383b0ee38f",
+        "android_client_info": {
+          "package_name": "com.example.ppenajamm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620034767006-ik93qi3cjb4sojog9ffpsadgcinuna75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIGRX9uOIYP7MuBcGVchq_OVD551sZmbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620034767006-ik93qi3cjb4sojog9ffpsadgcinuna75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
