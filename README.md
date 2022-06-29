@@ -11,7 +11,7 @@ Now user data, such as username and realname is also stored in database, across 
 Layouts are gone for a short time to be revised, will be added later.
 Profile customization is ready, will be added later.
 
-#29.05.22 LOG
+# 29.05.22 LOG
 Main screen, Settings, Profile, Login pages added.
 Now users can transition between screens.
 Little bugs fixed.
