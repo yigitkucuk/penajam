@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/gradient1"
     android:orientation="vertical"
     tools:context=".ProfileActivity">
 
@@ -93,7 +93,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
-        android:hint="new username"
+        android:hint="Request new username"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
@@ -105,7 +105,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
-        android:hint="old password"
+        android:hint="Old password"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -118,7 +118,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
-        android:hint="new password"
+        android:hint="New password"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />

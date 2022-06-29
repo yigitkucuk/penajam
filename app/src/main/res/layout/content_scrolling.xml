@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:background="@drawable/background2"
+    android:background="@drawable/gradient1"
     tools:context=".ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 

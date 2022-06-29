@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/gradient1"
     android:orientation="vertical"
     tools:context=".SettingsActivity">
 
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="User Name"
+        android:text="Username"
         android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
         android:textColor="#CCFFFFFF"
@@ -83,7 +83,7 @@
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:layout_below="@id/username"
-        android:text="edit Profile"
+        android:text="Edit Profile"
         android:textAllCaps="false"
         android:textColor="@color/primary" />
 
@@ -98,7 +98,8 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back_whiite10_20"
         android:orientation="vertical"
-        android:padding="15dp" />
+        android:padding="15dp"
+        />
 
     <Button
         android:id="@+id/btnLogout"

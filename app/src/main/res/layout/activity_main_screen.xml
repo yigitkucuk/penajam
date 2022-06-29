@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/gradient1"
     android:orientation="vertical"
     tools:context=".MainActivity"
     >
@@ -20,7 +20,6 @@
         android:layout_marginBottom="20dp"
         android:text="Penajam"
         android:textColor="@color/white"
-
         android:textSize="30dp" />
 
 

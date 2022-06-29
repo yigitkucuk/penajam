@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/gradient1"
     tools:context=".MainActivity">
 
     <TextView
@@ -118,6 +118,14 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
+            android:src="@drawable/google"
+            />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/fb"
 
             />
 
@@ -125,13 +133,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
-
-            />
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
+            android:src="@drawable/twitter"
 
             />
 
