@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Toast.makeText(this, "Record is updated", Toast.LENGTH_SHORT).show();
                     finish();
+
                 }).addOnFailureListener(er ->
                 {
                     Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "User registered succesfully", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, MainScreenActivity.class));
                     } else {
-                        Toast.makeText(MainActivity.this, "Registration failed" + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_LONG).show();
                     }
                 }
             });
