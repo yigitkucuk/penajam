@@ -43,8 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="280dp"
-
-        android:layout_marginTop="21dp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="Log out" />
@@ -52,14 +52,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-
-
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back_whiite10_20"
         android:orientation="vertical"
-        android:padding="15dp"/>
+        android:padding="15dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -80,6 +78,7 @@
         android:background="@drawable/round_back_whiite10_20"
         android:orientation="vertical"
         android:padding="15dp">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -142,8 +141,11 @@
             android:id="@+id/btn_Assig"
             android:layout_width="120dp"
             android:layout_height="80dp"
-            android:layout_margin="10dp"
             android:layout_alignParentLeft="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:background=" @color/cardview_dark_background"
             android:src="@drawable/ic_baseline_attach_file_24" />
 

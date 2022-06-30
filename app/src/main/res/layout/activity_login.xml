@@ -12,13 +12,15 @@
         android:id="@+id/text_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
         android:text="Sign In"
         android:textColor="@color/white"
         android:textSize="35dp"
-        android:textStyle="bold"
-        android:layout_margin="50dp"
-        android:gravity="center"
-        android:layout_marginBottom="25dp"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/login_email"
@@ -28,6 +30,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
+        android:background="@drawable/rounded_corners"
         android:hint="E-mail"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -43,6 +46,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
         android:hint="Password"
+        android:background="@drawable/rounded_corners"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -55,6 +59,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
+        android:background="@drawable/rounded_corners"
         android:text="Sign In" />
 
     <TextView
@@ -75,9 +80,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/socialicons"
-        android:text="Or Sign In Using"
         android:layout_centerHorizontal="true"
-        />
+        android:textColor="@color/white"
+        android:text="Or Sign In Using" />
 
     <LinearLayout
         android:id="@+id/socialicons"

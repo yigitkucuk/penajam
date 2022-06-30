@@ -48,7 +48,7 @@
         android:backgroundTint="#FFFFFF"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_baseline_send_24" />
+        app:srcCompat="@drawable/ic_baseline_send_24"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

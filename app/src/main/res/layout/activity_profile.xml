@@ -27,12 +27,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/action_settings"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
+            android:text="Profile"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 
@@ -45,14 +45,14 @@
         android:id="@+id/profile_icon"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:shapeAppearanceOverlay="@style/Circular"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        app:strokeWidth="4dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/defaulthuman"
+        app:shapeAppearanceOverlay="@style/Circular"
         app:strokeColor="@android:color/black"
 
-        android:src="@drawable/defaulthuman" />
+        app:strokeWidth="4dp" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -63,12 +63,12 @@
         android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/round_back_secondary_100"
+        android:background="@drawable/rounded_corners"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
         android:text="Edit Profile Picture"
         android:textAllCaps="false"
-        android:textColor="@color/primary" />
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:id="@+id/chart"
@@ -93,7 +93,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
-        android:hint="Request new username"
+        android:background="@drawable/rounded_corners"
+        android:hint="Pick a new username"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
@@ -106,6 +107,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
         android:hint="Old password"
+        android:background="@drawable/rounded_corners"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -119,6 +121,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
         android:hint="New password"
+        android:background="@drawable/rounded_corners"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -128,6 +131,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/chart"
+        android:background="@drawable/rounded_corners"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"

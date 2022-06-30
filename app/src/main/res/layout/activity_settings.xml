@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="@string/action_settings"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="18sp"/>
@@ -44,19 +44,19 @@
         android:id="@+id/profile_icon"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_baseline_add_reaction_24" />
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/defaulthuman" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/profile_icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/profile_icon"
-        android:text="Alphan"
+        android:text="John Fruiscante"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -76,16 +76,16 @@
         android:id="@+id/edit_profile"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_gravity="center"
+        android:layout_below="@id/username"
         android:layout_centerInParent="true"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/round_back_secondary_100"
+        android:background="@drawable/rounded_corners"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
-        android:layout_below="@id/username"
         android:text="Edit Profile"
         android:textAllCaps="false"
-        android:textColor="@color/primary" />
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:id="@+id/chart"
@@ -106,9 +106,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/chart"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corners"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
         android:text="Log out" />
 
     <RelativeLayout
