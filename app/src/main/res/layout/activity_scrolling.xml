@@ -11,7 +11,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/Theme.PenaJamm.AppBarOverlay">
 
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="@color/black"
+            app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/Theme.PenaJamm.PopupOverlay" />
+                app:popupTheme="@style/Theme.PenaJamm.AppBarOverlay" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -48,7 +48,7 @@
         android:backgroundTint="#FFFFFF"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_baseline_send_24"/>
+        app:srcCompat="@drawable/ic_baseline_send_24" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                 android:layout_height="80dp"
                 android:layout_alignParentLeft="true"
                 android:layout_margin="10dp"
-                android:background=" @color/cardview_dark_background"
+                android:background="@color/transparan"
                 android:src="@drawable/ic_baseline_attach_file_24" />
 
 
@@ -81,7 +81,7 @@
                 android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="10dp"
-                android:background=" @color/cardview_dark_background"
+                android:background="@color/transparan"
                 android:src="@drawable/ic_baseline_amp_stories_24" />
 
             <ImageButton
@@ -90,7 +90,7 @@
                 android:layout_height="80dp"
                 android:layout_alignParentRight="true"
                 android:layout_margin="10dp"
-                android:background=" @color/cardview_dark_background"
+                android:background="@color/transparan"
                 android:src="@drawable/ic_baseline_settings_24" />
 
         </RelativeLayout>

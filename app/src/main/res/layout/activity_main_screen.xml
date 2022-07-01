@@ -146,7 +146,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:background=" @color/cardview_dark_background"
+            android:background="@color/transparan"
             android:src="@drawable/ic_baseline_attach_file_24" />
 
 
@@ -155,7 +155,7 @@
             android:layout_width="120dp"
             android:layout_height="80dp"
             android:layout_margin="10dp"
-            android:background=" @color/cardview_dark_background"
+            android:background="@color/transparan"
             android:layout_centerHorizontal="true"
             android:src="@drawable/ic_baseline_amp_stories_24" />
 
@@ -165,7 +165,7 @@
             android:layout_height="80dp"
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
-            android:background=" @color/cardview_dark_background"
+            android:background="@color/transparan"
             android:src="@drawable/ic_baseline_settings_24" />
 
     </RelativeLayout>

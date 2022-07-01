@@ -15,6 +15,7 @@
     <color name="notifications">#13B2C3</color>
     <color name="private_account">#E6A326</color>
     <color name="security">#D95F69</color>
+    <color name="transparan">#00000000</color>
 
 
 </resources>

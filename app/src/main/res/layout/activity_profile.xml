@@ -73,7 +73,7 @@
     <LinearLayout
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="80dp"
         android:layout_below="@id/edit_profile"
         android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
@@ -89,22 +89,36 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_profile"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="30dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/rounded_corners"
         android:hint="Pick a new username"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
+    <LinearLayout
+        android:id="@+id/chart2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/chart"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/round_back_whiite10_20"
+        android:orientation="vertical"
+        android:padding="15dp" />
+
     <EditText
         android:id="@+id/register_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_email"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="25dp"
         android:hint="Old password"
         android:background="@drawable/rounded_corners"
@@ -117,8 +131,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_password"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_marginBottom="25dp"
         android:hint="New password"
         android:background="@drawable/rounded_corners"
@@ -130,7 +144,7 @@
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/chart"
+        android:layout_below="@id/chart2"
         android:background="@drawable/rounded_corners"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -154,7 +168,7 @@
             android:layout_height="80dp"
             android:layout_margin="10dp"
             android:layout_alignParentLeft="true"
-            android:background=" @color/cardview_dark_background"
+            android:background="@color/transparan"
             android:src="@drawable/ic_baseline_attach_file_24" />
 
 
@@ -163,7 +177,7 @@
             android:layout_width="120dp"
             android:layout_height="80dp"
             android:layout_margin="10dp"
-            android:background=" @color/cardview_dark_background"
+            android:background="@color/transparan"
             android:layout_centerHorizontal="true"
             android:src="@drawable/ic_baseline_amp_stories_24" />
 
@@ -173,7 +187,7 @@
             android:layout_height="80dp"
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
-            android:background=" @color/cardview_dark_background"
+            android:background="@color/transparan"
             android:src="@drawable/ic_baseline_settings_24" />
 
 
