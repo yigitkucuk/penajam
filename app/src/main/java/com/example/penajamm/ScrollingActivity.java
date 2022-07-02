@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.penajamm.databinding.ActivityScrollingBinding;
@@ -19,6 +20,8 @@ public class ScrollingActivity extends AppCompatActivity {
 
     private ActivityScrollingBinding binding;
     private ImageButton btnSettings, btnMainScreen;
+    private Button btnName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class ScrollingActivity extends AppCompatActivity {
 
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
+        btnName = findViewById(R.id.btnname);
+
 
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +59,11 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) { goMainScreen(); }
         });
+
+        btnName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goProfile(); }
+        });
     }
 
     public void goSettings() {
@@ -63,4 +73,10 @@ public class ScrollingActivity extends AppCompatActivity {
     public void goMainScreen() {
         startActivity(new Intent(ScrollingActivity.this, MainScreenActivity.class));
     }
+
+    public void goProfile() {
+        startActivity(new Intent(ScrollingActivity.this, ProfilePageActivity.class));
+    }
+
+
 }

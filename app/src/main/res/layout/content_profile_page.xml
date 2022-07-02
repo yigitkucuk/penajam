@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@drawable/gradient1"
+    tools:context=".ProfilePageActivity"
+    tools:showIn="@layout/activity_profile_page">
+
+
+
+    <RelativeLayout
+        android:id="@+id/post"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="John Fruiscante"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Ankara,Turkey"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+             />
+
+        <RelativeLayout
+            android:id="@+id/instruments"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/name2"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="130dp"
+                android:text="Instruments:"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="0dp"
+                android:src="@drawable/ic_baseline_mood_24" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/instruments2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/instruments"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="130dp"
+                android:text="Point:"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="0dp"
+                android:src="@drawable/ic_baseline_star_rate_24" />
+
+
+        </RelativeLayout>
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_below="@id/instruments2"
+            android:layout_marginTop="20dp"
+            android:foregroundGravity="center"
+            android:layout_centerHorizontal="true">
+
+        </VideoView>
+
+
+    </RelativeLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

@@ -6,14 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsActivity extends AppCompatActivity {
 
     private ImageButton backbtn, btnAssig, btnMainScreen ;
     private Button btnLogout, btnEditProfile;
+    private SwitchMaterial switchMaterial, switchMaterial2, switchMaterial3 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,9 @@ public class SettingsActivity extends AppCompatActivity {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnLogout = findViewById(R.id.btnLogout);
         btnEditProfile = findViewById(R.id.edit_profile);
+        switchMaterial = findViewById(R.id.switch_material);
+        switchMaterial2 = findViewById(R.id.switch_material2);
+        switchMaterial3 = findViewById(R.id.switch_material3);
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +65,24 @@ public class SettingsActivity extends AppCompatActivity {
                 goEditProfile();
             }
         });
+
+        //switchMaterial.isChecked = true;
+        switchMaterial.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { switchButton(); }
+        });
+
+        //switchMaterial.isChecked = true;
+        switchMaterial2.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { switchButton(); }
+        });
+
+        //switchMaterial.isChecked = true;
+        switchMaterial3.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { switchButton(); }
+        });
     }
 
     public void logout() {
@@ -74,6 +99,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void goEditProfile() {
         startActivity(new Intent(SettingsActivity.this, ProfileActivity.class));
+    }
+
+    public void switchButton() {
+        switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                Toast.makeText(SettingsActivity.this, ":)", Toast.LENGTH_SHORT ).show();
+            }
+        });
     }
 
 

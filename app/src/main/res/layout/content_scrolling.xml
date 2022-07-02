@@ -10,12 +10,69 @@
     tools:context=".ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textColor="@color/white"
-        android:text="@string/large_text" />
+
+
+    <RelativeLayout
+        android:id="@+id/post"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_corners">
+
+        <Button
+            android:id="@+id/btnname"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/transparan"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="80dp"
+            android:layout_toRightOf="@+id/profile_icon"
+            android:text="John Fruiscante"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:padding="5dp"
+            android:src="@drawable/defaulthuman"
+            app:shapeAppearanceOverlay="@style/Circular"
+            app:strokeColor="@color/transparan"
+
+            app:strokeWidth="4dp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_below="@id/profile_icon"
+            android:text="Hello there! We have a blues rock band which is Penajam, and we need a bass player. The requirements are that the grade should be more than 4, and the experiment should be more than 3 year. Good luck!"
+            android:textColor="@color/white" />
+
+        <ImageButton
+            android:id="@+id/detail"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/btnname"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="-40dp"
+            android:background="@drawable/round_back_secondary_100"
+            />
+    </RelativeLayout>
+
+
+
+
 
 
 

@@ -22,11 +22,16 @@
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/fragment_first.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/fragment_second.xml" value="0.3145833333333333" />
         <entry key="app/src/main/res/drawable/round_back_third_100.xml" value="0.214" />
+        <entry key="app/src/main/res/layout-w1240dp/content_profile_page.xml" value="0.2140625" />
+        <entry key="app/src/main/res/layout/activity_feed.xml" value="0.24818840579710144" />
         <entry key="app/src/main/res/layout/activity_main_screen.xml" value="0.2874873353596758" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2874873353596758" />
-        <entry key="app/src/main/res/layout/activity_scrolling.xml" value="0.13870967741935483" />
-        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.2874873353596758" />
-        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.2874873353596758" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2567184448242188" />
+        <entry key="app/src/main/res/layout/activity_profile_page.xml" value="0.24818840579710144" />
+        <entry key="app/src/main/res/layout/activity_scrolling.xml" value="0.23750423308341723" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.27526550292968754" />
+        <entry key="app/src/main/res/layout/content_profile_page.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_view.xml" value="0.24818840579710144" />
       </map>
     </option>
   </component>

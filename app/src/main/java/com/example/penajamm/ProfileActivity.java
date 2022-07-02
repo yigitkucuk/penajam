@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -16,12 +17,40 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ProfileActivity extends AppCompatActivity {
     Button selectImageBtn;
     ImageView imageView;
+    private ImageButton backbtn, btnAssig, btnMainScreen ;
+
+
     static final int SELECT_IMAGE = 12;
     Uri imageUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        backbtn = findViewById(R.id.backbtn);
+        btnAssig = findViewById(R.id.btn_Assig);
+        btnMainScreen = findViewById(R.id.btn_MainScreen);
+
+        btnAssig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goAssig(); }
+        });
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goSett();
+            }
+        });
+
+        btnMainScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goMain();
+            }
+        });
+
+
         selectImageBtn = findViewById(R.id.edit_profile);
         imageView = findViewById(R.id.profile_icon);
         selectImageBtn.setOnClickListener(new View.OnClickListener() {
@@ -46,4 +75,16 @@ public class ProfileActivity extends AppCompatActivity {
             Toast.makeText(this, "picture selection canceled", Toast.LENGTH_SHORT ).show();
         }
     }
+
+    public void goMain() {
+        startActivity(new Intent(ProfileActivity.this, MainScreenActivity.class));
+    }
+    public void goAssig() {
+        startActivity(new Intent(ProfileActivity.this, ScrollingActivity.class));
+    }
+
+    public void goSett() {
+        startActivity(new Intent(ProfileActivity.this, SettingsActivity.class));
+    }
+
 }

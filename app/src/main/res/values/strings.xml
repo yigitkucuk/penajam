@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">PenaJamm</string>
     <string name="action_settings">Settings</string>
+    <string name="action_notification">Notification</string>
+    <string name="action_nightmode">Night Mode</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -28,7 +30,19 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
+
+    <string name="post_text">
+
+        "Hello there! We have a blues rock band which is Penajam,"
+        "and we need a bass player. The requirements are that the"
+        "grade should be more than 4, and the experiment should be"
+        "more than 3 year. Good luck!"
+    </string>
+
+
     <string name="large_text">
+
+
 
         "Material is the metaphor.\n\n"
 
@@ -118,4 +132,5 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_profile_page"></string>
 </resources>
