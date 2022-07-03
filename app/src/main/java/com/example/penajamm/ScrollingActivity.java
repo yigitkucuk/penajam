@@ -66,6 +66,7 @@ public class ScrollingActivity extends AppCompatActivity {
         });
     }
 
+
     public void goSettings() {
         startActivity(new Intent(ScrollingActivity.this, SettingsActivity.class));
     }

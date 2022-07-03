@@ -44,6 +44,8 @@ public class MainScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) { goAssig(); }
         });
+
+
     }
 
     public void onStart(){

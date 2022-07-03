@@ -24,7 +24,7 @@
         <activity
             android:name=".ScrollingActivity"
             android:exported="false"
-            android:label="@string/title_activity_scrolling"
+            android:label="Auditions"
             android:theme="@style/Theme.PenaJamm.NoActionBar" />
         <activity
             android:name=".SettingsActivity"
