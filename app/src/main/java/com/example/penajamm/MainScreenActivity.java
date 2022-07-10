@@ -15,7 +15,7 @@ public class MainScreenActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Button btnLogout;
-    private ImageButton btnAssig, btnSettings, btnMainScreen;
+    private ImageButton btnAssig, btnSettings, btnMainScreen, btnProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,13 @@ public class MainScreenActivity extends AppCompatActivity {
         btnAssig = findViewById(R.id.btn_Assig);
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
+        btnProfile = findViewById(R.id.btn_Profile);
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goProfile(); }
+        });
+
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +61,10 @@ public class MainScreenActivity extends AppCompatActivity {
         if(currentUser == null){
             startActivity(new Intent(MainScreenActivity.this, LoginActivity.class));
         }
+    }
+
+    public void goProfile() {
+        startActivity(new Intent(MainScreenActivity.this, ProfilePageActivity.class));
     }
 
     public void logout() {

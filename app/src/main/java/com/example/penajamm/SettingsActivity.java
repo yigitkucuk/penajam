@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private ImageButton backbtn, btnAssig, btnMainScreen ;
+    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
     private Button btnLogout, btnEditProfile;
     private SwitchMaterial switchMaterial, switchMaterial2, switchMaterial3 ;
 
@@ -32,6 +32,13 @@ public class SettingsActivity extends AppCompatActivity {
         switchMaterial = findViewById(R.id.switch_material);
         switchMaterial2 = findViewById(R.id.switch_material2);
         switchMaterial3 = findViewById(R.id.switch_material3);
+        btnProfile = findViewById(R.id.btn_Profile);
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goProfile(); }
+        });
+
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +106,10 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void goEditProfile() {
         startActivity(new Intent(SettingsActivity.this, ProfileActivity.class));
+    }
+
+    public void goProfile() {
+        startActivity(new Intent(SettingsActivity.this, ProfilePageActivity.class));
     }
 
     public void switchButton() {

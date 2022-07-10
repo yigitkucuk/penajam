@@ -19,9 +19,9 @@ import com.example.penajamm.databinding.ActivityScrollingBinding;
 public class ScrollingActivity extends AppCompatActivity {
 
     private ActivityScrollingBinding binding;
-    private ImageButton btnSettings, btnMainScreen;
+    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile;
     private Button btnName;
-
+    private FloatingActionButton btnPost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,14 @@ public class ScrollingActivity extends AppCompatActivity {
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnName = findViewById(R.id.btnname);
+        btnProfile = findViewById(R.id.btn_Profile);
+        btnBack = findViewById(R.id.backbtn);
+        btnPost = findViewById(R.id.fab);
 
-
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goProfile(); }
+        });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +70,20 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) { goProfile(); }
         });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goMainScreen();
+            }
+        });
+
+        btnPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goPost();
+            }
+        });
     }
 
 
@@ -77,6 +97,10 @@ public class ScrollingActivity extends AppCompatActivity {
 
     public void goProfile() {
         startActivity(new Intent(ScrollingActivity.this, ProfilePageActivity.class));
+    }
+
+    public void goPost() {
+        startActivity(new Intent(ScrollingActivity.this, PostActivity.class));
     }
 
 

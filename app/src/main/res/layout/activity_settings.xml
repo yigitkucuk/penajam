@@ -266,32 +266,48 @@
 
         <ImageButton
             android:id="@+id/btn_Assig"
-            android:layout_width="120dp"
+            android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_margin="10dp"
-            android:layout_alignParentLeft="true"
+
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@color/transparan"
-            android:src="@drawable/ic_baseline_attach_file_24" />
+            android:src="@drawable/baseline_lyrics_20" />
 
 
         <ImageButton
             android:id="@+id/btn_MainScreen"
-            android:layout_width="120dp"
+            android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="10dp"
             android:background="@color/transparan"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_baseline_amp_stories_24" />
+            android:layout_toRightOf="@id/btn_Assig"
+            android:src="@drawable/baseline_home_24" />
 
         <ImageButton
             android:id="@+id/btn_Settings"
-            android:layout_width="120dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:layout_toRightOf="@id/btn_Profile"
+            android:background="@color/transparan"
+            android:src="@drawable/baseline_settings_24" />
+
+        <ImageButton
+            android:id="@+id/btn_Profile"
+            android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="10dp"
-            android:layout_alignParentRight="true"
-            android:background="@color/transparan"
-            android:src="@drawable/ic_baseline_settings_24" />
 
+            android:layout_toRightOf="@id/btn_MainScreen"
+            android:background="@color/transparan"
+            android:src="@drawable/baseline_account_circle_24" />
 
     </RelativeLayout>
 

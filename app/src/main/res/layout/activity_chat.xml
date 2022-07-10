@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ProfilePageActivity">
+    tools:context=".ScrollingActivity">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -21,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
@@ -38,29 +37,12 @@
                 android:src="@drawable/ic_baseline_arrow_back_ios_24"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/profile_icon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/defaulthuman"
-                android:padding="5dp"
-                app:shapeAppearanceOverlay="@style/Circular"
-                app:strokeColor="@color/transparan"
-                app:strokeWidth="4dp" />
-
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/Theme.PenaJamm.AppBarOverlay" >
-
-
-            </androidx.appcompat.widget.Toolbar>
-
+                app:popupTheme="@style/Theme.PenaJamm.AppBarOverlay" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -70,7 +52,17 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/content_profile_page" />
+        layout="@layout/content_chat" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:backgroundTint="#FFFFFF"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/baseline_search_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -91,11 +83,11 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
 
-            android:layout_alignParentBottom="true"
             android:layout_marginTop="65dp"
             android:layout_marginBottom="0dp"
+            android:background="@drawable/round_back_third_100"
 
-            android:background="@drawable/round_back_third_100">
+            android:layout_alignParentBottom="true">
 
             <ImageButton
                 android:id="@+id/btn_Assig"
@@ -115,8 +107,8 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
-                android:layout_toRightOf="@id/btn_Assig"
                 android:background="@color/transparan"
+                android:layout_toRightOf="@id/btn_Assig"
                 android:src="@drawable/baseline_home_24" />
 
             <ImageButton

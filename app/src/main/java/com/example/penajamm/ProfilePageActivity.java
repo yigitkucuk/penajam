@@ -20,7 +20,7 @@ import com.example.penajamm.databinding.ActivityProfilePageBinding;
 public class ProfilePageActivity extends AppCompatActivity {
 
     private ActivityProfilePageBinding binding;
-    private ImageButton btnSettings, btnMainScreen;
+    private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack;
     private VideoView videoView;
 
     @Override
@@ -46,6 +46,8 @@ public class ProfilePageActivity extends AppCompatActivity {
 
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
+        btnAssig = findViewById(R.id.btn_Assig);
+        btnBack = findViewById(R.id.backbtn);
         videoView = findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video;
         Uri uri = Uri.parse(videoPath);
@@ -55,7 +57,10 @@ public class ProfilePageActivity extends AppCompatActivity {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
-
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goMainScreen(); }
+        });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +71,11 @@ public class ProfilePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) { goMainScreen(); }
         });
+
+        btnAssig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goAssig(); }
+        });
     }
 
     public void goSettings() {
@@ -75,4 +85,10 @@ public class ProfilePageActivity extends AppCompatActivity {
     public void goMainScreen() {
         startActivity(new Intent(ProfilePageActivity.this, MainScreenActivity.class));
     }
+
+    public void goAssig() {
+        startActivity(new Intent(ProfilePageActivity.this, ScrollingActivity.class));
+    }
+
+
 }

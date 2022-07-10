@@ -25,6 +25,27 @@
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/fragment_second.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/main_menu.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/message.xml" value="0.15677083333333333" />
+        <entry key="app/src/main/res/drawable-v24/baseline_account_circle_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/baseline_emoji_people_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/baseline_home_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/baseline_logout_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/baseline_lyrics_20.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/baseline_piano_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/baseline_search_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/baseline_settings_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_reaction_24.xml" value="0.181" />
+        <entry key="app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.181" />
+        <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.174" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1887031408308004" />
+        <entry key="app/src/main/res/layout/activity_main_screen.xml" value="0.3058265539167379" />
+        <entry key="app/src/main/res/layout/activity_post.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.33863039369936343" />
+        <entry key="app/src/main/res/layout/activity_profile_page.xml" value="0.3410306012188947" />
+        <entry key="app/src/main/res/layout/activity_scrolling.xml" value="0.32521284542064416" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.29395979366283165" />
+        <entry key="app/src/main/res/layout/content_chat.xml" value="0.35253772290809327" />
+        <entry key="app/src/main/res/layout/content_profile_page.xml" value="0.31118469238281254" />
+        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.2844970703125" />
       </map>
     </option>
   </component>

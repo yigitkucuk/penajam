@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient1"
     android:orientation="vertical"
-    tools:context=".ProfileActivity">
+    tools:context=".PostActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:text="Profile"
+            android:text="Post"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -39,46 +39,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:orientation="vertical" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/profile_icon"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="70dp"
-        android:src="@drawable/defaulthuman"
-        android:padding="5dp"
-        app:shapeAppearanceOverlay="@style/Circular"
-        app:strokeColor="@color/transparan"
-
-        app:strokeWidth="4dp" />
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/edit_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_below="@id/profile_icon"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_corners"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:text="Edit Profile Picture"
-        android:textAllCaps="false"
-        android:textColor="@color/white" />
 
     <LinearLayout
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_below="@id/edit_profile"
-        android:layout_centerInParent="true"
+
+
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back_whiite10_20"
         android:orientation="vertical"
@@ -88,21 +59,20 @@
         android:id="@+id/register_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_profile"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/edit_profile"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="55dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/rounded_corners"
-        android:hint="Pick a new username"
+        android:hint="Title:"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
     <LinearLayout
         android:id="@+id/chart2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="420dp"
         android:layout_below="@id/chart"
         android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
@@ -118,39 +88,55 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_email"
         android:layout_marginLeft="30dp"
+
         android:layout_marginRight="30dp"
-        android:layout_marginTop="30dp"
         android:layout_marginBottom="25dp"
-        android:hint="Old password"
         android:background="@drawable/rounded_corners"
-        android:inputType="textPassword"
+        android:hint="Location"
+        android:inputType="text"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginStart="60dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corners"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="Upload Brochure"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/new_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="240dp"
         android:layout_below="@+id/register_password"
         android:layout_marginLeft="30dp"
+
         android:layout_marginRight="30dp"
         android:layout_marginBottom="25dp"
-        android:hint="New password"
         android:background="@drawable/rounded_corners"
-        android:inputType="textPassword"
+        android:hint="Description"
+
+        android:inputType="text"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
-    <Button
-        android:id="@+id/btnLogout"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/chart2"
-        android:background="@drawable/rounded_corners"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Delete Account :(" />
+
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="545dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#1ED760"
+        app:srcCompat="@drawable/ic_baseline_send_24" />
 
     <RelativeLayout
         android:id="@+id/Menu_icons"

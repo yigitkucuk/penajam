@@ -51,26 +51,56 @@
             android:layout_height="60dp"
             android:layout_below="@id/name2"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginStart="130dp"
+                android:layout_marginStart="110dp"
                 android:text="Instruments:"
                 android:textColor="#FFFFFF"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_centerVertical="true"
                 android:padding="0dp"
-                android:src="@drawable/ic_baseline_mood_24" />
+                android:src="@drawable/baseline_piano_24" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/point"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/instruments"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="110dp"
+                android:text="Point:"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_centerVertical="true"
+                android:padding="0dp"
+                android:src="@drawable/ic_baseline_star_rate_24" />
 
 
         </RelativeLayout>
@@ -79,34 +109,35 @@
             android:id="@+id/instruments2"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_below="@id/instruments"
+            android:layout_below="@id/point"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginStart="130dp"
-                android:text="Point:"
+                android:layout_marginStart="110dp"
+                android:text="Description:"
                 android:textColor="#FFFFFF"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_centerVertical="true"
                 android:padding="0dp"
-                android:src="@drawable/ic_baseline_star_rate_24" />
+                android:src="@drawable/baseline_emoji_people_24" />
 
 
         </RelativeLayout>
 
         <VideoView
             android:id="@+id/videoView"
+            android:accessibilityPaneTitle="Video"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_below="@id/instruments2"

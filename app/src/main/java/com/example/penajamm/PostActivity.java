@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class ProfileActivity extends AppCompatActivity {
+public class PostActivity extends AppCompatActivity {
     Button selectImageBtn;
     ImageView imageView;
     private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_post);
 
         backbtn = findViewById(R.id.backbtn);
         btnAssig = findViewById(R.id.btn_Assig);
@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goSett();
+                goAssig();
             }
         });
 
@@ -84,18 +84,18 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void goMain() {
-        startActivity(new Intent(ProfileActivity.this, MainScreenActivity.class));
+        startActivity(new Intent(PostActivity.this, MainScreenActivity.class));
     }
     public void goAssig() {
-        startActivity(new Intent(ProfileActivity.this, ScrollingActivity.class));
+        startActivity(new Intent(PostActivity.this, ScrollingActivity.class));
     }
 
     public void goProfile() {
-        startActivity(new Intent(ProfileActivity.this, ProfilePageActivity.class));
+        startActivity(new Intent(PostActivity.this, ProfilePageActivity.class));
     }
 
     public void goSett() {
-        startActivity(new Intent(ProfileActivity.this, SettingsActivity.class));
+        startActivity(new Intent(PostActivity.this, SettingsActivity.class));
     }
 
 }
