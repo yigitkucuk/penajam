@@ -73,7 +73,7 @@ public class MainScreenActivity extends AppCompatActivity {
     }
     // it is not working
     public void goSettings() {
-        startActivity(new Intent(MainScreenActivity.this, SettingsActivity.class));
+        startActivity(new Intent(MainScreenActivity.this, ChatActivity.class));
     }
 
     public void goAssig() {
