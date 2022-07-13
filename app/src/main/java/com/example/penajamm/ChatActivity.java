@@ -100,6 +100,7 @@ public class ChatActivity extends AppCompatActivity {
                 }
             }
 
+            //TODO
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
