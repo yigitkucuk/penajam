@@ -2,6 +2,7 @@ package com.example.penajamm;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class ChatActivity extends AppCompatActivity {
     RecyclerViewAdapter adapter;
@@ -42,10 +42,12 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        list = new ArrayList<>();
+
         send = findViewById(R.id.fab_send);
         message = findViewById(R.id.message);
         recyclerView = findViewById(R.id.recyclerview);
-        list = new ArrayList<>();
+
 
         db = FirebaseDatabase.getInstance().getReference();
 
@@ -85,7 +87,9 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void receiveMessages(){
+
         db.child("Messages").addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
@@ -93,8 +97,6 @@ public class ChatActivity extends AppCompatActivity {
                     Message message = snap.getValue(Message.class);
                     list.add(message);
                     adapter.notifyDataSetChanged();
-
-
                 }
             }
 
