@@ -73,7 +73,6 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 String msg = message.getEditText().getText().toString();
 
                 db.child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(new OnCompleteListener<Void>() {
