@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_gravity="end"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius = "10dp"
-    android:layout_margin = "10dp"
+    app:cardCornerRadius = "16dp"
+    android:layout_margin = "12dp"
     app:cardBackgroundColor = "@color/cardview_dark_background"
     android:layout_height="wrap_content">
 
@@ -42,7 +43,7 @@
             android:textColor="@color/white"
             android:text="17.6.22 8:00AM"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/user_message"
+            app:layout_constraintTop_toBottomOf="@id/user_message"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

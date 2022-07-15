@@ -65,7 +65,7 @@ public class ChatActivity extends AppCompatActivity {
 
         String uId = user.getUid();
         String uEmail = user.getEmail();
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+        String timeStamp = new SimpleDateFormat("h:mm a").format(Calendar.getInstance().getTime());
 
 
         send.setOnClickListener(new View.OnClickListener() {
