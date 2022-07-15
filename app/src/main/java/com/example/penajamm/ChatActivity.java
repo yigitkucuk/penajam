@@ -1,10 +1,13 @@
 package com.example.penajamm;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,7 +31,7 @@ import java.util.Calendar;
 public class ChatActivity extends AppCompatActivity {
     RecyclerViewAdapter adapter;
     RecyclerView recyclerView;
-    ArrayList<Message> list;
+    public ArrayList<Message> list;
 
     DatabaseReference db;
     TextInputLayout message;
@@ -37,8 +40,14 @@ public class ChatActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
 
+
+    protected ArrayList<Message> getList(){
+        return this.list;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
@@ -60,8 +69,11 @@ public class ChatActivity extends AppCompatActivity {
 
 
         send.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+
+
                 String msg = message.getEditText().getText().toString();
 
                 db.child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -70,8 +82,10 @@ public class ChatActivity extends AppCompatActivity {
                         message.getEditText().setText("");
 
                     }
+
                 });
-            }
+                }
+
         });
 
         adapter = new RecyclerViewAdapter(this, list);
@@ -92,13 +106,16 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 list.clear();
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     Message message = snap.getValue(Message.class);
                     list.add(message);
                     adapter.notifyDataSetChanged();
+
                 }
             }
+
 
             //TODO
             @Override

@@ -17,13 +17,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Context context;
     private ArrayList<Message> list;
 
-    public RecyclerViewAdapter(Context context, ArrayList<Message> list){
 
+    public RecyclerViewAdapter(Context context, ArrayList<Message> list){
+        this.context = context;
+        this.list = list;
     }
 
     @NonNull
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(context).inflate(R.layout.message_design,parent,false);
         return new ViewHolder(view);
     }
@@ -37,7 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        if(list == null){
+        if (list == null){
             return 0;
         }
         return list.size();
