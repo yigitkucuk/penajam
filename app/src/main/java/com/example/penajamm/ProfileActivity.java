@@ -57,7 +57,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
         selectImageBtn = findViewById(R.id.edit_profile);
         imageView = findViewById(R.id.profile_icon);
         selectImageBtn.setOnClickListener(new View.OnClickListener() {

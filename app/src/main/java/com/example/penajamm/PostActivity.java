@@ -32,15 +32,17 @@ public class PostActivity extends AppCompatActivity {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
 
+
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goProfile(); }
+            public void onClick(View view) {
+                goProfile(); }
         });
-
 
         btnAssig.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goAssig(); }
+            public void onClick(View view) {
+                goAssig(); }
         });
 
         backbtn.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +58,6 @@ public class PostActivity extends AppCompatActivity {
                 goMain();
             }
         });
-
 
         selectImageBtn = findViewById(R.id.edit_profile);
         imageView = findViewById(R.id.profile_icon);
@@ -86,6 +87,7 @@ public class PostActivity extends AppCompatActivity {
     public void goMain() {
         startActivity(new Intent(PostActivity.this, MainScreenActivity.class));
     }
+
     public void goAssig() {
         startActivity(new Intent(PostActivity.this, ScrollingActivity.class));
     }
@@ -97,5 +99,6 @@ public class PostActivity extends AppCompatActivity {
     public void goSett() {
         startActivity(new Intent(PostActivity.this, SettingsActivity.class));
     }
+
 
 }

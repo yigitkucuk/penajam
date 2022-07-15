@@ -57,7 +57,6 @@ public class ChatActivity extends AppCompatActivity {
         message = findViewById(R.id.message);
         recyclerView = findViewById(R.id.recyclerview);
 
-
         db = FirebaseDatabase.getInstance().getReference();
 
         auth = FirebaseAuth.getInstance();
@@ -67,9 +66,7 @@ public class ChatActivity extends AppCompatActivity {
         String uEmail = user.getEmail();
         String timeStamp = new SimpleDateFormat("h:mm a").format(Calendar.getInstance().getTime());
 
-
         send.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
 
@@ -79,19 +76,16 @@ public class ChatActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         message.getEditText().setText("");
-
                     }
 
                 });
                 }
-
         });
 
         adapter = new RecyclerViewAdapter(this, list);
         LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
-
     }
 
     protected void onStart(){
@@ -110,17 +104,13 @@ public class ChatActivity extends AppCompatActivity {
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     Message message = snap.getValue(Message.class);
                     adapter.addMessage(message);
-
                 }
             }
-
 
             //TODO
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
-
 }
