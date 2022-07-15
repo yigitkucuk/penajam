@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (emp_edit != null) {
             btnRegister.setText("UPDATE");
             edit_username.setText(emp_edit.getName());
-            edit_realname.setText(emp_edit.getPosition());
+            edit_realname.setText(emp_edit.getRealname());
 
         } else {
             btnRegister.setText("SUBMIT");

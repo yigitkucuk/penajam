@@ -33,12 +33,12 @@ public class User implements Serializable
         this.username = name;
     }
 
-    public String getPosition()
+    public String getRealname()
     {
         return realname;
     }
 
-    public void setPosition(String position)
+    public void setRealname(String realname)
     {
         this.realname = realname;
     }

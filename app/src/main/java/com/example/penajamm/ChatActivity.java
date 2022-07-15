@@ -2,6 +2,7 @@ package com.example.penajamm;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -24,9 +25,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 public class ChatActivity extends AppCompatActivity {
     RecyclerViewAdapter adapter;
@@ -36,6 +41,8 @@ public class ChatActivity extends AppCompatActivity {
     DatabaseReference db;
     TextInputLayout message;
     FloatingActionButton send;
+
+    String timeStamp;
 
     FirebaseAuth auth;
     FirebaseUser user;
@@ -64,11 +71,26 @@ public class ChatActivity extends AppCompatActivity {
 
         String uId = user.getUid();
         String uEmail = user.getEmail();
-        String timeStamp = new SimpleDateFormat("h:mm a").format(Calendar.getInstance().getTime());
+        timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                CountDownTimer newtimer = new CountDownTimer(1000000000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+                        Calendar c = new GregorianCalendar();
+                        Date dt = new Date();
+                        TimeZone tr = TimeZone.getTimeZone("Asia/Istanbul");
+                        c.setTimeZone(tr);
+                        timeStamp = new SimpleDateFormat("HH:mm:ss").format(c.getTime());
+                    }
+                    public void onFinish() {
+
+                    }
+                };
+                newtimer.start();
 
                 String msg = message.getEditText().getText().toString();
 
