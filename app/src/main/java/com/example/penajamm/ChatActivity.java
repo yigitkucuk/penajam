@@ -31,7 +31,7 @@ import java.util.Calendar;
 public class ChatActivity extends AppCompatActivity {
     RecyclerViewAdapter adapter;
     RecyclerView recyclerView;
-    public ArrayList<Message> list;
+    ArrayList<Message> list;
 
     DatabaseReference db;
     TextInputLayout message;
@@ -89,7 +89,7 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         adapter = new RecyclerViewAdapter(this, list);
-        LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, true);
+        LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
 
@@ -110,8 +110,7 @@ public class ChatActivity extends AppCompatActivity {
                 list.clear();
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     Message message = snap.getValue(Message.class);
-                    list.add(message);
-                    adapter.notifyDataSetChanged();
+                    adapter.addMessage(message);
 
                 }
             }

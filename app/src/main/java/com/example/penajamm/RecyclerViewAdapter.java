@@ -23,6 +23,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.list = list;
     }
 
+    public void addMessage(Message message){
+        list.add(message);
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
