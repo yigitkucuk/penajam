@@ -55,8 +55,8 @@
         android:orientation="vertical"
         android:padding="15dp" />
 
-    <EditText
-        android:id="@+id/register_email"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_profile"
@@ -82,11 +82,11 @@
         android:orientation="vertical"
         android:padding="15dp" />
 
-    <EditText
-        android:id="@+id/register_password"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_email"
+        android:layout_below="@+id/title"
         android:layout_marginLeft="30dp"
 
         android:layout_marginRight="30dp"
@@ -111,24 +111,24 @@
         android:textAllCaps="false"
         android:textColor="@color/white" />
 
-    <EditText
-        android:id="@+id/new_password"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        android:layout_below="@+id/register_password"
+        android:layout_below="@+id/location"
         android:layout_marginLeft="30dp"
 
         android:layout_marginRight="30dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/rounded_corners"
-        android:hint="Description"
+        android:text="Description"
 
         android:inputType="text"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/sent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
