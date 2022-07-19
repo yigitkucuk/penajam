@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +19,6 @@ public class ProfileActivity extends AppCompatActivity {
     Button selectImageBtn;
     ImageView imageView;
     private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
-
 
     static final int SELECT_IMAGE = 12;
     Uri imageUri;

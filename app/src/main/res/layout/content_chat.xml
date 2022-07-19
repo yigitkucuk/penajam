@@ -10,8 +10,6 @@
     tools:context=".ChatActivity"
     tools:showIn="@layout/activity_chat">
 
-
-
     <RelativeLayout
         android:id="@+id/post"
         android:layout_width="match_parent"
