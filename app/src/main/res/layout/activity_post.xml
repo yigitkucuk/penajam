@@ -49,7 +49,7 @@
 
 
         android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/round_back_whiite10_20"
         android:orientation="vertical"
@@ -66,13 +66,21 @@
         android:layout_marginBottom="25dp"
         android:background="@drawable/rounded_corners"
         android:hint="Title:"
+
         android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColorHint="@color/white" >
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparan"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:id="@+id/chart2"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
+        android:layout_height="320dp"
         android:layout_below="@id/chart"
         android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
@@ -88,22 +96,28 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
         android:layout_marginLeft="30dp"
-
         android:layout_marginRight="30dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/rounded_corners"
-        android:hint="Location"
+        android:hint="Location:"
         android:inputType="text"
         android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColorHint="@color/white" >
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparan"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/edit_profile"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginStart="60dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="166dp"
         android:background="@drawable/rounded_corners"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
@@ -114,26 +128,32 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/location"
         android:layout_marginLeft="30dp"
 
         android:layout_marginRight="30dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/rounded_corners"
-        android:text="Description"
-
+        android:hint="Description:"
         android:inputType="text"
         android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColorHint="@color/white" >
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparan"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/sent"
+        android:id="@+id/sendbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_alignParentRight="true"
-        android:layout_marginTop="545dp"
+        android:layout_marginTop="550dp"
         android:layout_marginEnd="10dp"
         android:backgroundTint="#1ED760"
         app:srcCompat="@drawable/ic_baseline_send_24" />

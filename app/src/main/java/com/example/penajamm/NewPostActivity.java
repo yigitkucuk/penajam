@@ -44,7 +44,7 @@ public class NewPostActivity extends AppCompatActivity {
     FloatingActionButton send, post;
 
     String timeStamp;
-
+    PostActivity postActivity;
     FirebaseAuth auth;
     FirebaseUser user;
 
@@ -61,12 +61,8 @@ public class NewPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_post);
 
         list = new ArrayList<>();
-
-        send = findViewById(R.id.fab_send);
+        postActivity = new PostActivity();
         post = findViewById(R.id.fab_send);
-        title = findViewById(R.id.title);
-        location = findViewById(R.id.location);
-        description = (TextInputLayout) findViewById(R.id.description);
 
 
 
@@ -86,7 +82,7 @@ public class NewPostActivity extends AppCompatActivity {
             public void onClick(View view) { goPost(); }
         });
 
-        send.setOnClickListener(new View.OnClickListener() {
+        postActivity.send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -105,15 +101,15 @@ public class NewPostActivity extends AppCompatActivity {
                 };
                 newtimer.start();
 
-                String msg = description.getEditText().getText().toString();
+                String msg = postActivity.description.getEditText().getText().toString();
 
                 db.child("Posts").push().setValue(new Post(uEmail, msg, timeStamp)).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         title.getEditText().setText("");
                         location.getEditText().setText("");
-                        if (description != null)
-                            description.getEditText().setText("");
+                        if (postActivity.description != null)
+                            postActivity.description.getEditText().setText("");
                     }
 
                 });

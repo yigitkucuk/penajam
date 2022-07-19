@@ -12,16 +12,28 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 
 public class PostActivity extends AppCompatActivity {
     Button selectImageBtn;
     ImageView imageView;
     private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
+    TextInputLayout title, location, description;
+    FloatingActionButton send;
 
 
     static final int SELECT_IMAGE = 12;
     Uri imageUri;
+
+    public PostActivity() {
+        this.send = findViewById(R.id.sendbtn);
+        this.title = findViewById(R.id.title);
+        this.location = findViewById(R.id.location);
+        this.description = (TextInputLayout) findViewById(R.id.description);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +43,8 @@ public class PostActivity extends AppCompatActivity {
         btnAssig = findViewById(R.id.btn_Assig);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
+
+
 
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +73,11 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goPost(); }
+        });
+
         selectImageBtn = findViewById(R.id.edit_profile);
         imageView = findViewById(R.id.profile_icon);
         selectImageBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +87,7 @@ public class PostActivity extends AppCompatActivity {
                 intent.setType("image/*");
                 startActivityForResult(intent, SELECT_IMAGE);
             }
+
         });
     }
 
@@ -96,6 +116,9 @@ public class PostActivity extends AppCompatActivity {
         startActivity(new Intent(PostActivity.this, ProfilePageActivity.class));
     }
 
+    public void goPost() {
+        startActivity(new Intent(PostActivity.this, NewPostActivity.class));
+    }
     public void goSett() {
         startActivity(new Intent(PostActivity.this, SettingsActivity.class));
     }
