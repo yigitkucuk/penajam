@@ -3,7 +3,9 @@ package com.example.penajamm;
 public class Post {
     private String userEmail;
     private String postTitle;
+    private String postDescription;
     private String dateTime;
+    private String postLocation;
 
     public Post(){
 
@@ -13,6 +15,8 @@ public class Post {
         this.userEmail = userEmail;
         this.postTitle = postTitle;
         this.dateTime = dateTime;
+        this.postDescription = postDescription;
+        this.postLocation = postLocation;
     }
 
     public String getUserEmail(){
@@ -25,5 +29,13 @@ public class Post {
 
     public String getPostTitle(){
         return postTitle;
+    }
+
+    public String getPostDescription(){
+        return postDescription;
+    }
+
+    public String getPostLocation(){
+        return postLocation;
     }
 }
