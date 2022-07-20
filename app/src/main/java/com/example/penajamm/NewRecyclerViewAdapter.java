@@ -1,0 +1,73 @@
+package com.example.penajamm;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+
+
+import java.util.ArrayList;
+
+public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerViewAdapter.ViewHolder> {
+    private Context context;
+    private ArrayList<Post> list;
+
+
+    public NewRecyclerViewAdapter(Context context, ArrayList<Post> list){
+        this.context = context;
+        this.list = list;
+    }
+
+    public void addPost(Post post){
+        list.add(post);
+        notifyDataSetChanged();
+    }
+
+    @NonNull
+    @Override
+    public NewRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(context).inflate(R.layout.new_post_design,parent,false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull NewRecyclerViewAdapter.ViewHolder holder, int position) {
+        holder.username.setText(list.get(position).getUserEmail());
+        holder.postTitle.setText(list.get(position).getPostTitle());
+        holder.postLocation.setText(list.get(position).getPostLocation());
+        holder.postDescription.setText(list.get(position).getPostDescription());
+        holder.dateTime.setText(list.get(position).getDateTime());
+    }
+
+    @Override
+    public int getItemCount() {
+        if (list == null){
+            return 0;
+        }
+        return list.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView username;
+        TextView postTitle;
+        TextView postDescription;
+        TextView dateTime;
+        TextView postLocation;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            username = itemView.findViewById(R.id.user_name);
+            postTitle = itemView.findViewById(R.id.user_title);
+            postLocation = itemView.findViewById(R.id.user_location);
+            postDescription = itemView.findViewById(R.id.user_message);
+            dateTime = itemView.findViewById(R.id.user_message_date_time);
+        }
+    }
+}
