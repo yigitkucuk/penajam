@@ -1,5 +1,6 @@
 package com.example.penajamm;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.list = list;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void addMessage(Message message){
         list.add(message);
         notifyDataSetChanged();
@@ -58,7 +60,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             username = itemView.findViewById(R.id.user_email);
             message = itemView.findViewById(R.id.user_message);
             dateTime = itemView.findViewById(R.id.user_message_date_time);
