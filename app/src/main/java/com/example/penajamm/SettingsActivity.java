@@ -34,62 +34,27 @@ public class SettingsActivity extends AppCompatActivity {
         switchMaterial3 = findViewById(R.id.switch_material3);
         btnProfile = findViewById(R.id.btn_Profile);
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goProfile(); }
-        });
+        btnProfile.setOnClickListener(view -> goProfile());
 
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logout();
-            }
-        });
+        btnLogout.setOnClickListener(view -> logout());
 
-        btnAssig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goAssig(); }
-        });
+        btnAssig.setOnClickListener(view -> goAssig());
 
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goMain();
-            }
-        });
+        backbtn.setOnClickListener(view -> goMain());
 
-        btnMainScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goMain();
-            }
-        });
+        btnMainScreen.setOnClickListener(view -> goMain());
 
-        btnEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goEditProfile();
-            }
-        });
+        btnEditProfile.setOnClickListener(view -> goEditProfile());
 
         //switchMaterial.isChecked = true;
-        switchMaterial.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { switchButton(); }
-        });
+        switchMaterial.setOnClickListener(view -> switchButton());
 
         //switchMaterial.isChecked = true;
-        switchMaterial2.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { switchButton(); }
-        });
+        switchMaterial2.setOnClickListener(view -> switchButton());
 
         //switchMaterial.isChecked = true;
-        switchMaterial3.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { switchButton(); }
-        });
+        switchMaterial3.setOnClickListener(view -> switchButton());
     }
 
     public void logout() {
@@ -113,12 +78,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void switchButton() {
-        switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(SettingsActivity.this, ":)", Toast.LENGTH_SHORT ).show();
-            }
-        });
+        switchMaterial.setOnCheckedChangeListener((compoundButton, b) -> Toast.makeText(SettingsActivity.this, ":)", Toast.LENGTH_SHORT ).show());
     }
 
 
