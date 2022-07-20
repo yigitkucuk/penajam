@@ -4,7 +4,7 @@
     android:layout_gravity="end"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius = "16dp"
-    android:layout_margin = "12dp"
+    android:layout_margin = "16dp"
     app:cardBackgroundColor = "@color/cardview_dark_background"
     android:layout_height="wrap_content">
 
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="ali@gmail.com"
+            android:text="email@email.com"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
@@ -30,7 +30,7 @@
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:text="TEXT MESSAGE?"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/user_email"
             app:layout_constraintStart_toStartOf="parent"
