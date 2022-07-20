@@ -1,3 +1,4 @@
+
 package com.example.penajamm;
 
 import android.content.DialogInterface;
@@ -34,6 +35,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 public class ChatActivity extends AppCompatActivity {
+    
     RecyclerViewAdapter adapter;
     RecyclerView recyclerView;
     ArrayList<Message> list;
