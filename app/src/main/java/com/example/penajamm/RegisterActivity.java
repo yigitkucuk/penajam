@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(v ->
         {
             register();
-            User emp = new User(edit_username.getText().toString(), edit_realname.getText().toString());
+            User emp = new User(user, edit_username.getText().toString(), edit_realname.getText().toString());
             if (emp_edit == null) {
                 dao.add(emp).addOnSuccessListener(suc ->
                 {

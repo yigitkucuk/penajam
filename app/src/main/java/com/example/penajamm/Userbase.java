@@ -1,6 +1,7 @@
 package com.example.penajamm;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -24,6 +25,11 @@ public class Userbase
     {
         return databaseReference.child(key).updateChildren(hashMap);
     }
+
+    public DatabaseReference getDatabaseReference() {
+        return databaseReference;
+    }
+
     public Task<Void> remove(String key)
     {
         return databaseReference.child(key).removeValue();
@@ -42,4 +48,5 @@ public class Userbase
     {
         return databaseReference;
     }
+
 }

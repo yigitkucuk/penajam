@@ -19,6 +19,11 @@
             android:label="@string/title_activity_chat"
             android:theme="@style/Theme.PenaJamm.NoActionBar" />
         <activity
+            android:name=".NewPostActivity"
+            android:exported="false"
+            android:label="NewPostActivity"
+            android:theme="@style/Theme.PenaJamm.NoActionBar" />
+        <activity
             android:name=".PostActivity"
             android:exported="false" />
         <activity

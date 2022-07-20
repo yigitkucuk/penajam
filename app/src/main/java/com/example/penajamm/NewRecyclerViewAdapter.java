@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         holder.postLocation.setText(list.get(position).getPostLocation());
         holder.postDescription.setText(list.get(position).getPostDescription());
         holder.dateTime.setText(list.get(position).getDateTime());
+        //holder.photo.setImageDrawable(list.get(position).getPhoto());
     }
 
     @Override
@@ -59,6 +61,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         TextView postDescription;
         TextView dateTime;
         TextView postLocation;
+        //ImageView photo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +71,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
             postLocation = itemView.findViewById(R.id.user_location);
             postDescription = itemView.findViewById(R.id.user_message);
             dateTime = itemView.findViewById(R.id.user_message_date_time);
+            //photo = itemView.findViewById(R.id.photo);
         }
     }
 }

@@ -77,6 +77,6 @@ public class MainScreenActivity extends AppCompatActivity {
     }
 
     public void goAssig() {
-        startActivity(new Intent(MainScreenActivity.this, ScrollingActivity.class));
+        startActivity(new Intent(MainScreenActivity.this, NewPostActivity.class));
     }
 }

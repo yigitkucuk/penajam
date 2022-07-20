@@ -1,8 +1,10 @@
 package com.example.penajamm;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class User implements Serializable
 {
@@ -12,13 +14,14 @@ public class User implements Serializable
     private String key;
     private String username;
     private String realname;
+    private FirebaseUser user;
 
     public User(){
-
     }
 
-    public User(String username, String realname)
+    public User(FirebaseUser user, String username, String realname)
     {
+        this.user = user;
         this.username = username;
         this.realname = realname;
     }
@@ -51,4 +54,13 @@ public class User implements Serializable
     {
         this.key = key;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        User user1 = (User) o;
+        if (this.user == o)
+            return true;
+        return false;
+    }
+
 }
