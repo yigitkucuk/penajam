@@ -1,6 +1,7 @@
 
 package com.example.penajamm;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -72,11 +73,11 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                CountDownTimer newtimer = new CountDownTimer(1000000000, 1000) {
+                CountDownTimer newtimer = new CountDownTimer(1000000000, 100) {
 
+                    @SuppressLint("SimpleDateFormat")
                     public void onTick(long millisUntilFinished) {
                         Calendar c = new GregorianCalendar();
-                        Date dt = new Date();
                         TimeZone tr = TimeZone.getTimeZone("Asia/Istanbul");
                         c.setTimeZone(tr);
                         timeStamp = new SimpleDateFormat("HH:mm:ss").format(c.getTime());
