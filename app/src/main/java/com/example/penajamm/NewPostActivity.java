@@ -126,15 +126,15 @@ public class NewPostActivity extends AppCompatActivity {
 
 
 
-        adapter = new NewRecyclerViewAdapter(this, list);
+        adapter = new NewRecyclerViewAdapter(this, list, mList);
         LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
 
-        adapt = new imageRecyclerView(this, mList);
-        LinearLayoutManager lm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(lm);
-        recyclerView.setAdapter(adapt);
+        //adapt = new imageRecyclerView(this, mList);
+        //LinearLayoutManager lm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        //recyclerView.setLayoutManager(lm);
+        //recyclerView.setAdapter(adapt);
 
 
 
@@ -177,7 +177,7 @@ public class NewPostActivity extends AppCompatActivity {
                 mList.clear();
                 for (DataSnapshot snap : snapshot.getChildren()) {
                     Model model = snap.getValue(Model.class);
-                    adapt.addPost(model);
+                    adapter.addPost(model);
                 }
             }
 
@@ -231,12 +231,20 @@ public class NewPostActivity extends AppCompatActivity {
 
                     }
                 };
+                if (imageUri != null){
+                    uploadToFirebase(imageUri);
+                }
+                else{
+                    Toast.makeText(NewPostActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
+                }
+
                 newtimer.start();
                 String ttl = title.getEditText().getText().toString();
                 String loc = location.getEditText().getText().toString();
                 String msg = description.getEditText().getText().toString();
 
                 pst = new Post(uEmail, ttl, loc, msg, timeStamp);
+
 
                 db.child("Posts").push().setValue(pst).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -249,13 +257,6 @@ public class NewPostActivity extends AppCompatActivity {
                     }
 
                 });
-
-                if (imageUri != null){
-                    uploadToFirebase(imageUri);
-                }
-                else{
-                    Toast.makeText(NewPostActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
-                }
 
                 dialog.dismiss();
             }

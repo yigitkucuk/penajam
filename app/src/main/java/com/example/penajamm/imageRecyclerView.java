@@ -31,7 +31,7 @@ public class imageRecyclerView extends RecyclerView.Adapter<imageRecyclerView.My
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public imageRecyclerView.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.new_post_design , parent ,false);
         return new MyViewHolder(v);
     }
@@ -43,6 +43,9 @@ public class imageRecyclerView extends RecyclerView.Adapter<imageRecyclerView.My
 
     @Override
     public int getItemCount() {
+        if (mList == null){
+            return 0;
+        }
         return mList.size();
     }
 
@@ -51,7 +54,7 @@ public class imageRecyclerView extends RecyclerView.Adapter<imageRecyclerView.My
         ImageView imageView;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.photo);
+            imageView = (ImageView) itemView.findViewById(R.id.photo);
         }
     }
 }
