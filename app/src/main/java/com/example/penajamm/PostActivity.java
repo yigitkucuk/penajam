@@ -1,7 +1,6 @@
 package com.example.penajamm;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -103,3 +102,50 @@ public class PostActivity extends AppCompatActivity {
 
 
 }
+
+    /*private void uploadToFirebase(Uri uri) {
+        StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtention(uri));
+        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        pst.setImageUrl(uri.toString());
+                        String modelID = db.push().getKey();
+                        db.child("Posts").push().setValue(pst).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                title.getEditText().setText("");
+                                location.getEditText().setText("");
+                                if (description != null)
+                                    description.getEditText().setText("");
+
+                            }
+
+                        });
+
+                        Toast.makeText(NewPostActivity.this, "Uploaded successfully!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(NewPostActivity.this, "Uploading failed!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private String getFileExtention(Uri uri) {
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(uri));
+    }
+    ////////////////////// */

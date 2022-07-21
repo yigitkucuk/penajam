@@ -7,7 +7,6 @@
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/drawable-v24/baseline_logout_24.xml" value="0.281" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/drawable-v24/baseline_lyrics_20.xml" value="0.281" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/drawable-v24/baseline_piano_24.xml" value="0.3135" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/drawable-v24/baseline_search_24.xml" value="0.281" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/drawable/baseline_account_circle_18.xml" value="0.2395" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/drawable/baseline_account_circle_20.xml" value="0.2395" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/drawable/baseline_account_circle_24.xml" value="0.2395" />
@@ -34,23 +33,17 @@
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/activity_register.xml" value="0.18478260869565216" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/activity_scrolling.xml" value="0.33" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/activity_settings.xml" value="0.33" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/activity_user_search.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/content_chat.xml" value="0.25769927536231885" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/content_main.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/content_new_post.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/content_profile_page.xml" value="0.3145833333333333" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/content_scrolling.xml" value="0.22" />
+        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/content_scrolling.xml" value="0.15237134207870837" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/fragment_first.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/fragment_second.xml" value="0.3145833333333333" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/list_layout.xml" value="0.3145833333333333" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/main_menu.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/message.xml" value="0.15677083333333333" />
         <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/layout/message_design.xml" value="0.42330097087378643" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/menu/menu_chat.xml" value="0.3145833333333333" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/menu/menu_main.xml" value="0.3145833333333333" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/menu/menu_profile_page.xml" value="0.3145833333333333" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/menu/menu_scrolling.xml" value="0.3145833333333333" />
-        <entry key="..\:/Users/yigit/AndroidStudioProjects/PenaJamm/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.281" />
+
       </map>
     </option>
   </component>
