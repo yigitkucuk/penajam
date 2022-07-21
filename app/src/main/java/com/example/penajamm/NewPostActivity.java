@@ -56,6 +56,7 @@ public class NewPostActivity extends AppCompatActivity {
     ArrayList<Model> mList;
 
     DatabaseReference db;
+
     TextInputLayout title, location, description;
     FloatingActionButton send, post;
     Drawable photo;
@@ -164,18 +165,21 @@ public class NewPostActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
+
         });
+
     }
 
     private void receiveImages(){
 
-        root.child("Image").addValueEventListener(new ValueEventListener() {
+        root.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 mList.clear();
                 for (DataSnapshot snap : snapshot.getChildren()) {
+                    System.out.println("HELLOOOOO FROM");
                     Model model = snap.getValue(Model.class);
                     adapter.addPost(model);
                 }

@@ -1,16 +1,19 @@
 package com.example.penajamm;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.core.Tag;
 
 import java.util.ArrayList;
 
@@ -18,8 +21,6 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
     private Context context;
     private ArrayList<Post> list;
     private ArrayList<Model> mList;
-
-
 
     public NewRecyclerViewAdapter(Context context, ArrayList<Post> list, ArrayList<Model> mList){
         this.context = context;
@@ -34,6 +35,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
 
     public void addPost(Model model){
         mList.add(model);
+        System.out.println("YAYAYAYAYAYAYAYAY");
         notifyDataSetChanged();
     }
 
@@ -52,7 +54,11 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         holder.postLocation.setText(list.get(position).getPostLocation());
         holder.postDescription.setText(list.get(position).getPostDescription());
         holder.dateTime.setText(list.get(position).getDateTime());
-        Glide.with(context).load(mList.get(position).getImageUri()).into(holder.photo);
+
+        if(mList.size() != 0){
+            Glide.with(context).load(mList.get(position).getImageUri()).into(holder.photo);
+        }
+
 
     }
 
