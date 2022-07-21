@@ -1,15 +1,18 @@
 package com.example.penajamm;
 
-import android.content.DialogInterface;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,7 +21,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.penajamm.databinding.ActivityPostBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
@@ -29,8 +35,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,8 +50,10 @@ import java.util.TimeZone;
 
 public class NewPostActivity extends AppCompatActivity {
     NewRecyclerViewAdapter adapter;
+    imageRecyclerView adapt;
     RecyclerView recyclerView;
     ArrayList<Post> list;
+    ArrayList<Model> mList;
 
     DatabaseReference db;
     TextInputLayout title, location, description;
@@ -49,14 +61,34 @@ public class NewPostActivity extends AppCompatActivity {
     Drawable photo;
     ImageButton backbtn;
     String timeStamp;
-
+    Button uploadbtn;
+    ImageView firebaseimage;
+    private ProgressBar progressBar;
+    boolean isSelected = false;
+    String pstUri;
     FirebaseAuth auth;
     FirebaseUser user;
+    private Post pst;
+
+    ////////////
+    ActivityPostBinding binding;
+
+    StorageReference storageReference;
+    ProgressDialog progressDialog;
+    ///////////
 
     private AlertDialog.Builder dialogbuilder;
     private AlertDialog dialog;
 
+    //vars
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Image");
+    private StorageReference reference = FirebaseStorage.getInstance().getReference();
+    private Uri imageUri;
 
+
+    protected ArrayList<Model> getMList(){
+        return this.mList;
+    }
 
     protected ArrayList<Post> getList(){
         return this.list;
@@ -70,11 +102,8 @@ public class NewPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_post);
 
         list = new ArrayList<>();
+        mList = new ArrayList<>();
         post = findViewById(R.id.fab_send);
-
-
-
-
         recyclerView = findViewById(R.id.recyclerview);
 
         db = FirebaseDatabase.getInstance().getReference();
@@ -101,11 +130,20 @@ public class NewPostActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
+
+        adapt = new imageRecyclerView(this, mList);
+        LinearLayoutManager lm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        recyclerView.setLayoutManager(lm);
+        recyclerView.setAdapter(adapt);
+
+
+
     }
 
     protected void onStart(){
         super.onStart();
         receiveMessages();
+        receiveImages();
     }
 
     private void receiveMessages(){
@@ -129,6 +167,27 @@ public class NewPostActivity extends AppCompatActivity {
         });
     }
 
+    private void receiveImages(){
+
+        root.child("Image").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                mList.clear();
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    Model model = snap.getValue(Model.class);
+                    adapt.addPost(model);
+                }
+            }
+
+            //TODO
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+
     public void createNewPostDiaglog() {
         dialogbuilder = new AlertDialog.Builder(this);
         final View contactPopupView = getLayoutInflater().inflate(R.layout.activity_post, null);
@@ -137,6 +196,9 @@ public class NewPostActivity extends AppCompatActivity {
         title = (TextInputLayout) contactPopupView.findViewById(R.id.title);
         location = (TextInputLayout) contactPopupView.findViewById(R.id.location);
         description = (TextInputLayout) contactPopupView.findViewById(R.id.description);
+        uploadbtn = (Button) contactPopupView.findViewById(R.id.uploadbtn);
+        firebaseimage = (ImageView) contactPopupView.findViewById(R.id.firebaseimage);
+
 
 
         dialogbuilder.setView(contactPopupView);
@@ -173,25 +235,207 @@ public class NewPostActivity extends AppCompatActivity {
                 String ttl = title.getEditText().getText().toString();
                 String loc = location.getEditText().getText().toString();
                 String msg = description.getEditText().getText().toString();
-                //Drawable photo = photo.get;
 
-                db.child("Posts").push().setValue(new Post(uEmail, ttl, loc, msg, timeStamp)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                pst = new Post(uEmail, ttl, loc, msg, timeStamp);
+
+                db.child("Posts").push().setValue(pst).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         title.getEditText().setText("");
                         location.getEditText().setText("");
                         if (description != null)
                             description.getEditText().setText("");
+
                     }
 
                 });
 
+                if (imageUri != null){
+                    uploadToFirebase(imageUri);
+                }
+                else{
+                    Toast.makeText(NewPostActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
+                }
+
                 dialog.dismiss();
+            }
+        });
+
+        uploadbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent , 2);
             }
         });
     }
 
-    /*public void goPost() {
-        startActivity(new Intent(NewPostActivity.this, PostActivity.class));
-    }*/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode ==2 && resultCode == RESULT_OK && data != null){
+
+            imageUri = data.getData();
+            firebaseimage.setImageURI(imageUri);
+
+        }
+    }
+
+    private void uploadToFirebase(Uri uri){
+
+        final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        Model model = new Model(uri.toString());
+                        String modelId = root.push().getKey();
+                        root.child(modelId).setValue(model);
+
+
+                        Toast.makeText(NewPostActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                        firebaseimage.setImageURI(null);
+                    }
+                });
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+                Toast.makeText(NewPostActivity.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private String getFileExtension(Uri mUri){
+
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(mUri));
+
+    }
+    //////////////////////////
+    /*private String uploadImage(Uri uri) {
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading File....");
+        progressDialog.show();
+
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
+        Date now = new Date();
+        String fileName = formatter.format(now);
+        storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
+
+
+        storageReference.putFile(uri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        firebaseimage.setImageURI(null);
+                        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                pstUri = uri.toString();
+                            }
+                        });
+                        //pst.setImageUrl(storageReference.getDownloadUrl().toString());
+
+                        Toast.makeText(NewPostActivity.this,"Successfully Uploaded",Toast.LENGTH_SHORT).show();
+                        if (progressDialog.isShowing())
+                            progressDialog.dismiss();
+
+                    }
+
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        pstUri = "fail";
+                        if (progressDialog.isShowing())
+                            progressDialog.dismiss();
+                        Toast.makeText(NewPostActivity.this,"Failed to Upload",Toast.LENGTH_SHORT).show();
+
+
+                    }
+                });
+        return pstUri;
+
+    }
+
+    private void selectImage() {
+
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,100);
+        isSelected = true;
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 100 && data != null && data.getData() != null){
+
+            imageUri = data.getData();
+            firebaseimage.setImageURI(imageUri);
+
+
+        }
+    }
+    //******************
+    private void uploadToFirebase(Uri uri){
+
+        final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        Model model = new Model(uri.toString());
+                        String modelId = root.push().getKey();
+                        root.child(modelId).setValue(model);
+                        progressBar.setVisibility(View.INVISIBLE);
+                        Toast.makeText(MainActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                        imageView.setImageResource(R.drawable.ic_baseline_add_photo_alternate_24);
+                    }
+                });
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(NewPostActivity.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private String getFileExtension(Uri mUri){
+
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(mUri));
+
+    }
+    //************** */
 }

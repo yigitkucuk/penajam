@@ -112,16 +112,26 @@
             android:background="@color/transparan" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/edit_profile"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/firebaseimage"
+        android:layout_width="48dp"
         android:layout_height="48dp"
+        android:background="@drawable/ic_baseline_photo_24"
+        android:layout_below="@id/description"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/uploadbtn"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/description"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="60dp"
-       android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/firebaseimage"
         android:background="@drawable/rounded_corners"
         android:paddingStart="30dp"
-        android:layout_below="@id/description"
         android:paddingEnd="30dp"
         android:text="Upload Brochure"
         android:textAllCaps="false"

@@ -4,19 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-
 
 import java.util.ArrayList;
 
 public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerViewAdapter.ViewHolder> {
     private Context context;
     private ArrayList<Post> list;
+
 
 
     public NewRecyclerViewAdapter(Context context, ArrayList<Post> list){
@@ -44,7 +42,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         holder.postLocation.setText(list.get(position).getPostLocation());
         holder.postDescription.setText(list.get(position).getPostDescription());
         holder.dateTime.setText(list.get(position).getDateTime());
-        //holder.photo.setImageDrawable(list.get(position).getPhoto());
+        //holder.photo.setImageURI(list.get(position).getPhoto());
     }
 
     @Override
@@ -71,7 +69,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
             postLocation = itemView.findViewById(R.id.user_location);
             postDescription = itemView.findViewById(R.id.user_message);
             dateTime = itemView.findViewById(R.id.user_message_date_time);
-            //photo = itemView.findViewById(R.id.photo);
+            //photo = (ImageView) itemView.findViewById(R.id.photo);
         }
     }
 }
