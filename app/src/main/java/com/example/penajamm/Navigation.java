@@ -1,14 +1,12 @@
 package com.example.penajamm;
 
-import android.content.Intent;
-
 public interface Navigation {
 
-    public void goSettings();
+    void goSettings();
 
-    public void goMainScreen();
+    void goMainScreen();
 
-    public void goProfile();
+    void goProfile();
 
-    public void goPost();
+    void goPost();
 }

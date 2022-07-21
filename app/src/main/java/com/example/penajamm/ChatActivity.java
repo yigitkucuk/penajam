@@ -68,36 +68,27 @@ public class ChatActivity extends AppCompatActivity {
         String uEmail = user.getEmail();
         timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
 
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        send.setOnClickListener(view -> {
 
-                CountDownTimer newtimer = new CountDownTimer(1000000000, 100) {
+            CountDownTimer newtimer = new CountDownTimer(1000000000, 100) {
 
-                    @SuppressLint("SimpleDateFormat")
-                    public void onTick(long millisUntilFinished) {
-                        Calendar c = new GregorianCalendar();
-                        TimeZone tr = TimeZone.getTimeZone("Asia/Istanbul");
-                        c.setTimeZone(tr);
-                        timeStamp = new SimpleDateFormat("HH:mm:ss").format(c.getTime());
-                    }
-                    public void onFinish() {
-
-                    }
-                };
-                newtimer.start();
-
-                String msg = message.getEditText().getText().toString();
-
-                db.child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        message.getEditText().setText("");
-                    }
-
-                });
+                @SuppressLint("SimpleDateFormat")
+                public void onTick(long millisUntilFinished) {
+                    Calendar c = new GregorianCalendar();
+                    TimeZone tr = TimeZone.getTimeZone("Asia/Istanbul");
+                    c.setTimeZone(tr);
+                    timeStamp = new SimpleDateFormat("HH:mm:ss").format(c.getTime());
                 }
-        });
+                public void onFinish() {
+
+                }
+            };
+            newtimer.start();
+
+            String msg = message.getEditText().getText().toString();
+
+            db.child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(task -> message.getEditText().setText(""));
+            });
 
         adapter = new RecyclerViewAdapter(this, list);
         LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);

@@ -3,7 +3,6 @@ package com.example.penajamm;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,40 +29,21 @@ public class ProfileActivity extends AppCompatActivity {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goProfile(); }
-        });
+        btnProfile.setOnClickListener(view -> goProfile());
 
 
-        btnAssig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goAssig(); }
-        });
+        btnAssig.setOnClickListener(view -> goAssig());
 
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goSett();
-            }
-        });
+        backbtn.setOnClickListener(view -> goSett());
 
-        btnMainScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goMain();
-            }
-        });
+        btnMainScreen.setOnClickListener(view -> goMain());
 
         selectImageBtn = findViewById(R.id.edit_profile);
         imageView = findViewById(R.id.profile_icon);
-        selectImageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, SELECT_IMAGE);
-            }
+        selectImageBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.setType("image/*");
+            startActivityForResult(intent, SELECT_IMAGE);
         });
     }
 

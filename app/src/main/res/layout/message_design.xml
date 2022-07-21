@@ -8,11 +8,13 @@
     app:cardBackgroundColor = "@color/cardview_dark_background"
     android:layout_height="wrap_content">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_gravity="end"
-        android:padding="10dp"
+        android:padding="20dp"
         android:layout_height="match_parent">
+
 
         <TextView
             android:id="@+id/user_email"
@@ -23,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
+
 
         <TextView
             android:id="@+id/user_message"
@@ -36,6 +39,7 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
+
         <TextView
             android:id="@+id/user_message_date_time"
             android:layout_width="wrap_content"
@@ -46,6 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/user_message"
             />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

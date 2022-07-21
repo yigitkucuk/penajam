@@ -66,6 +66,7 @@ public class PostActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 startActivityForResult(intent, SELECT_IMAGE);
+
             }
         });
     }

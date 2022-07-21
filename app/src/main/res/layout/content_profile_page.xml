@@ -10,8 +10,6 @@
     tools:context=".ProfilePageActivity"
     tools:showIn="@layout/activity_profile_page">
 
-
-
     <RelativeLayout
         android:id="@+id/post"
         android:layout_width="match_parent"

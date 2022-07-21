@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -29,28 +28,14 @@ public class MainScreenActivity extends AppCompatActivity {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goProfile(); }
-        });
+        btnProfile.setOnClickListener(view -> goProfile());
 
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logout();
-            }
-        });
+        btnLogout.setOnClickListener(view -> logout());
 
-        btnSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goSettings(); }
-        });
+        btnSettings.setOnClickListener(view -> goSettings());
 
-        btnAssig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goAssig(); }
-        });
+        btnAssig.setOnClickListener(view -> goAssig());
 
 
     }
@@ -78,5 +63,9 @@ public class MainScreenActivity extends AppCompatActivity {
 
     public void goAssig() {
         startActivity(new Intent(MainScreenActivity.this, NewPostActivity.class));
+    }
+
+    public void goMain() {
+        startActivity(new Intent(MainScreenActivity.this, MainScreenActivity.class));
     }
 }
