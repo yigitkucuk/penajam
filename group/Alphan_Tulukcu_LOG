@@ -1,0 +1,37 @@
+## LOG - Yigit Kucuk
+
+# 20.06.22
+I implemented the MainScreenActivity
+
+# 23.06.22
+I started to implement the ScrollingActivity (the basis of PostActivity)
+
+# 28.06.22
+I made improvements in layouts
+
+# 29.06.22
+I create the navigation systems and implement all activities
+
+# 02.07.22
+We implement the SettingActivity, ProfileActivity, ProfilePageActiviy with Defne ( I pushed but we have done with Defne )
+I implement the ScrollingActiviy.
+# 12.07.22
+Added chatroom, not yet fully functional.
+
+# 15.07.22
+I started to work the PostActivity and NewPostActivity
+
+# 16.07.22
+I implement the FirebaseStorage 
+I create the Post and Model classes
+
+# 19.07.22
+Created NewRecyclerViewAdapter and imageRecyclerView 
+
+# 21.07.22
+Optimized Post system and Firebase database issues.
+
+# 22.07.22
+I helped Barış to create Userlist and their xmls.
+
+
