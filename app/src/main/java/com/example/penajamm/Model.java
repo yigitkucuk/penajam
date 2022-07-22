@@ -3,9 +3,14 @@ package com.example.penajamm;
 public class Model {
     String imageUri;
 
+    public Model() { }
     public Model(String imageUri) {
+
         this.imageUri = imageUri;
+
     }
+
+
 
     public String getImageUri() {
         return imageUri;

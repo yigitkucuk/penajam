@@ -35,7 +35,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:gravity="fill_vertical"
             android:text="username"
+            android:textSize="20dp"
             android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@id/profile_icon"
             tools:layout_editor_absoluteY="10dp"
@@ -49,7 +51,7 @@
             android:text="Title"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profile_icon" />
 
@@ -90,7 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ic_launcher_background"
+
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"

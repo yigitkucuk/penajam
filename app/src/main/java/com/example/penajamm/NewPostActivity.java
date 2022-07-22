@@ -3,7 +3,6 @@ package com.example.penajamm;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -21,7 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.penajamm.databinding.ActivityPostBinding;
+import com.example.penajamm.databinding.ActivityNewPostBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -48,7 +47,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-public class NewPostActivity extends AppCompatActivity {
+public class NewPostActivity extends AppCompatActivity implements Navigation {
+    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile;
+
     NewRecyclerViewAdapter adapter;
     imageRecyclerView adapt;
     RecyclerView recyclerView;
@@ -56,9 +57,10 @@ public class NewPostActivity extends AppCompatActivity {
     ArrayList<Model> mList;
 
     DatabaseReference db;
+
     TextInputLayout title, location, description;
     FloatingActionButton send, post;
-    Drawable photo;
+
     ImageButton backbtn;
     String timeStamp;
     Button uploadbtn;
@@ -71,7 +73,7 @@ public class NewPostActivity extends AppCompatActivity {
     private Post pst;
 
     ////////////
-    ActivityPostBinding binding;
+    ActivityNewPostBinding binding;
 
     StorageReference storageReference;
     ProgressDialog progressDialog;
@@ -81,7 +83,7 @@ public class NewPostActivity extends AppCompatActivity {
     private AlertDialog dialog;
 
     //vars
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference("Image");
+    private DatabaseReference root;
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
     private Uri imageUri;
 
@@ -101,12 +103,40 @@ public class NewPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post);
         setContentView(R.layout.activity_new_post);
 
+        btnSettings = findViewById(R.id.btn_Settings);
+        btnMainScreen = findViewById(R.id.btn_MainScreen);
+        btnProfile = findViewById(R.id.btn_Profile);
+        btnBack = findViewById(R.id.backbtn);
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goProfile(); }
+        });
+
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goSettings(); }
+        });
+
+        btnMainScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { goMainScreen(); }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goMainScreen();
+            }
+        });
+
         list = new ArrayList<>();
         mList = new ArrayList<>();
         post = findViewById(R.id.fab_send);
         recyclerView = findViewById(R.id.recyclerview);
 
         db = FirebaseDatabase.getInstance().getReference();
+        root = FirebaseDatabase.getInstance().getReference();
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -126,15 +156,16 @@ public class NewPostActivity extends AppCompatActivity {
 
 
 
-        adapter = new NewRecyclerViewAdapter(this, list);
-        LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        adapter = new NewRecyclerViewAdapter(this, list, mList);
+        LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, true);
+        llm.setStackFromEnd(true);
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
 
-        adapt = new imageRecyclerView(this, mList);
-        LinearLayoutManager lm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(lm);
-        recyclerView.setAdapter(adapt);
+        //adapt = new imageRecyclerView(this, mList);
+        //LinearLayoutManager lm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        //recyclerView.setLayoutManager(lm);
+        //recyclerView.setAdapter(adapt);
 
 
 
@@ -143,7 +174,8 @@ public class NewPostActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         receiveMessages();
-        receiveImages();
+
+
     }
 
     private void receiveMessages(){
@@ -164,7 +196,28 @@ public class NewPostActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
+
         });
+
+        root.child("Image").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                mList.clear();
+                for (DataSnapshot snap : snapshot.getChildren()) {
+                    System.out.println("HELLOOOOO FROM");
+                    Model model = snap.getValue(Model.class);
+                    adapter.addPost(model);
+                }
+            }
+
+            //TODO
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
     }
 
     private void receiveImages(){
@@ -176,8 +229,9 @@ public class NewPostActivity extends AppCompatActivity {
 
                 mList.clear();
                 for (DataSnapshot snap : snapshot.getChildren()) {
+                    System.out.println("HELLOOOOO FROM");
                     Model model = snap.getValue(Model.class);
-                    adapt.addPost(model);
+                    adapter.addPost(model);
                 }
             }
 
@@ -198,6 +252,7 @@ public class NewPostActivity extends AppCompatActivity {
         description = (TextInputLayout) contactPopupView.findViewById(R.id.description);
         uploadbtn = (Button) contactPopupView.findViewById(R.id.uploadbtn);
         firebaseimage = (ImageView) contactPopupView.findViewById(R.id.firebaseimage);
+
 
 
 
@@ -231,12 +286,23 @@ public class NewPostActivity extends AppCompatActivity {
 
                     }
                 };
+                if (imageUri != null){
+                    uploadToFirebase(imageUri);
+                }
+                else{
+                    Model model = new Model("https://firebasestorage.googleapis.com/v0/b/penajam-b.appspot.com/o/Screen%20Shot%202022-07-22%20at%2002.32.43.png?alt=media&token=a172ba22-02cf-434d-8784-47ab2a7eaf83");
+                    String modelId = db.push().getKey();
+                    db.child("Image").child(modelId).setValue(model);
+
+                }
+
                 newtimer.start();
                 String ttl = title.getEditText().getText().toString();
                 String loc = location.getEditText().getText().toString();
                 String msg = description.getEditText().getText().toString();
 
                 pst = new Post(uEmail, ttl, loc, msg, timeStamp);
+
 
                 db.child("Posts").push().setValue(pst).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -249,13 +315,6 @@ public class NewPostActivity extends AppCompatActivity {
                     }
 
                 });
-
-                if (imageUri != null){
-                    uploadToFirebase(imageUri);
-                }
-                else{
-                    Toast.makeText(NewPostActivity.this, "Please Select Image", Toast.LENGTH_SHORT).show();
-                }
 
                 dialog.dismiss();
             }
@@ -295,8 +354,8 @@ public class NewPostActivity extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
 
                         Model model = new Model(uri.toString());
-                        String modelId = root.push().getKey();
-                        root.child(modelId).setValue(model);
+                        String modelId = db.push().getKey();
+                        db.child("Image").child(modelId).setValue(model);
 
 
                         Toast.makeText(NewPostActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
@@ -324,6 +383,22 @@ public class NewPostActivity extends AppCompatActivity {
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cr.getType(mUri));
 
+    }
+
+    public void goSettings() {
+        startActivity(new Intent(NewPostActivity.this, SettingsActivity.class));
+    }
+
+    public void goMainScreen() {
+        startActivity(new Intent(NewPostActivity.this, MainScreenActivity.class));
+    }
+
+    public void goProfile() {
+        startActivity(new Intent(NewPostActivity.this, ProfilePageActivity.class));
+    }
+
+    public void goPost() {
+        startActivity(new Intent(NewPostActivity.this, PostActivity.class));
     }
     //////////////////////////
     /*private String uploadImage(Uri uri) {

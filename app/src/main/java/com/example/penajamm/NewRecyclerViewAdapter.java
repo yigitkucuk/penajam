@@ -4,26 +4,35 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerViewAdapter.ViewHolder> {
     private Context context;
     private ArrayList<Post> list;
+    private ArrayList<Model> mList;
 
-
-
-    public NewRecyclerViewAdapter(Context context, ArrayList<Post> list){
+    public NewRecyclerViewAdapter(Context context, ArrayList<Post> list, ArrayList<Model> mList){
         this.context = context;
         this.list = list;
+        this.mList = mList;
     }
 
     public void addPost(Post post){
         list.add(post);
+        notifyDataSetChanged();
+    }
+
+    public void addPost(Model model){
+        mList.add(model);
+        System.out.println("YAYAYAYAYAYAYAYAY");
         notifyDataSetChanged();
     }
 
@@ -42,7 +51,12 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         holder.postLocation.setText(list.get(position).getPostLocation());
         holder.postDescription.setText(list.get(position).getPostDescription());
         holder.dateTime.setText(list.get(position).getDateTime());
-        //holder.photo.setImageURI(list.get(position).getPhoto());
+
+        if(mList.size() != 0 ){
+            Glide.with(context).load(mList.get(position).getImageUri()).into(holder.photo);
+        }
+
+
     }
 
     @Override
@@ -59,7 +73,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         TextView postDescription;
         TextView dateTime;
         TextView postLocation;
-        //ImageView photo;
+        ImageView photo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,7 +83,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
             postLocation = itemView.findViewById(R.id.user_location);
             postDescription = itemView.findViewById(R.id.user_message);
             dateTime = itemView.findViewById(R.id.user_message_date_time);
-            //photo = (ImageView) itemView.findViewById(R.id.photo);
+            photo = (ImageView) itemView.findViewById(R.id.photo);
         }
     }
 }
