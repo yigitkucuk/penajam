@@ -14,6 +14,9 @@ public class Post {
 
     }
 
+    public Post(String imageUrl){
+        this.imageUrl = imageUrl;
+    }
     public Post(String userEmail, String postTitle, String postLocation, String postDescription, String dateTime){
         this.userEmail = userEmail;
         this.postTitle = postTitle;
