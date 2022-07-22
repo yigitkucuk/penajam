@@ -1,24 +1,34 @@
 Project group number: 4 
 
-Title: PenaJam 
+Project Title: PenaJam 
 
-Description: PenaJam is an android application which allows musicians to share posts looking for band-members or apply for band auditions, look through music related events and chat with each other through private chatrooms. 
+Project Description: PenaJam is an android application which allows musicians to share posts looking for band-members or apply for band auditions, look through music related events and chat with each other through private chatrooms. 
 
-The project's current status: Our application is mainly done but we are adding and improving some of our functionality, we can say that it’s %80 done. 
+The project's current status: Our application is mainly done but we are adding and improving some of our functionality (star-level filtering system, video upload), we can say that it’s %80 done. 
 
 What has been done (Works/ doesn’t work/ remaining): Registering and logging in is available, it is possible to post an audition and apply for it. You can see your own profile and edit it via settings. There is a chat working but we haven’t made it private just yet. The functions we implemented are working smoothly but there are some features that remain to be done such as fetching data from the internet for displaying music-related events, making our chatroom private and small touchups. 
 
 Each member's contribution: 
 
-Yiğit -> 
+Yiğit  -> Mainly worked with databases and created back-end systems. Also designed some of the layouts and created drawables and backgrounds.
+          Created the chatroom functionality, authentication funcitonality, database storage functionality and view adapters.
+          Worked on files: User.java, Userbase.java, RegisterActivity.java, LoginActivity.java, RecyclerViewAdapter.java, Post.java, Message.java,                                      Navigation.java (Interface), ChatActivity.java, FirstFragment.java, SecondFragment.java and build.gradle files.
+                           Also, the respective .xml files and other .xml files.
 
-Alphan -> 
+Alphan -> Mainly worked with front-end of the application. Also worked on the back-end to fully implement audition-post functionality.
+          Created the audition-post functionality, image upload functionality, image storage in database functionality and view adapters.
+          He created many of the layouts, and they were later finalized by other members.
+          Worked on files: RegisterActivity.java, LoginActivity.java, SettingsActivity.java, ProfilePageActivity.java, ProfilePage.java, PostActivity.java,
+                           NewRecyclerViewAdapter.java, NewPostActivity.java, Model.java, MainScreenActivity.java, ImageRecyclerView.java
+                           Also, the respective .xml files and other.xml files.
 
-Barış -> 
+Barış  -> Mainly worked with back-end implementations. He created the system to demonstrate all users and their usernames.
+          Created the user-demonstration functionality, and user-data fetch functionality.
+          Worked on files: 
 
-Defne -> 
+Defne  -> 
 
-Ege -> 
+Ege    -> 
 
 Software used with version numbers, libraries:  
 
@@ -58,4 +68,12 @@ Java SE 18.0. 1.1
 
 'com.github.bumptech.glide:compiler:4.13.2' 
 
-Instructions: We will deploy it to the android platform and people will be able to download it and run it by clicking the logo. 
+Instructions to run and compile on Android:     As the application is on the Android platform, we will just deploy it as an executable to Android and users                                                   will just be able to download and enter the app by clicking the app icon.
+                              
+Instructions to test on Windows, Linux, MacOS:  Clone the repository to your local machine via "Get From VCS" button in Android Studio.
+                                                Open the repository.
+                                                Create an Emulator.
+                                                Build and Run.
+       
+                                                
+
