@@ -1,0 +1,95 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Userlist">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview"
+        android:background="@drawable/gradient1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/chart2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/transparan"
+            android:contentDescription="@string/attachment_summary_on"
+            android:padding="20dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+        <RelativeLayout
+            android:id="@+id/Menu_icons"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/round_back_third_100"
+
+            android:layout_alignParentBottom="true">
+
+            <ImageButton
+                android:id="@+id/btn_Assig"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_lyrics_20" />
+
+
+            <ImageButton
+                android:id="@+id/btn_MainScreen"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@color/transparan"
+                android:layout_toRightOf="@id/btn_Assig"
+                android:src="@drawable/baseline_home_24" />
+
+            <ImageButton
+                android:id="@+id/btn_Settings"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:layout_toRightOf="@id/btn_Profile"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_settings_24" />
+
+            <ImageButton
+                android:id="@+id/btn_Profile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+
+                android:layout_toRightOf="@id/btn_MainScreen"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_account_circle_24" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

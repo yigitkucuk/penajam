@@ -24,6 +24,11 @@
             android:label="NewPostActivity"
             android:theme="@style/Theme.PenaJamm.NoActionBar" />
         <activity
+            android:name=".Userlist"
+            android:exported="false"
+            android:label="Userlist"
+            android:theme="@style/Theme.PenaJamm.NoActionBar" />
+        <activity
             android:name=".PostActivity"
             android:exported="false" />
         <activity

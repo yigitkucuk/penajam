@@ -49,6 +49,18 @@
         android:layout_marginBottom="20dp"
         android:text="Log out" />
 
+    <Button
+        android:id="@+id/btnList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnLogout"
+        android:layout_marginStart="280dp"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Users" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
