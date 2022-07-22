@@ -12,7 +12,7 @@ Each member's contribution:
 
 Yiğit  -> Mainly worked with databases and created back-end systems. Also designed some of the layouts and created drawables and backgrounds.
           Created the chatroom functionality, authentication funcitonality, database storage functionality and view adapters.
-          Worked on files: User.java, Userbase.java, RegisterActivity.java, LoginActivity.java, RecyclerViewAdapter.java, Post.java, Message.java,                                      Navigation.java (Interface), ChatActivity.java, FirstFragment.java, SecondFragment.java and build.gradle files.
+          Worked on files: User.java, Userbase.java, Users.java RegisterActivity.java, LoginActivity.java, RecyclerViewAdapter.java, Post.java, Message.java,                            Navigation.java (Interface), ChatActivity.java, FirstFragment.java, SecondFragment.java and build.gradle files.
                            Also, the respective .xml files and other .xml files.
 
 Alphan -> Mainly worked with front-end of the application. Also worked on the back-end to fully implement audition-post functionality.
@@ -24,11 +24,18 @@ Alphan -> Mainly worked with front-end of the application. Also worked on the ba
 
 Barış  -> Mainly worked with back-end implementations. He created the system to demonstrate all users and their usernames.
           Created the user-demonstration functionality, and user-data fetch functionality.
-          Worked on files: 
+          Worked on files: Users.java, Userlist.java, User.java, Userbase.java, ShowUserActivity.java, LoginActivity.java,                                                              RegisterActivity.java
+                           Also, the respective .xml files.
 
-Defne  -> 
+Defne  -> Mainly worked with front-end GUI designs. Helped implementing Image upload functionality.
+          Helped store image url in database, and implementing image upload functionality.
+          Worked on files: RegisterActivity.java, LoginActivity.java, MainScreenActivity.java, SettingsActivity.java, ProfilePageActivity.java,                                          ProfileActivity.java, 
+                           Also, the respective .xml files and other layouts.
 
-Ege    -> 
+Ege    -> Mainly worked with back-end systems, helped create messages, chatroom and user classes. Also revised some of the layouts.
+          Worked on Files: ChatActivity.java, Message.java, LoginActivity.java, RegisterActivity.java, Userbase.java, User.java, Users.java.
+                           Also, the respective .xml files.
+                                  
 
 Software used with version numbers, libraries:  
 
