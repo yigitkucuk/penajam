@@ -1,4 +1,5 @@
 LOG - Baris Celik
+
 18.06.22
 We implemented user registration and user sign in systems with Yiğit.
 
