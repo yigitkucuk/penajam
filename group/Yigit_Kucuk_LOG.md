@@ -40,3 +40,8 @@ Mipmap changed
 
 # 21.07.22
 Replaced some deprecated methods and added some lambda expressions, also made small changes in layouts.
+
+# 23.07.22
+Fixed database and equality constraints
+Profile page data-fetch completed
+Added e-mail verification and verification page
