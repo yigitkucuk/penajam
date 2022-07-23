@@ -25,3 +25,7 @@ I worked on userlist layouts.
 
 23.07.22
 I worked on general stuff.
+
+24.07.22
+We added e-mail verification and verification page.
+I also added forgot password part.
