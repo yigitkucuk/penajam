@@ -1,14 +1,14 @@
 package com.example.penajamm;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,6 +33,7 @@ public class ShowUserActivity extends AppCompatActivity {
 
         name = findViewById(R.id.register_username);
         realname = findViewById(R.id.register_realname);
+        email = findViewById(R.id.register_email);
         databaseUsers = FirebaseDatabase.getInstance().getReference();
 
         btnInsert.setOnClickListener(new View.OnClickListener() {
@@ -55,10 +56,11 @@ public class ShowUserActivity extends AppCompatActivity {
 
         String username = name.getText().toString();
         String userrealname = realname.getText().toString();
+        String useremail = email.getText().toString();
         String id = databaseUsers.push().getKey();
 
-        Users users = new Users(username,userrealname);
-        databaseUsers.child("User").child(id).setValue(users)
+        User user = new User(useremail, username,userrealname);
+        databaseUsers.child("User").child(id).setValue(user)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

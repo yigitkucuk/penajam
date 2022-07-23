@@ -162,11 +162,6 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
         recyclerView.setLayoutManager(llm);
         recyclerView.setAdapter(adapter);
 
-        //adapt = new imageRecyclerView(this, mList);
-        //LinearLayoutManager lm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        //recyclerView.setLayoutManager(lm);
-        //recyclerView.setAdapter(adapt);
-
 
 
     }

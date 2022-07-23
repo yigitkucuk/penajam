@@ -1,16 +1,15 @@
 package com.example.penajamm;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -69,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(v ->
         {
             register();
-            User emp = new User(user, edit_username.getText().toString(), edit_realname.getText().toString());
+            User emp = new User(email.getText().toString(), edit_username.getText().toString(), edit_realname.getText().toString());
             if (emp_edit == null) {
                 dao.add(emp).addOnSuccessListener(suc ->
                 {
@@ -82,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("Username", edit_username.getText().toString());
                 hashMap.put("Real Name", edit_realname.getText().toString());
+                hashMap.put("Email", email.getText().toString());
                 dao.update(emp_edit.getKey(), hashMap).addOnSuccessListener(suc ->
                 {
                     Toast.makeText(this, "Record is updated", Toast.LENGTH_SHORT).show();

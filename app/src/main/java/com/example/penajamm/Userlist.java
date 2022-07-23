@@ -1,14 +1,14 @@
 package com.example.penajamm;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +23,7 @@ public class Userlist extends AppCompatActivity implements Navigation {
     private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig;
 
     RecyclerView recyclerView;
-    ArrayList<Users> list;
+    ArrayList<User> list;
     DatabaseReference databaseReference;
     MyAdapter adapter;
 
@@ -84,8 +84,8 @@ public class Userlist extends AppCompatActivity implements Navigation {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren())
                 {
-                    Users users = dataSnapshot.getValue(Users.class);
-                    list.add(users);
+                    User user = dataSnapshot.getValue(User.class);
+                    list.add(user);
                 }
                 adapter.notifyDataSetChanged();
             }

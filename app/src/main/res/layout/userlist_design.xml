@@ -10,6 +10,32 @@
     android:layout_margin = "12dp"
     app:cardBackgroundColor = "@color/cardview_dark_background"
     android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:layout_toLeftOf="@id/fab"
+            app:layout_anchorGravity="bottom|end"
+            app:srcCompat="@drawable/baseline_account_circle_24" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/ic_baseline_send_24" />
+
+    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,8 +45,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
             android:padding="5dp"
@@ -37,34 +63,37 @@
             android:layout_marginStart="4dp"
             android:gravity="fill_vertical"
             android:text="username"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@id/profile_icon"
+            app:layout_constraintTop_toBottomOf="@id/user_realname"
             tools:layout_editor_absoluteY="10dp"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/user_realname"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginStart="4dp"
             android:text="Realname"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_icon" />
+            android:textSize="25dp"
+            app:layout_constraintStart_toEndOf="@id/profile_icon"
+
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/user_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Location"
+            android:text="Point:"
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_realname" />
+            app:layout_constraintTop_toBottomOf="@id/profile_icon" />
 
 
 
