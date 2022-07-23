@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient1"
+    tools:context=".VerificationActivity"
+    >
+
+    <TextView
+        android:id="@+id/verification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="Verification"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/verification_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verification"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="25dp"
+        android:hint="welcome_to_penajam_in_an_attempt_to_keep_our_application_safe_and_fun_for_everyone_and_avoid_possible_security_attacks_we_have_implemented_an_e_mail_verification_system_click_the_green_button_below_to_receive_a_verification_e_mail_after_you_verify_your_account_tap_the_below_text_to_be_directed_to_sign_in_page_enjoy"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+
+
+        />
+
+    <Button
+        android:id="@+id/verification_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verification_description"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corners"
+        android:text="Send me a verification email" />
+
+    <TextView
+        android:id="@+id/verification_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verification_button"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        android:text="Tap here"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+
+
+</RelativeLayout>
