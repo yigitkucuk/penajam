@@ -134,4 +134,8 @@
     </string>
     <string name="title_activity_profile_page"></string>
     <string name="title_activity_chat">ChatActivity</string>
+    <string name="send_me_a_ver_f_cation_e_ma_l" />
+    <string name="tap_here_after_you_have_verified_your_e_mail" />
+    <string name="welcome_to_penajam_in_an_attempt_to_keep_our_application_safe_and_fun_for_everyone_and_avoid_possible_security_attacks_we_have_implemented_an_e_mail_verification_system_click_the_green_button_below_to_receive_a_verification_e_mail_after_you_verify_your_account_tap_the_below_text_to_be_directed_to_sign_in_page_enjoy" />
+    <string name="verification" />
 </resources>
