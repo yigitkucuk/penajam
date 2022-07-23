@@ -1,22 +1,43 @@
 package com.example.penajamm;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -24,6 +45,18 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email, password;
     private Button btnRegister, btnLogin;
     private TextView textLogin;
+
+    private AlertDialog.Builder dialogbuilder;
+    private AlertDialog dialog;
+
+    private StorageReference reference = FirebaseStorage.getInstance().getReference();
+    DatabaseReference db;
+    TextInputLayout  location, instruments, description;
+    FloatingActionButton send, post;
+    Button uploadbtn;
+    ImageButton backbtn;
+    ImageView firebaseimage;
+    Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,44 +87,12 @@ public class RegisterActivity extends AppCompatActivity {
             startActivity(i);
         }
 
-        Userbase dao = new Userbase();
-        User emp_edit = (User) getIntent().getSerializableExtra("EDIT");
-        if (emp_edit != null) {
-            btnRegister.setText("UPDATE");
-            edit_username.setText(emp_edit.getName());
-            edit_realname.setText(emp_edit.getRealname());
 
-        } else {
-            btnRegister.setText("SUBMIT");
-
-        }
         btnRegister.setOnClickListener(v ->
         {
-            register();
-            User emp = new User(email.getText().toString(), edit_username.getText().toString(), edit_realname.getText().toString());
-            if (emp_edit == null) {
-                dao.add(emp).addOnSuccessListener(suc ->
-                {
-                    Toast.makeText(this, "Record is inserted", Toast.LENGTH_SHORT).show();
-                }).addOnFailureListener(er ->
-                {
-                    Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-                });
-            } else {
-                HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("Username", edit_username.getText().toString());
-                hashMap.put("Real Name", edit_realname.getText().toString());
-                hashMap.put("Email", email.getText().toString());
-                dao.update(emp_edit.getKey(), hashMap).addOnSuccessListener(suc ->
-                {
-                    Toast.makeText(this, "Record is updated", Toast.LENGTH_SHORT).show();
-                    finish();
 
-                }).addOnFailureListener(er ->
-                {
-                    Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-                });
-            }
+            createNewPostDiaglog();
+
         });
 
     }
@@ -120,5 +121,190 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         }
+
+        final EditText edit_username = findViewById(R.id.register_username);
+        final EditText edit_realname = findViewById(R.id.register_realname);
+        Userbase dao = new Userbase();
+        User emp_edit = (User) getIntent().getSerializableExtra("EDIT");
+        if (emp_edit != null) {
+            btnRegister.setText("UPDATE");
+            edit_username.setText(emp_edit.getName());
+            edit_realname.setText(emp_edit.getRealname());
+
+        } else {
+            btnRegister.setText("SUBMIT");
+
+        }
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String ins = instruments.getEditText().getText().toString();
+                String loc = location.getEditText().getText().toString();
+                String msg = description.getEditText().getText().toString();
+
+                //pst = new Post(uName, ttl, loc, msg);
+                User emp = new User(email.getText().toString(), edit_username.getText().toString(), edit_realname.getText().toString());
+                emp.setInstruments(ins);
+                emp.setLocation(loc);
+                emp.setDescription(msg);
+
+                if (emp_edit == null) {
+                    dao.add(emp).addOnSuccessListener(suc ->
+                    {
+                        Toast.makeText(RegisterActivity.this, "Record is inserted", Toast.LENGTH_SHORT).show();
+                    }).addOnFailureListener(er ->
+                    {
+                        Toast.makeText(RegisterActivity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+                } else {
+                    HashMap<String, Object> hashMap = new HashMap<>();
+                    hashMap.put("Username", edit_username.getText().toString());
+                    hashMap.put("Real Name", edit_realname.getText().toString());
+                    hashMap.put("Email", email.getText().toString());
+                    hashMap.put("Location", location.getEditText().getText().toString());
+                    hashMap.put("Instruments", instruments.getEditText().getText().toString());
+                    hashMap.put("Description", description.getEditText().getText().toString());
+                    dao.update(emp_edit.getKey(), hashMap).addOnSuccessListener(suc ->
+                    {
+                        Toast.makeText(RegisterActivity.this, "Record is updated", Toast.LENGTH_SHORT).show();
+                        finish();
+
+                    }).addOnFailureListener(er ->
+                    {
+                        Toast.makeText(RegisterActivity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+                };
+
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void createNewPostDiaglog() {
+        dialogbuilder = new AlertDialog.Builder(this);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.activity_profile, null);
+        backbtn = (ImageButton) contactPopupView.findViewById(R.id.backbtn);
+        //send = (FloatingActionButton) contactPopupView.findViewById(R.id.edit_profile);
+        instruments = (TextInputLayout) contactPopupView.findViewById(R.id.instruments);
+        location = (TextInputLayout) contactPopupView.findViewById(R.id.location);
+        description = (TextInputLayout) contactPopupView.findViewById(R.id.description);
+        uploadbtn = (Button) contactPopupView.findViewById(R.id.applyBtn);
+        firebaseimage = (ImageView) contactPopupView.findViewById(R.id.firebaseimage);
+
+
+
+
+        dialogbuilder.setView(contactPopupView);
+        dialog = dialogbuilder.create();
+        dialog.show();
+
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        uploadbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                /*if (imageUri != null){
+                    uploadToFirebase(imageUri);
+                }
+                else{
+                    Model model = new Model("https://firebasestorage.googleapis.com/v0/b/penajam-b.appspot.com/o/Screen%20Shot%202022-07-22%20at%2002.32.43.png?alt=media&token=a172ba22-02cf-434d-8784-47ab2a7eaf83");
+                    String modelId = db.push().getKey();
+                    db.child("Image").child(modelId).setValue(model);
+
+                } */
+
+
+
+
+                register();
+
+
+                dialog.dismiss();
+
+
+            }
+        });
+
+        /*send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent , 2);
+            }
+        });*/
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode ==2 && resultCode == RESULT_OK && data != null){
+
+            imageUri = data.getData();
+            firebaseimage.setImageURI(imageUri);
+
+        }
+    }
+
+    private void uploadToFirebase(Uri uri){
+
+        final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                        Model model = new Model(uri.toString());
+                        String modelId = db.push().getKey();
+                        db.child("Image").child(modelId).setValue(model);
+
+
+                        Toast.makeText(RegisterActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                        firebaseimage.setImageURI(null);
+                    }
+                });
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+                Toast.makeText(RegisterActivity.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private String getFileExtension(Uri mUri){
+
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(mUri));
+
     }
 }

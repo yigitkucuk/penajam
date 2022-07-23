@@ -30,7 +30,7 @@ public class ProfilePageActivity extends AppCompatActivity {
     private ActivityProfilePageBinding binding;
     private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack;
     private VideoView videoView;
-    private TextView textView, usernameView, locationView, pointView, descriptionView;
+    private TextView textView, usernameView, locationView, pointView, descriptionView, instrumentsView;
     private ArrayList<User> list;
 
 
@@ -69,6 +69,7 @@ public class ProfilePageActivity extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.name);
         usernameView = (TextView) findViewById(R.id.username);
+        instrumentsView = (TextView) findViewById(R.id.instrumentsView);
         locationView = (TextView) findViewById(R.id.name2);
         pointView = (TextView) findViewById(R.id.pointView);
         descriptionView = (TextView) findViewById(R.id.description);
@@ -96,6 +97,7 @@ public class ProfilePageActivity extends AppCompatActivity {
                         textView.setText(u.getRealname());
                         usernameView.setText(u.getName());
                         locationView.setText(u.getLocation());
+                        instrumentsView.setText("Instruments: " + u.getInstruments());
                         pointView.setText("Point: " + u.getPoint());
                         descriptionView.setText("Description: " + u.getDescription());
                     }

@@ -65,6 +65,7 @@
             android:layout_marginEnd="20dp">
 
             <TextView
+                android:id="@+id/instrumentsView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -77,8 +78,8 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="10dp"
                 android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
                 android:padding="0dp"
                 android:src="@drawable/baseline_piano_24" />
 
