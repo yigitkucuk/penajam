@@ -22,3 +22,6 @@ I pull user informations from databse.
 
 21.07.22
 I worked on userlist layouts.
+
+23.07.22
+I worked on general stuff.
