@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".EditProfileActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:fitsSystemWindows="true"
+        android:theme="@style/Theme.PenaJamm.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/Theme.PenaJamm.PopupOverlay" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_profile" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/fab_margin"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/ic_baseline_check_circle_outline_24" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/Menu_icons"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="0dp"
+
+            android:background="@drawable/round_back_third_100">
+
+            <ImageButton
+                android:id="@+id/btn_Assig"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_lyrics_20" />
+
+
+            <ImageButton
+                android:id="@+id/btn_MainScreen"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:layout_toRightOf="@id/btn_Assig"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_home_24" />
+
+            <ImageButton
+                android:id="@+id/btn_Settings"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:layout_toRightOf="@id/btn_Profile"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_settings_24" />
+
+            <ImageButton
+                android:id="@+id/btn_Profile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+
+                android:layout_toRightOf="@id/btn_MainScreen"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_account_circle_24" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

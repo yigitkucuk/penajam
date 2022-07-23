@@ -24,6 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
         backbtn = findViewById(R.id.backbtn);
         btnAssig = findViewById(R.id.btn_Assig);
         btnMainScreen = findViewById(R.id.btn_MainScreen);

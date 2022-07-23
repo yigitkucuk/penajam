@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@drawable/gradient1"
+    tools:context=".EditProfileActivity"
+    tools:showIn="@layout/activity_edit_profile">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/baseline_account_circle_24"
+            android:padding="5dp"
+            app:shapeAppearanceOverlay="@style/Circular"
+            app:strokeColor="@color/transparan"
+
+            app:strokeWidth="4dp" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/edit_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_below="@id/profile_icon"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_corners"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="Edit Profile Picture"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/chart3"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_below="@id/edit_profile"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/round_back_whiite10_20"
+            android:orientation="vertical"
+            android:padding="15dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/rounded_corners"
+            android:hint="Set your Location:"
+            android:layout_below="@id/edit_profile"
+            android:inputType="text"
+            app:counterTextColor="@color/white"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/transparan" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/instruments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="25dp"
+            android:layout_below="@id/location"
+            android:background="@drawable/rounded_corners"
+            android:hint="Enter your playing instruments:"
+            app:hintAnimationEnabled="false"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" >
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@color/transparan"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="25dp"
+            android:layout_below="@id/instruments"
+            android:background="@drawable/rounded_corners"
+            android:hint="Enter your description:"
+            app:hintAnimationEnabled="false"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" >
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/transparan"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/chart3"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/round_back_whiite10_20"
+            android:orientation="vertical"
+            android:padding="15dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="25dp"
+            android:layout_below="@id/chart3"
+            android:background="@drawable/rounded_corners"
+            android:hint="Enter your new username:"
+            app:hintAnimationEnabled="false"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" >
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/transparan"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/chart2"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_below="@id/chart"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/round_back_whiite10_20"
+            android:orientation="vertical"
+            android:padding="15dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/register_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="25dp"
+            android:layout_below="@id/register_email"
+            android:background="@drawable/rounded_corners"
+            android:hint="Enter your current password:"
+            app:hintAnimationEnabled="false"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" >
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/transparan"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/new_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="25dp"
+            android:layout_below="@id/register_password"
+            android:background="@drawable/rounded_corners"
+            android:hint="Enter your new password:"
+            app:hintAnimationEnabled="false"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" >
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/transparan"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chart2"
+            android:background="@drawable/rounded_corners"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Delete Account :(" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/btnLogout">
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+
+
+</androidx.core.widget.NestedScrollView>

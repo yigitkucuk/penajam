@@ -30,7 +30,7 @@ public class ProfilePageActivity extends AppCompatActivity {
     private ActivityProfilePageBinding binding;
     private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack;
     private VideoView videoView;
-    private TextView textView;
+    private TextView textView, usernameView, locationView, pointView, descriptionView;
     private ArrayList<User> list;
 
 
@@ -68,6 +68,11 @@ public class ProfilePageActivity extends AppCompatActivity {
         videoView.setVideoURI(uri);
 
         textView = (TextView) findViewById(R.id.name);
+        usernameView = (TextView) findViewById(R.id.username);
+        locationView = (TextView) findViewById(R.id.name2);
+        pointView = (TextView) findViewById(R.id.pointView);
+        descriptionView = (TextView) findViewById(R.id.description);
+
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
 
@@ -87,8 +92,13 @@ public class ProfilePageActivity extends AppCompatActivity {
                 for(User u: users) {
 
                     System.out.println(userr.getEmail());
-                    if (u.getEmail().equals( userr.getEmail()))
+                    if (u.getEmail().equals( userr.getEmail())) {
                         textView.setText(u.getRealname());
+                        usernameView.setText(u.getName());
+                        locationView.setText(u.getLocation());
+                        pointView.setText("Point: " + u.getPoint());
+                        descriptionView.setText("Description: " + u.getDescription());
+                    }
                 }
 
             }

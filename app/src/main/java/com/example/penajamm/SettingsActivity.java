@@ -1,14 +1,12 @@
 package com.example.penajamm;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
@@ -70,7 +68,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void goEditProfile() {
-        startActivity(new Intent(SettingsActivity.this, ProfileActivity.class));
+        startActivity(new Intent(SettingsActivity.this, EditProfileActivity.class));
     }
 
     public void goProfile() {

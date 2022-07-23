@@ -134,4 +134,5 @@
     </string>
     <string name="title_activity_profile_page"></string>
     <string name="title_activity_chat">ChatActivity</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
 </resources>

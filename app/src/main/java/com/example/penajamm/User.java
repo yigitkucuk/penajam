@@ -16,6 +16,7 @@ public class User implements Serializable
     private String email;
     private String username;
     private String realname;
+
     private FirebaseUser user;
     private FirebaseAuth auth;
     private ArrayList<Post> userpost;
@@ -23,6 +24,10 @@ public class User implements Serializable
     private int point;
     private int totalpoint = 0;
     private int number = 0;
+
+    private String location;
+    private String instruments;
+    private String description;
 
 
     public User(){
@@ -37,6 +42,33 @@ public class User implements Serializable
         this.realname = realname;
         this.userpost = new ArrayList<Post>();
         this.point = 0;
+        this.location = "";
+        this.instruments = "";
+        this.description = "Description will be here";
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getInstruments() {
+        return this.instruments;
+    }
+
+    public void setInstruments(String instruments) {
+        this.instruments = instruments;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getPoint() {
@@ -51,6 +83,10 @@ public class User implements Serializable
 
     public String getEmail(){
         return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void addPostForUser(Post post) {

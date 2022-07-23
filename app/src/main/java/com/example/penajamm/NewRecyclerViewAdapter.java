@@ -32,7 +32,6 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
 
     public void addPost(Model model){
         mList.add(model);
-        System.out.println("YAYAYAYAYAYAYAYAY");
         notifyDataSetChanged();
     }
 

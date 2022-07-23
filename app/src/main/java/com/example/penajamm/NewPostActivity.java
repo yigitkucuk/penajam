@@ -255,7 +255,7 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
         dialog = dialogbuilder.create();
         dialog.show();
 
-        String uEmail = user.getEmail();
+
         timeStamp = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
 
         backbtn.setOnClickListener(new View.OnClickListener() {
@@ -291,24 +291,54 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
 
                 }
 
-                newtimer.start();
-                String ttl = title.getEditText().getText().toString();
-                String loc = location.getEditText().getText().toString();
-                String msg = description.getEditText().getText().toString();
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                FirebaseUser userr = auth.getCurrentUser();
+                ArrayList<User> users = new ArrayList<>();
 
-                pst = new Post(uEmail, ttl, loc, msg, timeStamp);
-
-
-                db.child("Posts").push().setValue(pst).addOnCompleteListener(new OnCompleteListener<Void>() {
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        title.getEditText().setText("");
-                        location.getEditText().setText("");
-                        if (description != null)
-                            description.getEditText().setText("");
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
+                            User user = dataSnapshot.getValue(User.class);
+                            users.add(user);
+                        }
+
+                        for(User u: users) {
+
+                            System.out.println(userr.getEmail());
+                            if (u.getEmail().equals( userr.getEmail())) {
+                                newtimer.start();
+                                String uName = u.getRealname();
+                                String ttl = title.getEditText().getText().toString();
+                                String loc = location.getEditText().getText().toString();
+                                String msg = description.getEditText().getText().toString();
+
+                                pst = new Post(uName, ttl, loc, msg, timeStamp);
+
+
+                                db.child("Posts").push().setValue(pst).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        title.getEditText().setText("");
+                                        location.getEditText().setText("");
+                                        if (description != null)
+                                            description.getEditText().setText("");
+
+                                    }
+
+                                });
+                            }
+
+                        }
 
                     }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
                 });
 
                 dialog.dismiss();
