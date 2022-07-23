@@ -49,6 +49,10 @@ public class User implements Serializable
         this.point = this.totalpoint / this.number;
     }
 
+    public String getEmail(){
+        return this.email;
+    }
+
     public void addPostForUser(Post post) {
         this.userpost.add(post);
     }
@@ -99,12 +103,13 @@ public class User implements Serializable
         return false;
     }
 
+    /*
     public boolean isEqual(String email) {
 
-        if (this.email == email)
-            return true;
-        return false;
+        return this.getUser().getEmail().equals(email);
     }
+
+     */
 
 
 }

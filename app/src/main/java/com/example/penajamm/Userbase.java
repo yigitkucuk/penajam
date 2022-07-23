@@ -17,20 +17,24 @@ public class Userbase
 {
     private DatabaseReference databaseReference, reference;
     private ArrayList<User> users;
+    private ArrayList<User> setUser;
     private FirebaseDatabase db;
     public Userbase()
     {
-        databaseReference = FirebaseDatabase.getInstance().getReference(User.class.getSimpleName());
         setUsers();
+        databaseReference = FirebaseDatabase.getInstance().getReference(User.class.getSimpleName());
+
     }
 
     public User getSpecificUser(String email) {
-        User user = new User();
         for(User u: this.users) {
-            if(u.isEqual(email)) {
-                user = u;
-                return user;
+            if(u.getEmail().equals(email)){
+                return u;
             }
+        }
+
+        for(User u: setUser){
+            System.out.println(u.getRealname());
         }
         return null;
     }
@@ -39,13 +43,11 @@ public class Userbase
         return this.users;
     }
 
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
-    }
+
     public void setUsers() {
         reference = FirebaseDatabase.getInstance().getReference("User");
 
-        ArrayList<User> u = new ArrayList<>();
+        setUser = new ArrayList<>();
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -53,18 +55,22 @@ public class Userbase
                 for (DataSnapshot dataSnapshot: snapshot.getChildren())
                 {
                     User user = dataSnapshot.getValue(User.class);
-                    u.add(user);
+                    setUser.add(user);
                 }
+
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println("AAAAAAAAAAAAAAAAAAAA");
+
             }
         });
 
-        this.users = u;
+        this.users = setUser;
+        
     }
+
 
     public Task<Void> add(User emp)
     {
