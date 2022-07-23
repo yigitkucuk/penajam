@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
     private StorageReference reference = FirebaseStorage.getInstance().getReference();
     DatabaseReference db;
     TextInputLayout  location, instruments, description;
-    FloatingActionButton send, post;
+    Button send, post;
     Button uploadbtn;
     ImageButton backbtn;
     ImageView firebaseimage;
@@ -71,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.register_password);
         btnRegister = findViewById(R.id.register);
         textLogin = findViewById(R.id.text_login);
+        db = FirebaseDatabase.getInstance().getReference();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,7 +196,7 @@ public class RegisterActivity extends AppCompatActivity {
         dialogbuilder = new AlertDialog.Builder(this);
         final View contactPopupView = getLayoutInflater().inflate(R.layout.activity_profile, null);
         backbtn = (ImageButton) contactPopupView.findViewById(R.id.backbtn);
-        //send = (FloatingActionButton) contactPopupView.findViewById(R.id.edit_profile);
+        send = (Button) contactPopupView.findViewById(R.id.edit_profile);
         instruments = (TextInputLayout) contactPopupView.findViewById(R.id.instruments);
         location = (TextInputLayout) contactPopupView.findViewById(R.id.location);
         description = (TextInputLayout) contactPopupView.findViewById(R.id.description);
@@ -221,15 +222,15 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                /*if (imageUri != null){
+                if (imageUri != null){
                     uploadToFirebase(imageUri);
                 }
                 else{
-                    Model model = new Model("https://firebasestorage.googleapis.com/v0/b/penajam-b.appspot.com/o/Screen%20Shot%202022-07-22%20at%2002.32.43.png?alt=media&token=a172ba22-02cf-434d-8784-47ab2a7eaf83");
+                    ProfileModel model = new ProfileModel("https://firebasestorage.googleapis.com/v0/b/penajam-b.appspot.com/o/Screen%20Shot%202022-07-23%20at%2021.23.41.png?alt=media&token=506fe97e-b024-46f4-914d-360e4f3cf389");
                     String modelId = db.push().getKey();
-                    db.child("Image").child(modelId).setValue(model);
+                    db.child("ProfileImage").child(modelId).setValue(model);
 
-                } */
+                }
 
 
 
@@ -243,7 +244,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        /*send.setOnClickListener(new View.OnClickListener() {
+        send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent galleryIntent = new Intent();
@@ -251,7 +252,7 @@ public class RegisterActivity extends AppCompatActivity {
                 galleryIntent.setType("image/*");
                 startActivityForResult(galleryIntent , 2);
             }
-        });*/
+        });
     }
 
     @Override
@@ -276,9 +277,9 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
 
-                        Model model = new Model(uri.toString());
+                        ProfileModel model = new ProfileModel(uri.toString());
                         String modelId = db.push().getKey();
-                        db.child("Image").child(modelId).setValue(model);
+                        db.child("ProfileImage").child(modelId).setValue(model);
 
 
                         Toast.makeText(RegisterActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
