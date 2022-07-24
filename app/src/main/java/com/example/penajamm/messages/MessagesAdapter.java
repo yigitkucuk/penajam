@@ -1,15 +1,18 @@
 package com.example.penajamm.messages;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.penajamm.R;
+import com.example.penajamm.chat.Chat;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -53,6 +56,19 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
         }
 
+        holder.prootLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(pcontext, Chat.class);
+                intent.putExtra("pname",list2.getpname());
+                intent.putExtra("pprofile_pic", list2.getpprofilePic());
+
+                pcontext.startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
@@ -67,6 +83,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         private TextView pname;
         private TextView plastMessage;
         private TextView punseenMessages;
+        private LinearLayout prootLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,7 +92,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             pname = itemView.findViewById(R.id.pname);
             plastMessage = itemView.findViewById(R.id.plastMessage);
             punseenMessages = itemView.findViewById(R.id.punseenMessages);
-
+            prootLayout = itemView.findViewById(R.id.prootLayout);
         }
     }
 }

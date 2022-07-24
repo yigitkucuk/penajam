@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 
 import com.example.penajamm.messages.MessagesAdapter;
 import com.example.penajamm.messages.MessagesList;
@@ -91,8 +92,42 @@ public class PrivateChatroomActivity extends AppCompatActivity {
                     if(!getUsername.equals(pusername)) {
                         final String getName = dataSnapshot.child("realname").getValue(String.class);
                         final String getProfilePic = dataSnapshot.child("imageUri").getValue(String.class);
+                        String plastMessage = "";
+                        int punseenMessages = 0;
 
-                        MessagesList pMessagesList = new MessagesList(getName,getUsername, "", getProfilePic,0);
+                        databaseReference.child("pchat").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                int pgetChatCounts = (int) snapshot.getChildrenCount();
+
+                                if(pgetChatCounts > 0) {
+
+                                    for(DataSnapshot dataSnapshot1: snapshot.getChildren()) {
+
+                                        final String pgetKey = dataSnapshot1.getKey();
+                                        final String pgetUserOne = dataSnapshot1.child("puser_1").getValue(String.class);
+                                        final String pgetUserTwo = dataSnapshot1.child("puser_2").getValue(String.class);
+
+                                        if((pgetUserOne.equals(getUsername) && pgetUserTwo.equals(pusername)) || (pgetUserOne.equals(pusername) && pgetUserTwo.equals(getUsername))) {
+
+                                            for (DataSnapshot chatDataSnapshot: dataSnapshot1.child("messages").getChildren()) {
+
+                                                final String pgetMessageKey = chatDataSnapshot.getKey();
+                                                final long pgetLastSeenMessage = MemoryData.getLastMsgTS(PrivateChatroomActivity.this,pgetKey);
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        MessagesList pMessagesList = new MessagesList(getName,getUsername, plastMessage, getProfilePic,punseenMessages);
                         messagesLists.add(pMessagesList);
                     }
                 }
