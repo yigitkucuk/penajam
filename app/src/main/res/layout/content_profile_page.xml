@@ -65,17 +65,31 @@
             android:layout_marginEnd="20dp">
 
             <TextView
-                android:id="@+id/instrumentsView"
-                android:layout_width="match_parent"
+                android:id="@+id/instrument"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="110dp"
+                android:layout_toRightOf="@id/insImage"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
                 android:text="Instruments:"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/instrumentsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/instrument"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:text="Instruments:"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                 />
+
             <ImageView
+                android:id="@+id/insImage"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
@@ -96,17 +110,31 @@
             android:layout_marginEnd="20dp">
 
             <TextView
-                android:id="@+id/pointView"
-                android:layout_width="match_parent"
+                android:id="@+id/points"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginStart="110dp"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@id/pImage"
                 android:text="Point:"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/pointView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@id/points"
+                android:text="Point:"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                 />
+
             <ImageView
+                android:id="@+id/pImage"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
@@ -128,16 +156,30 @@
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginStart="110dp"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@id/desImage"
                 android:text="Description:"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/descriptionView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@id/description"
+                android:text="Description:"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                 />
+
             <ImageView
+                android:id="@+id/desImage"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"

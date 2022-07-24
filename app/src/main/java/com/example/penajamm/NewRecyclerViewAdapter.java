@@ -53,6 +53,8 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
 
         if(mList.size() != 0 ){
             Glide.with(context).load(mList.get(position).getImageUri()).into(holder.photo);
+
+            Glide.with(context).load(list.get(position).getImageUrl()).into(holder.profileicon);
         }
 
 
@@ -73,16 +75,18 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         TextView dateTime;
         TextView postLocation;
         ImageView photo;
+        ImageView profileicon;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             username = itemView.findViewById(R.id.user_name);
             postTitle = itemView.findViewById(R.id.user_title);
-            postLocation = itemView.findViewById(R.id.user_location);
+            postLocation = itemView.findViewById(R.id.user_point);
             postDescription = itemView.findViewById(R.id.user_message);
             dateTime = itemView.findViewById(R.id.user_message_date_time);
             photo = (ImageView) itemView.findViewById(R.id.photo);
+            profileicon = (ImageView) itemView.findViewById(R.id.profile_icon);
         }
     }
 }

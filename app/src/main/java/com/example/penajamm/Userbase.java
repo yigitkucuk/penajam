@@ -19,10 +19,10 @@ public class Userbase
     private ArrayList<User> users;
     private ArrayList<User> setUser;
     private FirebaseDatabase db;
-    public Userbase()
+    public Userbase(String path)
     {
         setUsers();
-        databaseReference = FirebaseDatabase.getInstance().getReference(User.class.getSimpleName());
+        databaseReference = FirebaseDatabase.getInstance().getReference(path);
 
     }
 
@@ -80,6 +80,11 @@ public class Userbase
     public Task<Void> update(String key, HashMap<String ,Object> hashMap)
     {
         return databaseReference.child(key).updateChildren(hashMap);
+    }
+
+    public Task<Void> update2(String key, User emp)
+    {
+        return databaseReference.child(key).setValue(emp);
     }
 
     public DatabaseReference getDatabaseReference() {

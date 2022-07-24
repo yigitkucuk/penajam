@@ -140,7 +140,7 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        Userbase dao = new Userbase();
+        Userbase dao = new Userbase("User");
 
 
         String uId = user.getUid();
@@ -310,12 +310,13 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
                             System.out.println(userr.getEmail());
                             if (u.getEmail().equals( userr.getEmail())) {
                                 newtimer.start();
+                                String pIU = u.getImageUri();
                                 String uName = u.getRealname();
                                 String ttl = title.getEditText().getText().toString();
                                 String loc = location.getEditText().getText().toString();
                                 String msg = description.getEditText().getText().toString();
 
-                                pst = new Post(uName, ttl, loc, msg, timeStamp);
+                                pst = new Post(pIU, uName, ttl, loc, msg, timeStamp);
 
 
                                 db.child("Posts").push().setValue(pst).addOnCompleteListener(new OnCompleteListener<Void>() {
