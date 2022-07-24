@@ -34,9 +34,9 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
 
         btnList.setOnClickListener(view -> goToUsers());
 
-
         btnLogout.setOnClickListener(view -> logout());
 
+        btnMainScreen.setOnClickListener(view -> goToMainPage());
 
         btnSettings.setOnClickListener(view -> goToSettings());
 
@@ -66,7 +66,7 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
     }
 
     public void goToMainPage() {
-        startActivity(new Intent(MainScreenActivity.this, ChangePasswordActivity.class));
+        startActivity(new Intent(MainScreenActivity.this, MainScreenActivity.class));
     }
 
     public void goToUsers() {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,10 +15,12 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.core.view.Change;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
     private TextView changeText;
+    private TextView noChangeText;
     private FirebaseAuth qAuth;
 
 
@@ -28,6 +31,14 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         qAuth = FirebaseAuth.getInstance();
         changeText = findViewById(R.id.change_button);
+        noChangeText = findViewById(R.id.change_text);
+
+        noChangeText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ChangePasswordActivity.this, EditProfileActivity.class));
+            }
+        });
 
         changeText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +47,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 EditText resetMail = new EditText(v.getContext());
                 AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
                 passwordResetDialog.setTitle("Change Password?");
-                //passwordResetDialog.setMessage("Enter your e-mail to receive reset link.");
+
                 passwordResetDialog.setView(resetMail);
 
                 passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
