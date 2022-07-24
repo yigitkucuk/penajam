@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingsActivity extends AppCompatActivity implements Navigation{
 
-    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile, btnList ;
+    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
     private Button btnLogout, btnEditProfile;
     private SwitchMaterial switchMaterial, switchMaterial2, switchMaterial3 ;
 
@@ -34,7 +34,6 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
         switchMaterial2 = findViewById(R.id.switch_material2);
         switchMaterial3 = findViewById(R.id.switch_material3);
         btnProfile = findViewById(R.id.btn_Profile);
-        btnList = findViewById(R.id.btnList);
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
@@ -47,8 +46,6 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
         btnMainScreen.setOnClickListener(view -> goToMainPage());
 
         btnEditProfile.setOnClickListener(view -> goToEditProfile());
-
-        btnList.setOnClickListener(view -> goToUsers());
 
         //switchMaterial.isChecked = true;
         switchMaterial.setOnClickListener(view -> switchButton());
@@ -91,7 +88,7 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
     }
 
     public void goToSettings() {
-        startActivity(new Intent(SettingsActivity.this, SettingsActivity.class));
+        startActivity(new Intent(SettingsActivity.this, ChatActivity.class));
     }
 
     public void goToNewPosts() {

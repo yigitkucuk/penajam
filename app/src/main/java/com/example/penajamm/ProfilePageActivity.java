@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class ProfilePageActivity extends AppCompatActivity implements Navigation{
 
     private ActivityProfilePageBinding binding;
-    private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack, btnList;
+    private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack;
     private VideoView videoView;
     private TextView textView, usernameView, locationView, pointView, descriptionView, instrumentsView;
     private ArrayList<User> list;
@@ -61,7 +61,6 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
 
-        btnList.findViewById(R.id.btnList);
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnAssig = findViewById(R.id.btn_Assig);
@@ -158,8 +157,6 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         btnMainScreen.setOnClickListener(view -> goToMainPage());
 
         btnAssig.setOnClickListener(view -> goToNewPosts());
-
-        btnList.setOnClickListener(view -> goToUsers());
     }
 
     public void goToProfilePage() {
@@ -167,7 +164,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
     }
 
     public void goToSettings() {
-        startActivity(new Intent(ProfilePageActivity.this, SettingsActivity.class));
+        startActivity(new Intent(ProfilePageActivity.this, ChatActivity.class));
     }
 
     public void goToNewPosts() {
