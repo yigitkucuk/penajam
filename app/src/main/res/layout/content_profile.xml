@@ -130,8 +130,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
         <LinearLayout
             android:id="@+id/chart"
             android:layout_width="match_parent"
@@ -168,79 +166,31 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:id="@+id/chart2"
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:layout_below="@id/chart"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/round_back_whiite10_20"
-            android:orientation="vertical"
-            android:padding="15dp" />
 
 
-        //for current password
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/register_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="25dp"
-            android:layout_below="@id/register_email"
-            android:background="@drawable/rounded_corners"
-            android:hint="Enter your current password:"
-            app:hintAnimationEnabled="false"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" >
-            <com.google.android.material.textfield.TextInputEditText
 
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/white"
-                android:background="@color/transparan"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        //for new password
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/new_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="25dp"
-            android:layout_below="@id/register_password"
-            android:background="@drawable/rounded_corners"
-            android:hint="Enter your new password:"
-            app:hintAnimationEnabled="false"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" >
-            <com.google.android.material.textfield.TextInputEditText
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/white"
-                android:background="@color/transparan"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnDeleteAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/chart2"
+            android:layout_below="@id/btnChangePassword"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_corners"
             android:text="Delete Account :(" />
+
+        <Button
+            android:id="@+id/btnChangePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chart"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners"
+            android:text="Change password" />
 
         <ProgressBar
             android:id="@+id/progressBar"

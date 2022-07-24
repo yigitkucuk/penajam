@@ -17,6 +17,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView imageView;
     private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
 
+
     static final int SELECT_IMAGE = 12;
     Uri imageUri;
     @Override

@@ -36,6 +36,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private FirebaseUser firebaseUser;
     private FirebaseAuth firebaseAuth;
     private TextView userEmail;
+    private Button changePassword;
 
 
 
@@ -52,6 +53,7 @@ public class EditProfileActivity extends AppCompatActivity {
         deleteAccount = findViewById(R.id.btnDeleteAccount);
         progressBar = findViewById(R.id.progressBar);
         userEmail = findViewById(R.id.tvUserEmail);
+        changePassword = findViewById(R.id.btnChangePassword);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -62,6 +64,13 @@ public class EditProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
         toolBarLayout.setTitle(getTitle());
+
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditProfileActivity.this, ChangePasswordActivity.class));
+            }
+        });
 
         deleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
