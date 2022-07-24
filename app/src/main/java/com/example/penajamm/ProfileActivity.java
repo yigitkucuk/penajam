@@ -12,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements Navigation {
     Button selectImageBtn;
     ImageView imageView;
-    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
+    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile, btnList ;
 
     static final int SELECT_IMAGE = 12;
     Uri imageUri;
@@ -29,15 +29,17 @@ public class ProfileActivity extends AppCompatActivity {
         btnAssig = findViewById(R.id.btn_Assig);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
+        btnList = findViewById(R.id.btnList);
 
-        btnProfile.setOnClickListener(view -> goProfile());
+        btnProfile.setOnClickListener(view -> goToProfilePage());
 
+        btnAssig.setOnClickListener(view -> goToNewPosts());
 
-        btnAssig.setOnClickListener(view -> goAssig());
+        backbtn.setOnClickListener(view -> goToSettings());
 
-        backbtn.setOnClickListener(view -> goSett());
+        btnMainScreen.setOnClickListener(view -> goToMainPage());
 
-        btnMainScreen.setOnClickListener(view -> goMain());
+        btnList.setOnClickListener(view -> goToUsers());
 
         selectImageBtn = findViewById(R.id.edit_profile);
         imageView = findViewById(R.id.profile_icon);
@@ -61,19 +63,25 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-    public void goMain() {
-        startActivity(new Intent(ProfileActivity.this, MainScreenActivity.class));
-    }
-    public void goAssig() {
-        startActivity(new Intent(ProfileActivity.this, ScrollingActivity.class));
-    }
-
-    public void goProfile() {
+    public void goToProfilePage() {
         startActivity(new Intent(ProfileActivity.this, ProfilePageActivity.class));
     }
 
-    public void goSett() {
+    public void goToSettings() {
         startActivity(new Intent(ProfileActivity.this, SettingsActivity.class));
     }
 
+    public void goToNewPosts() {
+        startActivity(new Intent(ProfileActivity.this, NewPostActivity.class));
+    }
+
+    public void goToMainPage() {
+        startActivity(new Intent(ProfileActivity.this, MainScreenActivity.class));
+    }
+
+    public void goToUsers() {
+        startActivity(new Intent(ProfileActivity.this, Userlist.class));
+    }
+
 }
+

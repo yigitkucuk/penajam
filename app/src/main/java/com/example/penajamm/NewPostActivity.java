@@ -48,7 +48,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 public class NewPostActivity extends AppCompatActivity implements Navigation {
-    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile;
+    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnList;
 
     NewRecyclerViewAdapter adapter;
     imageRecyclerView adapt;
@@ -107,11 +107,14 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnBack = findViewById(R.id.backbtn);
+        btnList = findViewById(R.id.btnList);
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { goToProfilePage(); }
         });
+
+        btnList.setOnClickListener(view -> goToUsers());
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -415,7 +418,7 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
     }
 
     public void goToSettings() {
-        startActivity(new Intent(NewPostActivity.this, ChatActivity.class));
+        startActivity(new Intent(NewPostActivity.this, SettingsActivity.class));
     }
 
     public void goToNewPosts() {

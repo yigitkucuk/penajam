@@ -34,9 +34,7 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
 
         btnList.setOnClickListener(view -> goToUsers());
 
-
         btnLogout.setOnClickListener(view -> logout());
-
 
         btnSettings.setOnClickListener(view -> goToSettings());
 
@@ -58,7 +56,7 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
     }
 
     public void goToSettings() {
-        startActivity(new Intent(MainScreenActivity.this, ChatActivity.class));
+        startActivity(new Intent(MainScreenActivity.this, SettingsActivity.class));
     }
 
     public void goToNewPosts() {

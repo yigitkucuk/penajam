@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class Userlist extends AppCompatActivity implements Navigation {
 
-    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig;
+    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig, btnList;
 
     RecyclerView recyclerView;
     ArrayList<User> list;
@@ -44,6 +44,7 @@ public class Userlist extends AppCompatActivity implements Navigation {
         btnProfile = findViewById(R.id.btn_Profile);
         btnAssig = findViewById(R.id.btn_Assig);
         btnBack = findViewById(R.id.backbtn);
+        btnList = findViewById(R.id.btnList);
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +72,8 @@ public class Userlist extends AppCompatActivity implements Navigation {
                 goToMainPage();
             }
         });
+
+        btnList.setOnClickListener(view -> goToUsers());
 
         recyclerView = findViewById(R.id.recycleview);
         databaseReference = FirebaseDatabase.getInstance().getReference("User");

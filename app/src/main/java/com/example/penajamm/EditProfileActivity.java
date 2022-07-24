@@ -18,15 +18,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class EditProfileActivity extends AppCompatActivity {
 
     private ActivityEditProfileBinding binding;
     private FirebaseAuth cAuth;
-    private TextView cforgotTextLink;
-
-
+    private TextInputLayout cforgotTextLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +33,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
         binding = ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        cforgotTextLink = findViewById(R.id.forgotPassword);
 
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
