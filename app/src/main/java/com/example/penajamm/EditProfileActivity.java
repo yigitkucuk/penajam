@@ -48,7 +48,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         binding = ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
+
         deleteAccount = findViewById(R.id.btnDeleteAccount);
         progressBar = findViewById(R.id.progressBar);
         userEmail = findViewById(R.id.tvUserEmail);
