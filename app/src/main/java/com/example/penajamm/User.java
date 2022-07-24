@@ -24,6 +24,7 @@ public class User implements Serializable
     private int totalpoint = 0;
     private int number = 0;
     private String imageUri;
+    private String videoUri;
     private String location;
     private String instruments;
     private String description;
@@ -42,9 +43,18 @@ public class User implements Serializable
         this.userpost = new ArrayList<Post>();
         this.point = 0;
         this.imageUri = "";
+        this.videoUri = "";
         this.location = "";
         this.instruments = "";
         this.description = "Description will be here";
+    }
+
+    public String getVideoUri() {
+        return videoUri;
+    }
+
+    public void setVideoUri(String videoUri) {
+        this.videoUri = videoUri;
     }
 
     public String getImageUri() {

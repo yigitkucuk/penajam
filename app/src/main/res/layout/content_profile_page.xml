@@ -190,17 +190,51 @@
 
         </RelativeLayout>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uploadbtn"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/instruments2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corners"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="Upload Brochure"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/sendbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/uploadbtn"
+            android:layout_marginTop="310dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0dp"
+            android:backgroundTint="#1ED760"
+            app:srcCompat="@drawable/ic_baseline_send_24" />
+
         <VideoView
             android:id="@+id/videoView"
             android:accessibilityPaneTitle="Video"
+            android:soundEffectsEnabled="true"
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_below="@id/instruments2"
-            android:layout_marginTop="20dp"
+            android:layout_height="300dp"
+            android:layout_below="@id/uploadbtn"
+            android:layout_marginTop="40dp"
             android:foregroundGravity="center"
             android:layout_centerHorizontal="true">
 
         </VideoView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/videoView">
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
