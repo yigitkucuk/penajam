@@ -52,4 +52,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
     implementation 'com.google.firebase:firebase-firestore:17.0.4'
     implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }

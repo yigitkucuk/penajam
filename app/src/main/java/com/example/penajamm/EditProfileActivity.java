@@ -48,8 +48,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         binding = ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        cforgotTextLink = findViewById(R.id.forgotPassword);
+        
         deleteAccount = findViewById(R.id.btnDeleteAccount);
         progressBar = findViewById(R.id.progressBar);
         userEmail = findViewById(R.id.tvUserEmail);
@@ -129,48 +128,6 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
-        cforgotTextLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                EditText resetMail = new EditText(v.getContext());
-                AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
-                passwordResetDialog.setTitle("Reset Password?");
-                passwordResetDialog.setMessage("Enter your e-mail to receive reset link.");
-                passwordResetDialog.setView(resetMail);
-
-                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        String mail = resetMail.getText().toString();
-                        cAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-
-                                Toast.makeText(EditProfileActivity.this, "Reset link sent to your email.", Toast.LENGTH_SHORT).show();
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-
-                                Toast.makeText(EditProfileActivity.this, "Error! Reset link is not sent." + e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                            }
-                        });
-                    }
-                });
-
-                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-
-                passwordResetDialog.create().show();
-            }
-        });
     }
     }
