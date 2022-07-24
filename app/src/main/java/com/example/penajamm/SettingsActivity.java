@@ -1,7 +1,10 @@
 package com.example.penajamm;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -52,7 +55,28 @@ public class SettingsActivity extends AppCompatActivity {
         switchMaterial2.setOnClickListener(view -> switchButton());
 
         //switchMaterial.isChecked = true;
-        switchMaterial3.setOnClickListener(view -> switchButton());
+        switchMaterial3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(switchMaterial3.isSelected()){
+                    unmute();
+                }else{
+                    mute();
+                }
+            }
+        });
+    }
+
+    private void mute() {
+        //mute audio
+        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
+    }
+
+    public void unmute() {
+        //unmute audio
+        AudioManager amanager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        amanager.setStreamMute(AudioManager.STREAM_NOTIFICATION, false);
     }
 
     public void logout() {
