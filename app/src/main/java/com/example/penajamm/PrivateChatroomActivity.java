@@ -18,6 +18,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class PrivateChatroomActivity extends AppCompatActivity {
 
     private final List<MessagesList> messagesLists = new ArrayList<>();
