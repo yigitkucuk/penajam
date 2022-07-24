@@ -181,6 +181,8 @@
             android:orientation="vertical"
             android:padding="15dp" />
 
+
+        //for current password
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_password"
             android:layout_width="match_parent"
@@ -204,6 +206,8 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        //for new password
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/new_password"
             android:layout_width="match_parent"
