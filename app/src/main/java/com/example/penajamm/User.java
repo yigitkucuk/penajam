@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class User implements Serializable
 {
 
-
     @Exclude
     private String key;
     private String email;

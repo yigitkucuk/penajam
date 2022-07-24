@@ -14,7 +14,7 @@ public class MainScreenActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Button btnLogout;
-    private Button btnList;
+    private ImageButton btnList;
     private ImageButton btnAssig, btnSettings, btnMainScreen, btnProfile;
 
     @Override
