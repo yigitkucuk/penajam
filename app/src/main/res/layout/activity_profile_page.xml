@@ -45,7 +45,8 @@
 
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/defaulthuman"
+                android:src="@drawable/defaultpp"
+
                 android:padding="5dp"
                 app:shapeAppearanceOverlay="@style/Circular"
                 app:strokeColor="@color/transparan"

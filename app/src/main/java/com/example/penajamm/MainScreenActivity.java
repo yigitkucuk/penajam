@@ -58,7 +58,7 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
     }
 
     public void goToSettings() {
-        startActivity(new Intent(MainScreenActivity.this, ChatActivity.class));
+        startActivity(new Intent(MainScreenActivity.this, SettingsActivity.class));
     }
 
     public void goToNewPosts() {

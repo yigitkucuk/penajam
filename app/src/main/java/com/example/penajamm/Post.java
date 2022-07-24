@@ -9,63 +9,30 @@ public class Post {
     private String dateTime;
     private String postLocation;
     private Uri photo;
-    private String imageUrl;
+    private String profileImageUrl;
+
     public Post(){
 
     }
 
-    public Post(String imageUrl){
-        this.imageUrl = imageUrl;
-    }
-    public Post(String userEmail, String postTitle, String postLocation, String postDescription, String dateTime){
+    public Post(String profileImageUrl, String userEmail, String postTitle, String postLocation, String postDescription, String dateTime){
         this.userEmail = userEmail;
         this.postTitle = postTitle;
         this.dateTime = dateTime;
         this.postDescription = postDescription;
         this.postLocation = postLocation;
-        setImageUrl();
+        this.profileImageUrl = profileImageUrl;
 
     }
 
-    public Post(String userEmail, String postTitle, String postLocation, String postDescription, String dateTime, String imageUrl){
-        this.userEmail = userEmail;
-        this.postTitle = postTitle;
-        this.dateTime = dateTime;
-        this.postDescription = postDescription;
-        this.postLocation = postLocation;
-        this.imageUrl = imageUrl;
-        setImageUrl(imageUrl);
-
-    }
-
-    public Post(String userEmail, String postTitle, String postLocation, String postDescription, String dateTime, Uri photo){
-        this.userEmail = userEmail;
-        this.postTitle = postTitle;
-        this.dateTime = dateTime;
-        this.postDescription = postDescription;
-        this.postLocation = postLocation;
-        setPhoto(photo);
-
-    }
 
     public String getImageUrl() {
-        return imageUrl;
+        return this.profileImageUrl;
     }
-    private void setImageUrl() {
-        this.imageUrl = "";
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    private void setImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 
-    private void setPhoto() {
-        this.photo = null;
-    }
-
-    public void setPhoto(Uri photo) {
-        this.photo = photo;
-    }
 
     public String getUserEmail(){
         return userEmail;

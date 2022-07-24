@@ -50,7 +50,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
 
-        Userbase userbase = new Userbase();
+        Userbase userbase = new Userbase("User");
 
         list = userbase.getUsers();
         for (User u: list) {
@@ -75,7 +75,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         instrumentsView = (TextView) findViewById(R.id.instrumentsView);
         locationView = (TextView) findViewById(R.id.name2);
         pointView = (TextView) findViewById(R.id.pointView);
-        descriptionView = (TextView) findViewById(R.id.description);
+        descriptionView = (TextView) findViewById(R.id.descriptionView);
         profileicon = (ShapeableImageView) findViewById(R.id.profile_icon);
 
 
@@ -85,7 +85,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser userr = auth.getCurrentUser();
         ArrayList<User> users = new ArrayList<>();
-        ArrayList<ProfileModel> profileimages = new ArrayList<>();
+
         
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -97,24 +97,18 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
                     users.add(user);
                 }
 
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-                    ProfileModel model = dataSnapshot.getValue(ProfileModel.class);
-                    profileimages.add(model);
-                }
-
                 for(User u: users) {
 
                     System.out.println(userr.getEmail());
                     if (u.getEmail().equals( userr.getEmail())) {
-                        System.out.println(profileimages.get(0).getImageUri());
-                        if(profileimages.get(0).getImageUri() != null)
-                            Glide.with(ProfilePageActivity.this).load(profileimages.get(0).getImageUri()).into(profileicon);
+
+                        Glide.with(ProfilePageActivity.this).load(u.getImageUri()).into(profileicon);
                         textView.setText(u.getRealname());
                         usernameView.setText(u.getName());
                         locationView.setText(u.getLocation());
-                        instrumentsView.setText("Instruments: " + u.getInstruments());
-                        pointView.setText("Point: " + u.getPoint());
-                        descriptionView.setText("Description: " + u.getDescription());
+                        instrumentsView.setText(u.getInstruments());
+                        pointView.setText("" + u.getPoint());
+                        descriptionView.setText(u.getDescription());
                     }
                 }
 
@@ -126,24 +120,6 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
             }
         });
 
-        reference2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
-                    System.out.println("c");
-                    ProfileModel model = dataSnapshot.getValue(ProfileModel.class);
-                    profileimages.add(model);
-                }
-                System.out.println(profileimages.get(0).getImageUri());
-                if(profileimages.get(0).getImageUri() != null)
-                    Glide.with(ProfilePageActivity.this).load(profileimages.get(0).getImageUri()).into(profileicon);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
 
         MediaController mediaController = new MediaController(this);
@@ -164,7 +140,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
     }
 
     public void goToSettings() {
-        startActivity(new Intent(ProfilePageActivity.this, ChatActivity.class));
+        startActivity(new Intent(ProfilePageActivity.this, SettingsActivity.class));
     }
 
     public void goToNewPosts() {

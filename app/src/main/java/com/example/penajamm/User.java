@@ -23,7 +23,7 @@ public class User implements Serializable
     private int point;
     private int totalpoint = 0;
     private int number = 0;
-
+    private String imageUri;
     private String location;
     private String instruments;
     private String description;
@@ -41,9 +41,18 @@ public class User implements Serializable
         this.realname = realname;
         this.userpost = new ArrayList<Post>();
         this.point = 0;
+        this.imageUri = "";
         this.location = "";
         this.instruments = "";
         this.description = "Description will be here";
+    }
+
+    public String getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     public String getLocation() {

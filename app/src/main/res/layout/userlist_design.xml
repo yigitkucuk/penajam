@@ -36,12 +36,12 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profile_icon"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
             android:padding="5dp"
-            android:src="@drawable/defaulthuman"
+            android:src="@drawable/defaultpp"
             app:shapeAppearanceOverlay="@style/Circular"
             app:strokeColor="@color/transparan"
             app:strokeWidth="4dp"
@@ -55,10 +55,26 @@
             android:gravity="fill_vertical"
             android:text="username"
             android:textSize="15dp"
+            android:layout_marginTop="0dp"
             android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@id/profile_icon"
             app:layout_constraintTop_toBottomOf="@id/user_realname"
-            tools:layout_editor_absoluteY="10dp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/user_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="0dp"
+            android:gravity="fill_vertical"
+            android:text="Location"
+            android:textSize="15dp"
+            android:textColor="#989898"
+            app:layout_constraintStart_toEndOf="@id/profile_icon"
+            app:layout_constraintTop_toBottomOf="@id/user_name"
+            tools:layout_editor_absoluteY="0dp"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -76,27 +92,79 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/user_location"
+            android:id="@+id/user_instruments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Instruments:"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_icon" />
+
+        <TextView
+            android:id="@+id/instruments"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Point:"
+            android:layout_marginStart="90dp"
+            android:text="Instruments will be seen here!"
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profile_icon" />
 
-
-
         <TextView
-            android:id="@+id/user_message_date_time"
+            android:id="@+id/user_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="17.6.22 8:00AM"
+            android:text="Point:"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/photo" />
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_instruments" />
+
+        <TextView
+            android:id="@+id/point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Point will be seen here"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_marginStart="45dp"
+            app:layout_constraintTop_toBottomOf="@id/user_instruments" />
+
+        <TextView
+            android:id="@+id/user_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Description:"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_point" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="85dp"
+            android:text="Description will be seen here!"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_point" />
+
+
+
+
 
         <ImageView
             android:id="@+id/photo"
@@ -107,7 +175,7 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_location" />
+            app:layout_constraintTop_toBottomOf="@id/user_point" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

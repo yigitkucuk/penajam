@@ -54,7 +54,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="0dp"
             android:padding="5dp"
-            android:src="@drawable/defaulthuman"
+            android:src="@drawable/defaultpp"
             app:shapeAppearanceOverlay="@style/Circular"
             app:strokeColor="@color/transparan"
             app:strokeWidth="4dp"
@@ -86,7 +86,7 @@
             app:layout_constraintTop_toBottomOf="@id/profile_icon" />
 
         <TextView
-            android:id="@+id/user_location"
+            android:id="@+id/user_point"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -105,7 +105,7 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_location" />
+            app:layout_constraintTop_toBottomOf="@id/user_point" />
 
         <TextView
             android:id="@+id/user_message_date_time"

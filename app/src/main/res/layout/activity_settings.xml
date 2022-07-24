@@ -49,7 +49,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="70dp"
         android:padding="5dp"
-        android:src="@drawable/defaulthuman"
+        android:src="@drawable/defaultpp"
         app:shapeAppearanceOverlay="@style/Circular"
         app:strokeColor="@color/transparan"
 

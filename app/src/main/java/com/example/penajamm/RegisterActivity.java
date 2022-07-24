@@ -30,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.storage.FirebaseStorage;
@@ -57,6 +58,8 @@ public class RegisterActivity extends AppCompatActivity {
     ImageButton backbtn;
     ImageView firebaseimage;
     Uri imageUri;
+    Userbase dao = new Userbase("User");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,14 +94,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister.setOnClickListener(v ->
         {
+            register(edit_username,edit_realname);
 
-            createNewPostDiaglog();
 
         });
 
     }
 
-    private void register() {
+    private void register(EditText edit_username, EditText edit_realname) {
         System.out.println("HELLO");
         String user = email.getText().toString().trim();
         String pass = password.getText().toString().trim();
@@ -115,7 +118,7 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(RegisterActivity.this, "User registered succesfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this, VerificationActivity.class));
+                        createNewPostDiaglog(edit_username,edit_realname);
                     } else {
                         Toast.makeText(RegisterActivity.this, "Registration failed", Toast.LENGTH_LONG).show();
                     }
@@ -123,9 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
             });
         }
 
-        final EditText edit_username = findViewById(R.id.register_username);
-        final EditText edit_realname = findViewById(R.id.register_realname);
-        Userbase dao = new Userbase();
+
         User emp_edit = (User) getIntent().getSerializableExtra("EDIT");
         if (emp_edit != null) {
             btnRegister.setText("UPDATE");
@@ -142,15 +143,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                String ins = instruments.getEditText().getText().toString();
-                String loc = location.getEditText().getText().toString();
-                String msg = description.getEditText().getText().toString();
 
                 //pst = new Post(uName, ttl, loc, msg);
                 User emp = new User(email.getText().toString(), edit_username.getText().toString(), edit_realname.getText().toString());
-                emp.setInstruments(ins);
-                emp.setLocation(loc);
-                emp.setDescription(msg);
+
 
                 if (emp_edit == null) {
                     dao.add(emp).addOnSuccessListener(suc ->
@@ -165,9 +161,7 @@ public class RegisterActivity extends AppCompatActivity {
                     hashMap.put("Username", edit_username.getText().toString());
                     hashMap.put("Real Name", edit_realname.getText().toString());
                     hashMap.put("Email", email.getText().toString());
-                    hashMap.put("Location", location.getEditText().getText().toString());
-                    hashMap.put("Instruments", instruments.getEditText().getText().toString());
-                    hashMap.put("Description", description.getEditText().getText().toString());
+
                     dao.update(emp_edit.getKey(), hashMap).addOnSuccessListener(suc ->
                     {
                         Toast.makeText(RegisterActivity.this, "Record is updated", Toast.LENGTH_SHORT).show();
@@ -177,6 +171,8 @@ public class RegisterActivity extends AppCompatActivity {
                     {
                         Toast.makeText(RegisterActivity.this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
                     });
+
+
                 };
 
 
@@ -192,7 +188,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    public void createNewPostDiaglog() {
+    public void createNewPostDiaglog(EditText edit_username, EditText edit_realname) {
         dialogbuilder = new AlertDialog.Builder(this);
         final View contactPopupView = getLayoutInflater().inflate(R.layout.activity_profile, null);
         backbtn = (ImageButton) contactPopupView.findViewById(R.id.backbtn);
@@ -210,6 +206,9 @@ public class RegisterActivity extends AppCompatActivity {
         dialog = dialogbuilder.create();
         dialog.show();
 
+        String ins = instruments.getEditText().getText().toString();
+        String loc = location.getEditText().getText().toString();
+        String msg = description.getEditText().getText().toString();
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,24 +221,50 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
+
                 if (imageUri != null){
                     uploadToFirebase(imageUri);
                 }
                 else{
-                    ProfileModel model = new ProfileModel("https://firebasestorage.googleapis.com/v0/b/penajam-b.appspot.com/o/Screen%20Shot%202022-07-23%20at%2021.23.41.png?alt=media&token=506fe97e-b024-46f4-914d-360e4f3cf389");
-                    String modelId = db.push().getKey();
-                    db.child("ProfileImage").child(modelId).setValue(model);
+                    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("User");
+                    Query query = rootRef.orderByKey().limitToLast(1);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+
+                                System.out.println(childSnapshot.getKey());
+                                String modelId = childSnapshot.getKey();
+                                User usertmp =  childSnapshot.getValue(User.class);
+                                usertmp.setLocation(location.getEditText().getText().toString());
+                                usertmp.setInstruments(instruments.getEditText().getText().toString());
+                                usertmp.setDescription(description.getEditText().getText().toString());
+                                usertmp.setImageUri("https://firebasestorage.googleapis.com/v0/b/penajam-b.appspot.com/o/Screen%20Shot%202022-07-23%20at%2021.23.41.png?alt=media&token=506fe97e-b024-46f4-914d-360e4f3cf389");
+                                dao.update2( modelId, usertmp );
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                    //ProfileModel model = new ProfileModel("https://firebasestorage.googleapis.com/v0/b/penajam-b.appspot.com/o/Screen%20Shot%202022-07-23%20at%2021.23.41.png?alt=media&token=506fe97e-b024-46f4-914d-360e4f3cf389");
+                    //HashMap<String, Object> hashMap2 = new HashMap<>();
+                    //hashMap2.put("ProfileImage", model.getImageUri().toString());
+                    //String modelId = query.getRef().toString();
+                    //dao.update(modelId, hashMap2 );
 
                 }
 
 
 
 
-                register();
+                //register();
 
 
                 dialog.dismiss();
-
+                startActivity(new Intent(RegisterActivity.this, VerificationActivity.class));
 
             }
         });
@@ -250,6 +275,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Intent galleryIntent = new Intent();
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
+
                 startActivityForResult(galleryIntent , 2);
             }
         });
@@ -277,11 +303,29 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
 
-                        ProfileModel model = new ProfileModel(uri.toString());
-                        String modelId = db.push().getKey();
-                        db.child("ProfileImage").child(modelId).setValue(model);
+                        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("User");
+                        Query query = rootRef.orderByKey().limitToLast(1);
+                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
 
+                                    System.out.println(childSnapshot.getKey());
+                                    String modelId = childSnapshot.getKey();
+                                    User usertmp =  childSnapshot.getValue(User.class);
+                                    usertmp.setLocation(location.getEditText().getText().toString());
+                                    usertmp.setInstruments(instruments.getEditText().getText().toString());
+                                    usertmp.setDescription(description.getEditText().getText().toString());
+                                    usertmp.setImageUri(uri.toString());
+                                    dao.update2( modelId, usertmp );
+                                }
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                         Toast.makeText(RegisterActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
                         firebaseimage.setImageURI(null);
                     }
