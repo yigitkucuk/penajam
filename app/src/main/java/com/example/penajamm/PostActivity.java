@@ -13,10 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class PostActivity extends AppCompatActivity implements Navigation {
+public class PostActivity extends AppCompatActivity {
     Button selectImageBtn;
     ImageView imageView;
-    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile, btnList, btnSettings ;
+    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile, btnList ;
 
 
     static final int SELECT_IMAGE = 12;
@@ -31,19 +31,12 @@ public class PostActivity extends AppCompatActivity implements Navigation {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
-        btnSettings = findViewById(R.id.btn_Settings);
 
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToProfilePage(); }
-        });
-
-        btnSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToSettings(); }
         });
 
         btnAssig.setOnClickListener(new View.OnClickListener() {
