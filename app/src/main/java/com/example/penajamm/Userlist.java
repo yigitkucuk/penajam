@@ -47,28 +47,28 @@ public class Userlist extends AppCompatActivity implements Navigation {
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goProfile(); }
+            public void onClick(View view) { goToProfilePage(); }
         });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goSettings(); }
+            public void onClick(View view) { goToSettings(); }
         });
 
         btnMainScreen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goMainScreen(); }
+            public void onClick(View view) { goToMainPage(); }
         });
 
         btnAssig.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goPost(); }
+            public void onClick(View view) { goToNewPosts(); }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goMainScreen();
+                goToMainPage();
             }
         });
 
@@ -99,24 +99,24 @@ public class Userlist extends AppCompatActivity implements Navigation {
 
     }
 
-    @Override
-    public void goSettings() {
-        startActivity(new Intent(Userlist.this, SettingsActivity.class));
-    }
-
-    @Override
-    public void goMainScreen() {
-        startActivity(new Intent(Userlist.this, MainScreenActivity.class));
-    }
-
-    @Override
-    public void goProfile() {
+    public void goToProfilePage() {
         startActivity(new Intent(Userlist.this, ProfilePageActivity.class));
     }
 
-    @Override
-    public void goPost() {
+    public void goToSettings() {
+        startActivity(new Intent(Userlist.this, ChatActivity.class));
+    }
+
+    public void goToNewPosts() {
         startActivity(new Intent(Userlist.this, NewPostActivity.class));
+    }
+
+    public void goToMainPage() {
+        startActivity(new Intent(Userlist.this, MainScreenActivity.class));
+    }
+
+    public void goToUsers() {
+        startActivity(new Intent(Userlist.this, Userlist.class));
     }
 
 

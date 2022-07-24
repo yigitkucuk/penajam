@@ -2,11 +2,20 @@ package com.example.penajamm;
 
 public interface Navigation {
 
-    void goSettings();
 
-    void goMainScreen();
+    void goToProfilePage();
 
-    void goProfile();
 
-    void goPost();
+    void goToSettings();
+
+
+    void goToNewPosts();
+
+
+    void goToMainPage();
+
+
+    void goToUsers();
+
+
 }

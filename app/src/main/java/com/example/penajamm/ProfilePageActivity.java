@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ProfilePageActivity extends AppCompatActivity {
+public class ProfilePageActivity extends AppCompatActivity implements Navigation{
 
     private ActivityProfilePageBinding binding;
     private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack;
@@ -150,25 +150,33 @@ public class ProfilePageActivity extends AppCompatActivity {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
 
-        btnBack.setOnClickListener(view -> goMainScreen());
+        btnBack.setOnClickListener(view -> goToMainPage());
 
-        btnSettings.setOnClickListener(view -> goSettings());
+        btnSettings.setOnClickListener(view -> goToSettings());
 
-        btnMainScreen.setOnClickListener(view -> goMainScreen());
+        btnMainScreen.setOnClickListener(view -> goToMainPage());
 
-        btnAssig.setOnClickListener(view -> goAssig());
+        btnAssig.setOnClickListener(view -> goToNewPosts());
     }
 
-    public void goSettings() {
-        startActivity(new Intent(ProfilePageActivity.this, SettingsActivity.class));
+    public void goToProfilePage() {
+        startActivity(new Intent(ProfilePageActivity.this, ProfilePageActivity.class));
     }
 
-    public void goMainScreen() {
+    public void goToSettings() {
+        startActivity(new Intent(ProfilePageActivity.this, ChatActivity.class));
+    }
+
+    public void goToNewPosts() {
+        startActivity(new Intent(ProfilePageActivity.this, NewPostActivity.class));
+    }
+
+    public void goToMainPage() {
         startActivity(new Intent(ProfilePageActivity.this, MainScreenActivity.class));
     }
 
-    public void goAssig() {
-        startActivity(new Intent(ProfilePageActivity.this, ScrollingActivity.class));
+    public void goToUsers() {
+        startActivity(new Intent(ProfilePageActivity.this, Userlist.class));
     }
 
 }

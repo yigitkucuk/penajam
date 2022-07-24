@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements Navigation{
 
     private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
     private Button btnLogout, btnEditProfile;
@@ -35,18 +35,17 @@ public class SettingsActivity extends AppCompatActivity {
         switchMaterial3 = findViewById(R.id.switch_material3);
         btnProfile = findViewById(R.id.btn_Profile);
 
-        btnProfile.setOnClickListener(view -> goProfile());
-
+        btnProfile.setOnClickListener(view -> goToProfilePage());
 
         btnLogout.setOnClickListener(view -> logout());
 
-        btnAssig.setOnClickListener(view -> goAssig());
+        btnAssig.setOnClickListener(view -> goToNewPosts());
 
-        backbtn.setOnClickListener(view -> goMain());
+        backbtn.setOnClickListener(view -> goToMainPage());
 
-        btnMainScreen.setOnClickListener(view -> goMain());
+        btnMainScreen.setOnClickListener(view -> goToMainPage());
 
-        btnEditProfile.setOnClickListener(view -> goEditProfile());
+        btnEditProfile.setOnClickListener(view -> goToEditProfile());
 
         //switchMaterial.isChecked = true;
         switchMaterial.setOnClickListener(view -> switchButton());
@@ -84,19 +83,28 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
     }
 
-    public void goMain() {
+    public void goToProfilePage() {
+        startActivity(new Intent(SettingsActivity.this, ProfilePageActivity.class));
+    }
+
+    public void goToSettings() {
+        startActivity(new Intent(SettingsActivity.this, ChatActivity.class));
+    }
+
+    public void goToNewPosts() {
+        startActivity(new Intent(SettingsActivity.this, NewPostActivity.class));
+    }
+
+    public void goToMainPage() {
         startActivity(new Intent(SettingsActivity.this, MainScreenActivity.class));
     }
-    public void goAssig() {
-        startActivity(new Intent(SettingsActivity.this, ScrollingActivity.class));
+
+    public void goToUsers() {
+        startActivity(new Intent(SettingsActivity.this, Userlist.class));
     }
 
-    public void goEditProfile() {
+    public void goToEditProfile(){
         startActivity(new Intent(SettingsActivity.this, EditProfileActivity.class));
-    }
-
-    public void goProfile() {
-        startActivity(new Intent(SettingsActivity.this, ProfilePageActivity.class));
     }
 
     public void switchButton() {

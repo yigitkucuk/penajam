@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainScreenActivity extends AppCompatActivity {
+public class MainScreenActivity extends AppCompatActivity implements Navigation {
 
     private FirebaseAuth mAuth;
     private Button btnLogout;
@@ -30,17 +30,17 @@ public class MainScreenActivity extends AppCompatActivity {
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
 
-        btnProfile.setOnClickListener(view -> goProfile());
+        btnProfile.setOnClickListener(view -> goToProfilePage());
 
-        btnList.setOnClickListener(view -> goList());
+        btnList.setOnClickListener(view -> goToUsers());
 
 
         btnLogout.setOnClickListener(view -> logout());
 
 
-        btnSettings.setOnClickListener(view -> goSettings());
+        btnSettings.setOnClickListener(view -> goToSettings());
 
-        btnAssig.setOnClickListener(view -> goAssig());
+        btnAssig.setOnClickListener(view -> goToNewPosts());
 
 
     }
@@ -53,28 +53,28 @@ public class MainScreenActivity extends AppCompatActivity {
         }
     }
 
-    public void goProfile() {
+    public void goToProfilePage() {
         startActivity(new Intent(MainScreenActivity.this, ProfilePageActivity.class));
+    }
+
+    public void goToSettings() {
+        startActivity(new Intent(MainScreenActivity.this, ChatActivity.class));
+    }
+
+    public void goToNewPosts() {
+        startActivity(new Intent(MainScreenActivity.this, NewPostActivity.class));
+    }
+
+    public void goToMainPage() {
+        startActivity(new Intent(MainScreenActivity.this, MainScreenActivity.class));
+    }
+
+    public void goToUsers() {
+        startActivity(new Intent(MainScreenActivity.this, Userlist.class));
     }
 
     public void logout() {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(MainScreenActivity.this, LoginActivity.class));
-    }
-    // it is not working
-    public void goSettings() {
-        startActivity(new Intent(MainScreenActivity.this, ChatActivity.class));
-    }
-
-    public void goAssig() {
-        startActivity(new Intent(MainScreenActivity.this, NewPostActivity.class));
-    }
-
-    public void goMain() {
-        startActivity(new Intent(MainScreenActivity.this, MainScreenActivity.class));
-    }
-
-    public void goList() {
-        startActivity(new Intent(MainScreenActivity.this, Userlist.class));
     }
 }

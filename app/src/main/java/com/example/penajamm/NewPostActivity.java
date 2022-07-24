@@ -110,23 +110,23 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goProfile(); }
+            public void onClick(View view) { goToProfilePage(); }
         });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goSettings(); }
+            public void onClick(View view) { goToSettings(); }
         });
 
         btnMainScreen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { goMainScreen(); }
+            public void onClick(View view) { goToMainPage(); }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goMainScreen();
+                goToMainPage();
             }
         });
 
@@ -410,20 +410,24 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
 
     }
 
-    public void goSettings() {
-        startActivity(new Intent(NewPostActivity.this, SettingsActivity.class));
-    }
-
-    public void goMainScreen() {
-        startActivity(new Intent(NewPostActivity.this, MainScreenActivity.class));
-    }
-
-    public void goProfile() {
+    public void goToProfilePage() {
         startActivity(new Intent(NewPostActivity.this, ProfilePageActivity.class));
     }
 
-    public void goPost() {
-        startActivity(new Intent(NewPostActivity.this, PostActivity.class));
+    public void goToSettings() {
+        startActivity(new Intent(NewPostActivity.this, ChatActivity.class));
+    }
+
+    public void goToNewPosts() {
+        startActivity(new Intent(NewPostActivity.this, NewPostActivity.class));
+    }
+
+    public void goToMainPage() {
+        startActivity(new Intent(NewPostActivity.this, MainScreenActivity.class));
+    }
+
+    public void goToUsers() {
+        startActivity(new Intent(NewPostActivity.this, Userlist.class));
     }
 
 
