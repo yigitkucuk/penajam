@@ -232,20 +232,36 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnLogout"
+            android:id="@+id/btnDeleteAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/chart2"
-            android:background="@drawable/rounded_corners"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners"
             android:text="Delete Account :(" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyle"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+        
+        <TextView
+            android:id="@+id/tvUserEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="30sp" />
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_below="@id/btnLogout">
+            android:layout_below="@id/btnDeleteAccount">
 
         </RelativeLayout>
     </RelativeLayout>
