@@ -76,11 +76,16 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(EditProfileActivity.this);
+
                 dialog.setTitle("Are you sure?");
+
                 dialog.setMessage("Deleting this account will result in completely removing your account from the system and you will not be able to access the app.");
+
                 dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         progressBar.setVisibility(View.VISIBLE);
                         firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -89,14 +94,18 @@ public class EditProfileActivity extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
 
                                 if(task.isSuccessful()){
+
                                     Toast.makeText(EditProfileActivity.this, "Account deleted.", Toast.LENGTH_LONG).show();
 
                                     Intent intent = new Intent(EditProfileActivity.this, RegisterActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
+
                                 } else {
+
                                     Toast.makeText(EditProfileActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
                                 }
 
                             }
@@ -108,9 +117,11 @@ public class EditProfileActivity extends AppCompatActivity {
                 dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         dialog.dismiss();
 
                     }
+
                 });
 
                 AlertDialog alertDialog = dialog.create();
