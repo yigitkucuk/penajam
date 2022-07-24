@@ -1,4 +1,4 @@
-package com.example.penajamm;
+package com.example.penajamm.messages;
 
 public class MessagesList {
 
