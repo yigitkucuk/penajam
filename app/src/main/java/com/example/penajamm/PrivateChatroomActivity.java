@@ -127,7 +127,7 @@ public class PrivateChatroomActivity extends AppCompatActivity {
                                                 for (DataSnapshot chatDataSnapshot: dataSnapshot1.child("messages").getChildren()) {
 
                                                     final long pgetMessageKey = Long.parseLong(chatDataSnapshot.getKey());
-                                                    final long pgetLastSeenMessage = MemoryData.getLastMsgTS(PrivateChatroomActivity.this,pgetKey);
+                                                    final long pgetLastSeenMessage = Long.parseLong(MemoryData.getLastMsgTS(PrivateChatroomActivity.this,pgetKey));
                                                     plastMessage = chatDataSnapshot.child("msg").getValue(String.class);
                                                     if(pgetMessageKey > pgetLastSeenMessage){
                                                         punseenMessages++;
