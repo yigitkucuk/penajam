@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@drawable/gradient1"
     tools:context=".NewPostActivity">
 
 
@@ -13,6 +14,7 @@
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         android:background="@drawable/gradient1"
         app:layout_constraintTop_toTopOf="parent"/>
 

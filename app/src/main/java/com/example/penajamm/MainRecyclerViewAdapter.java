@@ -148,7 +148,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
 
         TextView realname;
         ImageView profileicon;
-        Button chatBtn;
+        FloatingActionButton chatBtn;
 
 
         public MyViewHolder(@NonNull View itemView) {
