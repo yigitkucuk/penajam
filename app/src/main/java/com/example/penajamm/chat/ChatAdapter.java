@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.penajamm.MemoryData;
+import com.example.penajamm.R;
 
 import java.util.List;
 

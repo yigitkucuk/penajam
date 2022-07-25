@@ -34,9 +34,10 @@ public class Chat extends AppCompatActivity {
     private final List<ChatList> chatLists = new ArrayList<>();
     private String pchatKey;
     String pgetUsername2 = "";
-    private RecyclerView pchattingRecyclerView;
+
     private ChatAdapter chatAdapter;
     private boolean loadingFirstTime = true;
+    private RecyclerView pchattingRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +84,10 @@ public class Chat extends AppCompatActivity {
                                                                         final String pmessageTimestamps = messagesSnapshot.getKey();
                                                                         final String getUsername = messagesSnapshot.child("pusername").getValue(String.class);
                                                                         final String getMsg = messagesSnapshot.child("msg").getValue(String.class);
+
                                                                         Timestamp timestamp = new Timestamp(Long.parseLong(pmessageTimestamps));
                                                                         Date date = new Date(timestamp.getTime());
+
                                                                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy ", Locale.getDefault());
                                                                         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
                                                                         ChatList chatList = new ChatList(getUsername,pgetName, getMsg, simpleDateFormat.format(date),simpleTimeFormat.format(date));
