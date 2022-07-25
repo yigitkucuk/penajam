@@ -29,26 +29,26 @@ We changed title of auditions.
 We added chatroom but not fully functional yet. 
 Also we started to work on sending posts.
 
-# 16.07.22
+# 16.07.22 LOG
 Chatroom is functional now. We changed date-time format of the chatroom. 
 We created the Post and Model classes.
 We improved layouts.
 
-# 19.07.22
+# 19.07.22 LOG
 On profile page, now each user's email is displayed.
 We created NewRecyclerViewAdapter and imageRecyclerView.
 
-# 21.07.22
+# 21.07.22 LOG
 We optimized Post system and Firebase database issues.
 Navigation interface is changed.
 Also, userlist layouts is changed.
 
-# 23.07.22
+# 23.07.22 LOG
 Fixed database and equality constraints.
 Profile page data-fetch completed.
 Added e-mail verification and verification page.
 
-# 24.07.22
+# 24.07.22 LOG
 Added change password page.
 We created a new private chatroom.
 Forgot password part is now available.
