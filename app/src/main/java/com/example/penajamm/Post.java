@@ -29,10 +29,10 @@ public class Post {
     public String getImageUrl() {
         return this.profileImageUrl;
     }
+
     private void setImageUrl(String profileImageUrl) {
         this.profileImageUrl = profileImageUrl;
     }
-
 
     public String getUserEmail(){
         return userEmail;

@@ -1,6 +1,8 @@
 package com.example.penajamm;
 
 import android.content.Context;
+import android.content.Intent;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -18,6 +25,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
     private Context context;
     private ArrayList<Post> list;
     private ArrayList<Model> mList;
+
 
     public NewRecyclerViewAdapter(Context context, ArrayList<Post> list, ArrayList<Model> mList){
         this.context = context;
@@ -57,6 +65,18 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
             Glide.with(context).load(list.get(position).getImageUrl()).into(holder.profileicon);
         }
 
+        /*
+        holder.sendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                FirebaseUser user = auth.getCurrentUser();
+                db.child("Chatrooms").child("Chatroom: " + user.getUid() + list.get(position).getUserEmail()).child("Messages");
+            }
+        });
+
+         */
 
     }
 
@@ -76,6 +96,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         TextView postLocation;
         ImageView photo;
         ImageView profileicon;
+        FloatingActionButton sendMessage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -87,6 +108,8 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
             dateTime = itemView.findViewById(R.id.user_message_date_time);
             photo = (ImageView) itemView.findViewById(R.id.photo);
             profileicon = (ImageView) itemView.findViewById(R.id.profile_icon);
+            sendMessage = (FloatingActionButton) itemView.findViewById(R.id.sendmessagebutton);
+
         }
     }
 }

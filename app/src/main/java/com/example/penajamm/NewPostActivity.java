@@ -59,6 +59,7 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
     DatabaseReference db;
 
     TextInputLayout title, location, description;
+
     FloatingActionButton send, post;
 
     ImageButton backbtn;
@@ -100,7 +101,6 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
     protected void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
         setContentView(R.layout.activity_new_post);
 
         btnBack = findViewById(R.id.backbtn);
@@ -145,7 +145,6 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
                 createNewPostDiaglog();
             }
         });
-
 
 
         adapter = new NewRecyclerViewAdapter(this, list, mList);
@@ -425,6 +424,6 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
 
 
     public void goToChat() {
-        startActivity(new Intent(NewPostActivity.this, MainScreenActivity.class));
+        startActivity(new Intent(NewPostActivity.this, ChatActivity.class));
     }
 }

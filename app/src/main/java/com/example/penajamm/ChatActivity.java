@@ -44,6 +44,7 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser user;
 
+
     protected ArrayList<Message> getList(){
         return this.list;
     }
@@ -87,7 +88,9 @@ public class ChatActivity extends AppCompatActivity {
 
             String msg = message.getEditText().getText().toString();
 
-            db.child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(task -> message.getEditText().setText(""));
+            //db.child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(task -> message.getEditText().setText(""));
+            db.child("Chatrooms").child("Chatroom: " + user.getUid()).child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(task -> message.getEditText().setText(""));
+
             });
 
         adapter = new RecyclerViewAdapter(this, list);
@@ -103,7 +106,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void receiveMessages(){
 
-        db.child("Messages").addValueEventListener(new ValueEventListener() {
+        db.child("Chatrooms").child("Chatroom: " + user.getUid()).child("Messages").addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
