@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Userlist extends AppCompatActivity implements Navigation {
 
@@ -95,6 +98,10 @@ public class Userlist extends AppCompatActivity implements Navigation {
                     User user = dataSnapshot.getValue(User.class);
                     list.add(user);
                 }
+
+                Collections.sort(list);
+                Collections.reverse(list);
+
                 adapter.notifyDataSetChanged();
             }
 
@@ -132,6 +139,7 @@ public class Userlist extends AppCompatActivity implements Navigation {
     public void goToChat() {
 
     }
+
 
 
 }
