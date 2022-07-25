@@ -52,14 +52,15 @@
         android:id="@+id/editusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:background="@drawable/rounded_corners"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:layout_below="@+id/register_realname"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/rounded_corners"
-        android:hint="E-mail"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        />
 
     <EditText
         android:id="@+id/register_password"
@@ -81,11 +82,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_password"
+        android:text="Register"
+        android:background="@drawable/rounded_corners"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/rounded_corners"
-        android:text="Register" />
+        />
 
     <Button
         android:id="@+id/text_login"

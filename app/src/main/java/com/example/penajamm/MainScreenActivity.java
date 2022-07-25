@@ -66,7 +66,7 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
     }
 
     public void goToMainPage() {
-        startActivity(new Intent(MainScreenActivity.this, PrivateChatroomActivity.class));
+        startActivity(new Intent(MainScreenActivity.this, MainScreenActivity.class));
     }
 
     public void goToUsers() {

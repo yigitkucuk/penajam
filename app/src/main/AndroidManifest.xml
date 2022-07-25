@@ -14,7 +14,7 @@
         android:theme="@style/Theme.PenaJamm"
         tools:targetApi="31">
         <activity
-            android:name=".chat.Chat"
+            android:name=".Chat"
             android:exported="false" />
         <activity
             android:name=".PrivateChatroomActivity"

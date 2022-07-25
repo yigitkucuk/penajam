@@ -7,7 +7,6 @@
     tools:context=".chat.Chat">
 
     <RelativeLayout
-        android:id="@+id/ptopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -62,15 +61,7 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/pchattingRecyclerView"
-        android:layout_below="@id/ptopBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/pbottomBar"/>
-
     <RelativeLayout
-        android:id="@+id/pbottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

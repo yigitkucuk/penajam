@@ -56,9 +56,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         else {
             holder.punseenMessages.setVisibility(View.VISIBLE);
             holder.punseenMessages.setText(list2.getpunseenMessages()+"");
-
-            //It was theme_color_80 I changed it to purple.
-            holder.plastMessage.setTextColor(pcontext.getResources().getColor(R.color.purple_200));
+            holder.plastMessage.setTextColor(pcontext.getResources().getColor(R.color.theme_color_80));
 
         }
 
@@ -67,10 +65,10 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             public void onClick(View v) {
 
                 Intent intent = new Intent(pcontext, Chat.class);
-                intent.putExtra("username",list2.getpusername());
-                intent.putExtra("name",list2.getpname());
-                intent.putExtra("profile_pic", list2.getpprofilePic());
-                intent.putExtra("chat_key", list2.getpchatKey());
+                intent.putExtra("pusername",list2.getpusername());
+                intent.putExtra("pname",list2.getpname());
+                intent.putExtra("pprofile_pic", list2.getpprofilePic());
+                intent.putExtra("pchat_key", list2.getpchatKey());
 
                 pcontext.startActivity(intent);
 
