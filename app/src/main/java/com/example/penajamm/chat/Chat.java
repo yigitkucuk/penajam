@@ -30,7 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Chat extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://penajam-b-default-rtdb.firebaseio.com");
-    private final List<ChatList> chatLists = new ArrayList<>();
+    private final List<ChatList> chatLists = new ArrayList<>()
     private String pchatKey;
     String pgetUsername2 = "";
     private RecyclerView pchattingRecyclerView;
