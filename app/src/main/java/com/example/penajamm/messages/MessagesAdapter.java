@@ -67,10 +67,10 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             public void onClick(View v) {
 
                 Intent intent = new Intent(pcontext, Chat.class);
-                intent.putExtra("pusername",list2.getpusername());
-                intent.putExtra("pname",list2.getpname());
-                intent.putExtra("pprofile_pic", list2.getpprofilePic());
-                intent.putExtra("pchat_key", list2.getpchatKey());
+                intent.putExtra("username",list2.getpusername());
+                intent.putExtra("name",list2.getpname());
+                intent.putExtra("profile_pic", list2.getpprofilePic());
+                intent.putExtra("chat_key", list2.getpchatKey());
 
                 pcontext.startActivity(intent);
 

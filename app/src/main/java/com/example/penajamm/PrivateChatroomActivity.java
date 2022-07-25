@@ -62,16 +62,17 @@ public class PrivateChatroomActivity extends AppCompatActivity {
         pprogressDialog.show();
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                final String pprofilePicUrl = snapshot.child("User").child(pusername).child("pprofile_pic").getValue(String.class);
+                final String pprofilePicUrl = snapshot.child("User").child("N7ldaavroyrZy6MgOmF").child("realname").getValue(String.class);
 
-                if(!pprofilePicUrl.isEmpty()) {
+                //if(!pprofilePicUrl.isEmpty()) {
 
-                    Picasso.get().load(pprofilePicUrl).into(puserProfilePic);
+                    //Picasso.get().load(pprofilePicUrl).into(puserProfilePic);
 
-                }
+                //}
 
 
 
@@ -86,6 +87,7 @@ public class PrivateChatroomActivity extends AppCompatActivity {
 
             }
         });
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -119,8 +121,8 @@ public class PrivateChatroomActivity extends AppCompatActivity {
                                         final String pgetKey = dataSnapshot1.getKey();
                                         pchatKey = pgetKey;
                                         if(dataSnapshot1.hasChild("puser_1") && dataSnapshot1.hasChild("puser_2") && dataSnapshot1.hasChild("messages")){
-                                            final String pgetUserOne = dataSnapshot1.child("puser_1").getValue(String.class);
-                                            final String pgetUserTwo = dataSnapshot1.child("puser_2").getValue(String.class);
+                                            final String pgetUserOne = dataSnapshot1.child("user_1").getValue(String.class);
+                                            final String pgetUserTwo = dataSnapshot1.child("user_2").getValue(String.class);
 
                                             if((pgetUserOne.equals(getUsername) && pgetUserTwo.equals(pusername)) || (pgetUserOne.equals(pusername) && pgetUserTwo.equals(getUsername))) {
 

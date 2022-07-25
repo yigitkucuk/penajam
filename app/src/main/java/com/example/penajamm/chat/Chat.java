@@ -23,9 +23,12 @@ import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -49,7 +52,7 @@ public class Chat extends AppCompatActivity {
         final EditText pmessageEditText = findViewById(R.id.pmessageEditTxt);
         final CircleImageView pprofilePic = findViewById(R.id.pprofilePic);
         final ImageView psendBtn = findViewById(R.id.psendBtn);
-
+        
         pchattingRecyclerView = findViewById(R.id.pchattingRecyclerView);
 
         final String pgetName = getIntent().getStringExtra("pname");
@@ -80,17 +83,25 @@ public class Chat extends AppCompatActivity {
                                                             chatLists.clear();
                                                             if (snapshot.child("chat").child(pchatKey).hasChild("messages")) {
                                                                 for (DataSnapshot messagesSnapshot : snapshot.child("chat").child(pchatKey).child("messages").getChildren()) {
-                                                                    if (messagesSnapshot.hasChild("msg") && messagesSnapshot.hasChild("pusername")) {
+                                                                    if (messagesSnapshot.hasChild("msg") && messagesSnapshot.hasChild("username")) {
                                                                         final String pmessageTimestamps = messagesSnapshot.getKey();
-                                                                        final String getUsername = messagesSnapshot.child("pusername").getValue(String.class);
+                                                                        final String getUsername = messagesSnapshot.child("username").getValue(String.class);
                                                                         final String getMsg = messagesSnapshot.child("msg").getValue(String.class);
 
+                                                                        /*
                                                                         Timestamp timestamp = new Timestamp(Long.parseLong(pmessageTimestamps));
                                                                         Date date = new Date(timestamp.getTime());
+                                                                         */
+
+                                                                        Calendar c = new GregorianCalendar();
+                                                                        TimeZone tr = TimeZone.getTimeZone("Asia/Istanbul");
+                                                                        c.setTimeZone(tr);
+                                                                        String timeStamp = new SimpleDateFormat("HH:mm:ss").format(c.getTime());
 
                                                                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy ", Locale.getDefault());
                                                                         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.getDefault());
-                                                                        ChatList chatList = new ChatList(getUsername,pgetName, getMsg, simpleDateFormat.format(date),simpleTimeFormat.format(date));
+                                                                        //ChatList chatList = new ChatList(getUsername,pgetName, getMsg, simpleDateFormat.format(date),simpleTimeFormat.format(date));
+                                                                        ChatList chatList = new ChatList(getUsername,pgetName, getMsg, timeStamp,timeStamp);
                                                                         chatLists.add(chatList);
                                                                         if (loadingFirstTime||Long.parseLong(pmessageTimestamps) > Long.parseLong(MemoryData.getLastMsgTS(Chat.this, pchatKey))) {
                                                                             loadingFirstTime = false;
@@ -119,10 +130,10 @@ public class Chat extends AppCompatActivity {
         final String pgetTxtMessage = pmessageEditText.getText().toString();
             final String currentTimestamp = String.valueOf(System.currentTimeMillis()).substring(0, 10);
 
-        databaseReference.child("chat").child(pchatKey).child("puser_1").setValue(pgetUsername2);
-        databaseReference.child("chat").child(pchatKey).child("puser_2").setValue(pgetUsername);
+        databaseReference.child("chat").child(pchatKey).child("user_1").setValue(pgetUsername2);
+        databaseReference.child("chat").child(pchatKey).child("user_2").setValue(pgetUsername);
         databaseReference.child("chat").child(pchatKey).child("messages").child(currentTimestamp).child("msg").setValue(pgetTxtMessage);
-        databaseReference.child("chat").child(pchatKey).child("messages").child(currentTimestamp).child("pusername").setValue(pgetUsername2);
+        databaseReference.child("chat").child(pchatKey).child("messages").child(currentTimestamp).child("username").setValue(pgetUsername2);
 
         pmessageEditText.setText("");
     }
