@@ -21,7 +21,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,7 +37,6 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -70,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.text_login);
         mAuth = FirebaseAuth.getInstance();
-        email = findViewById(R.id.register_email);
+        email = findViewById(R.id.editusername);
         password = findViewById(R.id.register_password);
         btnRegister = findViewById(R.id.register);
         textLogin = findViewById(R.id.text_login);

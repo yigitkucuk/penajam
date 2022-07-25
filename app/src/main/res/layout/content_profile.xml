@@ -22,7 +22,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:src="@drawable/baseline_account_circle_24"
+            android:src="@drawable/defaultpp"
             android:padding="5dp"
             app:shapeAppearanceOverlay="@style/Circular"
             app:strokeColor="@color/transparan"
@@ -48,7 +48,7 @@
         <LinearLayout
             android:id="@+id/chart3"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="315dp"
             android:layout_below="@id/edit_profile"
             android:layout_centerInParent="true"
             android:layout_marginStart="20dp"
@@ -133,7 +133,7 @@
         <LinearLayout
             android:id="@+id/chart"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="205dp"
             android:layout_below="@id/chart3"
             android:layout_centerInParent="true"
             android:layout_marginStart="20dp"
@@ -144,7 +144,7 @@
             android:padding="15dp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/register_email"
+            android:id="@+id/editusername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -166,31 +166,71 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editrealname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="25dp"
+            android:layout_below="@id/editusername"
+            android:background="@drawable/rounded_corners"
+            android:hint="Enter your new real name:"
+            app:hintAnimationEnabled="false"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" >
+            <com.google.android.material.textfield.TextInputEditText
 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/transparan"/>
 
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
+            android:id="@+id/fab"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editrealname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_corners2"
+            android:backgroundTint="#FFFFFF"
+            android:text="Apply Changes"
+            android:textColor="@color/black"
+
+            app:layout_anchorGravity="bottom|end"
+            app:rippleColor="#FFFFFF"
+            app:strokeColor="#FFFFFF" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDeleteAccount"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/btnChangePassword"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_corners"
-            android:text="Delete Account :(" />
+            android:text="Delete Account :("
+            android:textColor="@color/white"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnChangePassword"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/chart"
+            android:layout_below="@id/fab"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_corners"
-            android:text="Change password" />
+            android:text="Change password"
+            android:textColor="@color/white"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -210,7 +250,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="120dp"
             android:layout_below="@id/btnDeleteAccount">
 
         </RelativeLayout>

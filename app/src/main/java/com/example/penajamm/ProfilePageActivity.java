@@ -45,10 +45,11 @@ import java.util.ArrayList;
 public class ProfilePageActivity extends AppCompatActivity implements Navigation{
 
     private ActivityProfilePageBinding binding;
-    private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack;
+    private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack, btnProfile, btnList;
     private VideoView videoView;
-    private Button uploadBtn, sendBtn;
-    Uri imageUri;
+    private Button uploadBtn;
+    private  FloatingActionButton sendBtn;
+    private Uri imageUri;
     Userbase dao = new Userbase("User");
     private TextView textView, usernameView, locationView, pointView, descriptionView, instrumentsView;
     private ArrayList<User> list;
@@ -77,21 +78,34 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         }
 
         FloatingActionButton fab = binding.fab;
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
+        fab.setOnClickListener(view -> startActivity(new Intent(ProfilePageActivity.this, EditProfileActivity.class)));
 
+        btnBack = findViewById(R.id.backbtn);
+        btnAssig = findViewById(R.id.btn_Assig);
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
-        btnAssig = findViewById(R.id.btn_Assig);
-        btnBack = findViewById(R.id.backbtn);
+        btnProfile = findViewById(R.id.btn_Profile);
+        btnList = findViewById(R.id.btnList);
         videoView = findViewById(R.id.videoView);
+
+        btnProfile.setOnClickListener(view -> goToProfilePage());
+
+        btnList.setOnClickListener(view -> goToUsers());
+
+
+        btnMainScreen.setOnClickListener(view -> goToMainPage());
+
+        btnSettings.setOnClickListener(view -> goToSettings());
+
+        btnAssig.setOnClickListener(view -> goToNewPosts());
 
         //String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.video;
         //Uri uri = Uri.parse(videoPath);
         //videoView.setVideoURI(uri);
 
         uploadBtn = (Button) findViewById(R.id.uploadbtn);
-        sendBtn = (Button) findViewById(R.id.sendbtn);
+        sendBtn = (FloatingActionButton) findViewById(R.id.sendbtn);
+        sendBtn.hide();
 
         textView = (TextView) findViewById(R.id.name);
         usernameView = (TextView) findViewById(R.id.username);
@@ -129,8 +143,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
 
                         Glide.with(ProfilePageActivity.this).load(u.getImageUri()).into(profileicon);
                         //Glide.with(ProfilePageActivity.this).load(u.getVideoUri()).into(videoView);
-                        Uri videoUri = Uri.parse(u.getImageUri());
-                        videoView.setVideoURI(videoUri);
+                        videoView.setVideoPath(u.getVideoUri());
                         textView.setText(u.getRealname());
                         usernameView.setText(u.getName());
                         locationView.setText(u.getLocation());
@@ -156,12 +169,6 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
 
         btnBack.setOnClickListener(view -> goToMainPage());
 
-        btnSettings.setOnClickListener(view -> goToSettings());
-
-        btnMainScreen.setOnClickListener(view -> goToMainPage());
-
-        btnAssig.setOnClickListener(view -> goToNewPosts());
-
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,35 +177,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
                 galleryIntent.setType("video/*");
 
                 startActivityForResult(galleryIntent , 2);
-
-                /* else{
-                    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("User");
-                    Query query = rootRef.orderByKey().limitToLast(1);
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-
-                                System.out.println(childSnapshot.getKey());
-                                String modelId = childSnapshot.getKey();
-                                User usertmp =  childSnapshot.getValue(User.class);
-                                usertmp.setVideoUri("");
-                                dao.update2( modelId, usertmp );
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-                    //ProfileModel model = new ProfileModel("https://firebasestorage.googleapis.com/v0/b/penajam-b.appspot.com/o/Screen%20Shot%202022-07-23%20at%2021.23.41.png?alt=media&token=506fe97e-b024-46f4-914d-360e4f3cf389");
-                    //HashMap<String, Object> hashMap2 = new HashMap<>();
-                    //hashMap2.put("ProfileImage", model.getImageUri().toString());
-                    //String modelId = query.getRef().toString();
-                    //dao.update(modelId, hashMap2 );
-
-                } */
+                sendBtn.show();
             }
         });
 
@@ -208,6 +187,8 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
 
                 if (imageUri != null)
                     uploadToFirebase(imageUri);
+
+                sendBtn.hide();
             }
         });
     }
@@ -219,6 +200,8 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         if (requestCode ==2 && resultCode == RESULT_OK && data != null){
 
             imageUri = data.getData();
+            System.out.println(imageUri);
+            System.out.println("seeeeeeeee");
             videoView.setVideoURI(imageUri);
 
         }
@@ -226,10 +209,55 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
 
     private void uploadToFirebase(Uri uri){
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        final StorageReference fileRef = reference.child("/videos/" + uid+ "/" + uri.toString());
-        fileRef.putFile(uri);
+        final StorageReference fileRef = reference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+        fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
 
-        if(uri != null){
+                        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("User");
+                        Query query = rootRef.orderByKey().limitToLast(9);
+                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+
+                                    System.out.println(childSnapshot.getKey());
+                                    String modelId = childSnapshot.getKey();
+                                    User usertmp =  childSnapshot.getValue(User.class);
+                                    if (usertmp.getEmail().equals( FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
+                                        usertmp.setVideoUri(uri.toString());
+                                        dao.update2(modelId, usertmp);
+                                        System.out.println("completed");
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                        Toast.makeText(ProfilePageActivity.this, "Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+                Toast.makeText(ProfilePageActivity.this, "Uploading Failed !!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /*if(uri != null){
             UploadTask uploadTask = fileRef.putFile(uri);
             uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -250,6 +278,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
                                     if (usertmp.getEmail().equals( FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
                                         usertmp.setVideoUri(uri.toString());
                                         dao.update2(modelId, usertmp);
+                                        System.out.println("completed");
                                     }
                                 }
                             }
@@ -272,7 +301,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
 
         else {
             Toast.makeText(ProfilePageActivity.this, "upload failed!", Toast.LENGTH_SHORT).show();
-        }
+        } */
 
     }
 

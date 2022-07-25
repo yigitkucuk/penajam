@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +42,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.instruments.setText(user.getInstruments());
         holder.point.setText(""+ user.getPoint());
         holder.description.setText(user.getDescription());
-        Glide.with(context).load(list.get(position).getImageUri()).into(holder.profileicon);
+        Glide.with(context).load(user.getImageUri()).into(holder.profileicon);
+        //if(user.getVideoUri()!=null)
+            //holder.videoView.setVideoPath(user.getVideoUri());
 
     }
 
@@ -57,6 +61,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         TextView point;
         TextView description;
         ImageView profileicon;
+        //VideoView videoView;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             instruments = itemView.findViewById(R.id.instruments);
             point = itemView.findViewById(R.id.point);
             description = itemView.findViewById(R.id.description);
+            //videoView = itemView.findViewById(R.id.videoView2);
 
         }
     }

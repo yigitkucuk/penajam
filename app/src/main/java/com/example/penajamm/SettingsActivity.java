@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompatActivity implements Navigation{
 
-    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
+    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile, btnList ;
     private Button btnLogout, btnEditProfile;
     private SwitchMaterial switchMaterial, switchMaterial2, switchMaterial3 ;
 
@@ -46,12 +46,15 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
         switchMaterial2 = findViewById(R.id.switch_material2);
         switchMaterial3 = findViewById(R.id.switch_material3);
         btnProfile = findViewById(R.id.btn_Profile);
+        btnList = findViewById(R.id.btnList);
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
         btnLogout.setOnClickListener(view -> logout());
 
         btnAssig.setOnClickListener(view -> goToNewPosts());
+
+        btnList.setOnClickListener(view -> goToUsers());
 
         backbtn.setOnClickListener(view -> goToMainPage());
 

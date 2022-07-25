@@ -28,50 +28,99 @@
             android:contentDescription="@string/attachment_summary_on"
             android:padding="20dp"
             android:src="@drawable/ic_baseline_arrow_back_ios_24"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/Menu_icons"
             android:layout_width="match_parent"
             android:layout_height="80dp"
 
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="65dp"
             android:layout_marginBottom="0dp"
-            android:background="@drawable/round_back_third_100"
 
-            android:layout_alignParentBottom="true">
+            android:background="@drawable/round_back_third_100">
 
             <ImageButton
                 android:id="@+id/btn_Assig"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@color/transparan"
-                android:src="@drawable/baseline_lyrics_20" />
-
-
-            <ImageButton
-                android:id="@+id/btn_MainScreen"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
-                android:background="@color/transparan"
-                android:layout_toRightOf="@id/btn_Assig"
-                android:src="@drawable/baseline_home_24" />
-
-            <ImageButton
-                android:id="@+id/btn_Settings"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toLeftOf="@id/btnList"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_lyrics_20" />
+
+            <ImageButton
+                android:id="@+id/btnList"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:layout_centerVertical="true"
+
+                android:layout_toLeftOf="@id/btn_MainScreen"
+                android:background="@color/transparan"
+                android:src="@drawable/ic_baseline_person_search_24" />
+
+            <ImageButton
+                android:id="@+id/btn_MainScreen"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+
+                android:layout_margin="0dp"
+
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:layout_toLeftOf="@id/center"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_home_24" />
+
+            <ImageButton
+                android:id="@+id/center"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_centerVertical="true"
+
+                android:layout_centerInParent="true"
+                android:background="@color/transparan"
+                />
+
+            <ImageButton
+                android:id="@+id/btn_Chat"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="0dp"
+
+
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@id/center"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_question_answer_24" />
+
+            <ImageButton
+                android:id="@+id/btn_Settings"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+
                 android:layout_marginBottom="10dp"
 
                 android:layout_toRightOf="@id/btn_Profile"
@@ -80,26 +129,17 @@
 
             <ImageButton
                 android:id="@+id/btn_Profile"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
-
-                android:layout_toRightOf="@id/btn_MainScreen"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/btn_Chat"
                 android:background="@color/transparan"
                 android:src="@drawable/baseline_account_circle_24" />
 
-            <ImageButton
-                android:id="@+id/btnList"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toEndOf="@id/btn_Settings"
-                android:background="@color/transparan"
-                android:src="@drawable/ic_baseline_person_search_24" />
 
+
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 

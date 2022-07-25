@@ -33,7 +33,7 @@ public class ShowUserActivity extends AppCompatActivity {
 
         name = findViewById(R.id.register_username);
         realname = findViewById(R.id.register_realname);
-        email = findViewById(R.id.register_email);
+        email = findViewById(R.id.editusername);
         databaseUsers = FirebaseDatabase.getInstance().getReference();
 
         btnInsert.setOnClickListener(new View.OnClickListener() {

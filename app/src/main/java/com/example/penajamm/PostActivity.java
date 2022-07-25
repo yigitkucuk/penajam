@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class PostActivity extends AppCompatActivity {
     Button selectImageBtn;
     ImageView imageView;
-    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile ;
+    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile, btnList, btnSettings ;
 
 
     static final int SELECT_IMAGE = 12;
@@ -27,22 +27,7 @@ public class PostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post);
 
         backbtn = findViewById(R.id.backbtn);
-        btnAssig = findViewById(R.id.btn_Assig);
-        btnMainScreen = findViewById(R.id.btn_MainScreen);
-        btnProfile = findViewById(R.id.btn_Profile);
 
-
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goProfile(); }
-        });
-
-        btnAssig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goAssig(); }
-        });
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,12 +36,6 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
-        btnMainScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goMain();
-            }
-        });
 
         selectImageBtn = findViewById(R.id.edit_profile);
         imageView = findViewById(R.id.profile_icon);

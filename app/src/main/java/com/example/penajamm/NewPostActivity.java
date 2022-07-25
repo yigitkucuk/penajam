@@ -48,7 +48,7 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 public class NewPostActivity extends AppCompatActivity implements Navigation {
-    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile;
+    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig, btnList;
 
     NewRecyclerViewAdapter adapter;
     imageRecyclerView adapt;
@@ -103,32 +103,24 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
         setContentView(R.layout.activity_post);
         setContentView(R.layout.activity_new_post);
 
+        btnBack = findViewById(R.id.backbtn);
+
+        btnAssig = findViewById(R.id.btn_Assig);
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
-        btnBack = findViewById(R.id.backbtn);
+        btnList = findViewById(R.id.btnList);
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goToProfilePage(); }
-        });
+        btnProfile.setOnClickListener(view -> goToProfilePage());
 
-        btnSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goToSettings(); }
-        });
+        btnList.setOnClickListener(view -> goToUsers());
 
-        btnMainScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goToMainPage(); }
-        });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToMainPage();
-            }
-        });
+        btnMainScreen.setOnClickListener(view -> goToMainPage());
+
+        btnSettings.setOnClickListener(view -> goToSettings());
+
+        btnAssig.setOnClickListener(view -> goToNewPosts());
 
         list = new ArrayList<>();
         mList = new ArrayList<>();

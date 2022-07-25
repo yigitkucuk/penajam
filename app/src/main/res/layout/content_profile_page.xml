@@ -201,17 +201,18 @@
             android:background="@drawable/rounded_corners"
             android:paddingStart="30dp"
             android:paddingEnd="30dp"
-            android:text="Upload Brochure"
+            android:text="Upload New Video"
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
-        <Button
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/sendbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/uploadbtn"
-            android:layout_marginTop="310dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="312dp"
+
+            android:layout_marginStart="20dp"
             android:layout_marginEnd="0dp"
             android:backgroundTint="#1ED760"
             app:srcCompat="@drawable/ic_baseline_send_24" />

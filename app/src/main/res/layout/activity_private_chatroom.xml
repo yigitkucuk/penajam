@@ -48,4 +48,6 @@
         android:id="@+id/messageRecyclerView"/>
 
 
+
+
 </LinearLayout>

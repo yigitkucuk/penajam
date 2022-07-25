@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,17 +22,18 @@ import java.util.ArrayList;
 
 public class Userlist extends AppCompatActivity implements Navigation {
 
-    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig;
+    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig, btnList;
 
     RecyclerView recyclerView;
     ArrayList<User> list;
     DatabaseReference databaseReference;
     MyAdapter adapter;
+    VideoView videoView;
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(Userlist.this, ShowUserActivity.class));
+        startActivity(new Intent(Userlist.this, MainScreenActivity.class));
         finish();
     }
 
@@ -39,31 +42,35 @@ public class Userlist extends AppCompatActivity implements Navigation {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userentry);
 
+
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnAssig = findViewById(R.id.btn_Assig);
         btnBack = findViewById(R.id.backbtn);
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goToProfilePage(); }
-        });
+        btnAssig = findViewById(R.id.btn_Assig);
+        btnSettings = findViewById(R.id.btn_Settings);
+        btnMainScreen = findViewById(R.id.btn_MainScreen);
+        btnProfile = findViewById(R.id.btn_Profile);
+        btnList = findViewById(R.id.btnList);
+        //final View contactcardView = getLayoutInflater().inflate(R.layout.activity_post, null);
+        //videoView = contactcardView.findViewById(R.id.videoView2);
 
-        btnSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goToSettings(); }
-        });
+        //MediaController mediaController = new MediaController(this);
+        //videoView.setMediaController(mediaController);
+        //mediaController.setAnchorView(videoView);
 
-        btnMainScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goToMainPage(); }
-        });
+        btnProfile.setOnClickListener(view -> goToProfilePage());
 
-        btnAssig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { goToNewPosts(); }
-        });
+        btnList.setOnClickListener(view -> goToUsers());
+
+
+        btnMainScreen.setOnClickListener(view -> goToMainPage());
+
+        btnSettings.setOnClickListener(view -> goToSettings());
+
+        btnAssig.setOnClickListener(view -> goToNewPosts());
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +85,7 @@ public class Userlist extends AppCompatActivity implements Navigation {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter =  new MyAdapter(this,list);
         recyclerView.setAdapter(adapter);
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

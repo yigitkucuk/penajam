@@ -49,7 +49,7 @@
         />
 
     <EditText
-        android:id="@+id/register_email"
+        android:id="@+id/editusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="E-mail"
@@ -70,7 +70,7 @@
         android:background="@drawable/rounded_corners"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:layout_below="@+id/register_email"
+        android:layout_below="@+id/editusername"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="25dp"
