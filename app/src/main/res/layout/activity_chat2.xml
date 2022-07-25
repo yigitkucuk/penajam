@@ -65,12 +65,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="white"
+        android:background="@color/white"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
         <EditText
-            android:id="@+id/messageEditTxt"
+            android:id="@+id/pmessageEditTxt"
             android:layout_toStartOf="@id/psendBtn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -87,7 +87,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="10dp"/>
 
 
 
