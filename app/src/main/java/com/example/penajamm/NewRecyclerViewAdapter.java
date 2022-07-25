@@ -1,5 +1,6 @@
 package com.example.penajamm;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.ContactsContract;
@@ -16,8 +17,12 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -53,6 +58,7 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
 
     @Override
     public void onBindViewHolder(@NonNull NewRecyclerViewAdapter.ViewHolder holder, int position) {
+        Post post = list.get(position);
         holder.username.setText(list.get(position).getUserEmail());
         holder.postTitle.setText(list.get(position).getPostTitle());
         holder.postLocation.setText(list.get(position).getPostLocation());
@@ -65,19 +71,48 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
             Glide.with(context).load(list.get(position).getImageUrl()).into(holder.profileicon);
         }
 
-        /*
+
         holder.sendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DatabaseReference db = FirebaseDatabase.getInstance().getReference();
                 FirebaseAuth auth = FirebaseAuth.getInstance();
                 FirebaseUser user = auth.getCurrentUser();
-                db.child("Chatrooms").child("Chatroom: " + user.getUid() + list.get(position).getUserEmail()).child("Messages");
+
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Chat");
+                DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("User");
+                Query query = rootRef.orderByKey().limitToLast(20);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+
+                            System.out.println(childSnapshot.getKey());
+                            String modelId = childSnapshot.getKey();
+                            User usertmp = childSnapshot.getValue(User.class);
+                            if (usertmp.getEmail().equals(user.getEmail()) ) {
+                                String userOneName = usertmp.getRealname();
+                                String userOnePPUri = usertmp.getImageUri();
+                                String userTwoName = post.getUserEmail();
+                                String userTwoPPUri = post.getProfileImageUrl();
+                                String chatroomName = "Chatroom: " + usertmp.getRealname() + post.getUserEmail();
+                                db.child("Chatrooms").child("Chatroom: " + user.getUid() + post.getUserEmail()).child("Messages");
+                                Chat chat = new Chat(chatroomName, userOneName, userTwoName, userOnePPUri, userTwoPPUri);
+                                databaseReference.push().setValue(chat);
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                context.startActivity(new Intent(context, ChatActivity.class));
+
             }
         });
-
-         */
-
     }
 
     @Override

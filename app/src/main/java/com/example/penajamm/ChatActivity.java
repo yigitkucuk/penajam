@@ -21,6 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
@@ -88,8 +89,25 @@ public class ChatActivity extends AppCompatActivity {
 
             String msg = message.getEditText().getText().toString();
 
-            //db.child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(task -> message.getEditText().setText(""));
-            db.child("Chatrooms").child("Chatroom: " + user.getUid()).child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(task -> message.getEditText().setText(""));
+            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Chat");
+            Query query = rootRef.orderByKey().limitToLast(1);
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+
+                        Chat chattmp = childSnapshot.getValue(Chat.class);
+                        db.child("Chatrooms").child(chattmp.getChatRoomName()).child("Messages").push().setValue(new Message(uEmail, msg, timeStamp)).addOnCompleteListener(task -> message.getEditText().setText(""));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
 
             });
 
@@ -106,22 +124,39 @@ public class ChatActivity extends AppCompatActivity {
 
     private void receiveMessages(){
 
-        db.child("Chatrooms").child("Chatroom: " + user.getUid()).child("Messages").addValueEventListener(new ValueEventListener() {
-
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("Chat");
+        Query query = rootRef.orderByKey().limitToLast(1);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    Chat chattmp = childSnapshot.getValue(Chat.class);
+                    db.child("Chatrooms").child(chattmp.getChatRoomName()).child("Messages").addValueEventListener(new ValueEventListener() {
 
-                list.clear();
-                for (DataSnapshot snap : snapshot.getChildren()) {
-                    Message message = snap.getValue(Message.class);
-                    adapter.addMessage(message);
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            list.clear();
+                            for (DataSnapshot snap : snapshot.getChildren()) {
+                                Message message = snap.getValue(Message.class);
+                                adapter.addMessage(message);
+                            }
+                        }
+
+                        //TODO
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
                 }
             }
 
-            //TODO
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+
     }
 }

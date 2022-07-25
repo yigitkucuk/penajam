@@ -25,6 +25,13 @@ public class Post {
 
     }
 
+    public String getProfileImageUrl() {
+        return profileImageUrl;
+    }
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
+    }
 
     public String getImageUrl() {
         return this.profileImageUrl;

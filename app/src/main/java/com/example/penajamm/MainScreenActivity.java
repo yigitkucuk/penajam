@@ -1,6 +1,9 @@
 package com.example.penajamm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +12,13 @@ import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MainScreenActivity extends AppCompatActivity implements Navigation {
 
@@ -16,6 +26,10 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
     private Button btnLogout;
     private ImageButton btnList;
     private ImageButton btnAssig, btnSettings, btnMainScreen, btnProfile, btnChat;
+    RecyclerView recyclerView;
+    ArrayList<Chat> list;
+    DatabaseReference databaseReference;
+    MainRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +59,29 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
 
         btnAssig.setOnClickListener(view -> goToNewPosts());
 
+        recyclerView = findViewById(R.id.recyclerview);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Chat");
+        list = new ArrayList<>();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter =  new MainRecyclerViewAdapter(this,list);
+        recyclerView.setAdapter(adapter);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren())
+                {
+                    Chat chat = dataSnapshot.getValue(Chat.class);
+                    list.add(chat);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
