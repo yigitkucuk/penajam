@@ -21,19 +21,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_toLeftOf="@id/sendmessagebutton"
             android:backgroundTint="#FFFFFF"
-            android:layout_toLeftOf="@id/fab"
             app:layout_anchorGravity="bottom|end"
             app:srcCompat="@drawable/baseline_search_24" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/sendmessagebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#FFFFFF"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="#FFFFFF"
             app:srcCompat="@drawable/ic_baseline_send_24" />
 
     </RelativeLayout>

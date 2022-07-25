@@ -15,15 +15,14 @@
         android:layout_height="match_parent">
 
 
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="15dp"
-            android:backgroundTint="?attr/colorPrimary"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_baseline_send_24" />
 
     </RelativeLayout>
