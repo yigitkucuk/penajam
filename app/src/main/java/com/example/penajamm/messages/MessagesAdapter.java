@@ -2,6 +2,7 @@ package com.example.penajamm.messages;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyViewHolder> {
 
-    private final List<MessagesList> pmessagesLists;
+    private List<MessagesList> pmessagesLists;
     private final Context pcontext;
 
     public MessagesAdapter(List<MessagesList> pmessagesLists, Context pcontext) {
@@ -49,10 +50,13 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
 
         if(list2.getpunseenMessages() == 0) {
             holder.punseenMessages.setVisibility(View.GONE);
+            holder.plastMessage.setTextColor(Color.parseColor("#959595"));
         }
 
         else {
             holder.punseenMessages.setVisibility(View.VISIBLE);
+            holder.punseenMessages.setText(list2.getpunseenMessages()+"");
+            holder.plastMessage.setTextColor(pcontext.getResources().getColor(R.color.theme_color_80));
 
         }
 
@@ -61,13 +65,20 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
             public void onClick(View v) {
 
                 Intent intent = new Intent(pcontext, Chat.class);
+                intent.putExtra("pusername",list2.getpusername());
                 intent.putExtra("pname",list2.getpname());
                 intent.putExtra("pprofile_pic", list2.getpprofilePic());
+                intent.putExtra("pchat_key", list2.getpchatKey());
 
                 pcontext.startActivity(intent);
 
             }
         });
+
+    }
+    public void updateData(List<MessagesList> pmessagesLists) {
+        this.pmessagesLists= pmessagesLists;
+        notifyDataSetChanged();
 
     }
 

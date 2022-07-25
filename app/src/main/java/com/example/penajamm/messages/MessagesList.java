@@ -6,16 +6,17 @@ public class MessagesList {
     private String pusername;
     private String plastMessage;
     private String pprofilePic;
+    private String pchatKey;
 
     private int punseenMessages;
 
-    public MessagesList(String pname, String pusername, String plastMessage, String pprofilePic, int punseenMessages) {
+    public MessagesList(String pname, String pusername, String plastMessage, String pprofilePic, int punseenMessages, String pchatKey) {
         this.pname = pname;
         this.pusername = pusername;
         this.plastMessage = plastMessage;
         this.pprofilePic = pprofilePic;
         this.punseenMessages = punseenMessages;
-
+        this.pchatKey = pchatKey;
     }
 
     public String getpname() {
@@ -36,5 +37,9 @@ public class MessagesList {
 
     public int getpunseenMessages() {
         return punseenMessages;
+    }
+
+    public String getpchatKey() {
+        return pchatKey;
     }
 }
