@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.penajamm.MemoryData;
 import com.example.penajamm.R;
 import com.google.firebase.Timestamp;
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +31,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Chat extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://penajam-b-default-rtdb.firebaseio.com");
-    private final List<ChatList> chatLists = new ArrayList<>()
+    private final List<ChatList> chatLists = new ArrayList<>();
     private String pchatKey;
     String pgetUsername2 = "";
     private RecyclerView pchattingRecyclerView;

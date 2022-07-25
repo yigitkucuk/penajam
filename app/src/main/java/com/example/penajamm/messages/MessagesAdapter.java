@@ -56,7 +56,9 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.MyView
         else {
             holder.punseenMessages.setVisibility(View.VISIBLE);
             holder.punseenMessages.setText(list2.getpunseenMessages()+"");
-            holder.plastMessage.setTextColor(pcontext.getResources().getColor(R.color.theme_color_80));
+
+            //It was theme_color_80 I changed it to purple.
+            holder.plastMessage.setTextColor(pcontext.getResources().getColor(R.color.purple_200));
 
         }
 

@@ -52,7 +52,7 @@ public class PrivateChatroomActivity extends AppCompatActivity {
 
         pmessagesRecyclerView.setHasFixedSize(true);
         pmessagesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        pmessagesAdapter = new MessagesAdapter(messagesLists, PrivateChatroomActivity.this));
+        pmessagesAdapter = new MessagesAdapter(messagesLists, PrivateChatroomActivity.this);
         pmessagesRecyclerView.setAdapter(pmessagesAdapter);
 
 
