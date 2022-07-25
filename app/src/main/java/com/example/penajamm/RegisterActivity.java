@@ -1,9 +1,11 @@
 package com.example.penajamm;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.MemoryFile;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -40,6 +43,11 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    ////////////////////////7
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://penajam-b-default-rtdb.firebaseio.com");
+    /////////////////////////
+
     private FirebaseAuth mAuth;
     private EditText email, password;
     private Button btnRegister, btnLogin;
@@ -66,6 +74,13 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText edit_username = findViewById(R.id.register_username);
         final EditText edit_realname = findViewById(R.id.register_realname);
 
+        /////////////////////////////////////
+        final EditText username = findViewById(R.id.register_username);
+        final EditText name = findViewById(R.id.register_realname);
+        final EditText emailll = findViewById(R.id.editusername);
+        //////////////////////////////////////
+
+
         btnLogin = findViewById(R.id.text_login);
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.editusername);
@@ -73,6 +88,98 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.register);
         textLogin = findViewById(R.id.text_login);
         db = FirebaseDatabase.getInstance().getReference();
+
+
+        //////////////////////////////////////7
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading...");
+
+        if(!MemoryData.getData(this).isEmpty()){
+            Intent intent = new Intent(RegisterActivity.this,PrivateChatroomActivity.class);
+            intent.putExtra("name",MemoryData.getData(this));
+            intent.putExtra("realname", MemoryData.getName(this));
+            intent.putExtra("email","");
+            startActivity(intent);
+            finish();
+
+        }
+        ///////////////////////////////////////7
+
+
+
+        //////////////////////////////////////
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                progressDialog.show();
+
+
+                final String nameTxt = name.getText().toString();
+                final String usernameTxt = username.getText().toString();
+                final String emailTxt = emailll.getText().toString();
+
+                if(nameTxt.isEmpty() || usernameTxt.isEmpty() || emailTxt.isEmpty()){
+                    Toast.makeText(RegisterActivity.this, "All fields are required.", Toast.LENGTH_SHORT).show();
+
+                    progressDialog.dismiss();
+
+                }
+
+                else{
+                    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                            progressDialog.dismiss();
+
+
+                            if(snapshot.child("User").hasChild(usernameTxt)) {
+
+                                Toast.makeText(RegisterActivity.this, "Already exists", Toast.LENGTH_SHORT).show();
+                            }
+
+                            else {
+                                databaseReference.child("User").child(usernameTxt).child("email").setValue(emailTxt);
+                                databaseReference.child("User").child(usernameTxt).child("realname").setValue(nameTxt);
+                                databaseReference.child("user").child(usernameTxt).child("profile_pic").setValue("");
+
+                                MemoryData.saveData(usernameTxt,RegisterActivity.this);
+
+                                MemoryData.saveName(nameTxt,RegisterActivity.this);
+                                Toast.makeText(RegisterActivity.this, "Sucess", Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(RegisterActivity.this,PrivateChatroomActivity.class);
+                                intent.putExtra("name",usernameTxt);
+                                intent.putExtra("realname",nameTxt);
+                                intent.putExtra("email",emailTxt);
+                                startActivity(intent);
+                                finish();
+
+                            }
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+
+                            progressDialog.dismiss();
+
+
+                        }
+                    });
+
+                }
+            }
+        });
+        //////////////////////////////////////////////////7
+
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
