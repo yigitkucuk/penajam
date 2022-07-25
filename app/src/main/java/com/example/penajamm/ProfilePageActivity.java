@@ -329,6 +329,11 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         startActivity(new Intent(ProfilePageActivity.this, MainScreenActivity.class));
     }
 
+    @Override
+    public void goToChat() {
+        startActivity(new Intent(ProfilePageActivity.this, ChatActivity.class));
+    }
+
     public void goToUsers() {
         startActivity(new Intent(ProfilePageActivity.this, Userlist.class));
     }

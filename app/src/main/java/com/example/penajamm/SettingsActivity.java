@@ -163,6 +163,11 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
         startActivity(new Intent(SettingsActivity.this, EditProfileActivity.class));
     }
 
+    @Override
+    public void goToChat() {
+        startActivity(new Intent(SettingsActivity.this, ChatActivity.class));
+    }
+
     public void switchButton() {
         switchMaterial.setOnCheckedChangeListener((compoundButton, b) -> Toast.makeText(SettingsActivity.this, ":)", Toast.LENGTH_SHORT ).show());
     }

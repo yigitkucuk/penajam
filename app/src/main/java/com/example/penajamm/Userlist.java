@@ -123,6 +123,11 @@ public class Userlist extends AppCompatActivity implements Navigation {
         startActivity(new Intent(Userlist.this, MainScreenActivity.class));
     }
 
+    @Override
+    public void goToChat() {
+        startActivity(new Intent(Userlist.this, ChatActivity.class));
+    }
+
     public void goToUsers() {
         startActivity(new Intent(Userlist.this, Userlist.class));
     }

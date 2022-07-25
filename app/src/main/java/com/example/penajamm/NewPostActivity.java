@@ -424,4 +424,7 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
     }
 
 
+    public void goToChat() {
+        startActivity(new Intent(NewPostActivity.this, MainScreenActivity.class));
+    }
 }

@@ -18,4 +18,7 @@ public interface Navigation {
     void goToUsers();
 
 
+    void goToChat();
+
+
 }

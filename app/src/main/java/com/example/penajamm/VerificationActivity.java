@@ -19,11 +19,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class VerificationActivity extends AppCompatActivity {
 
-    FirebaseAuth firebaseAuth;
-    FirebaseFirestore firebaseFirestore;
-    FirebaseUser firebaseUser;
-    Button verification_button;
-    TextView verification_text;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseUser firebaseUser;
+    private Button verification_button;
+    private TextView verification_text;
 
 
     @Override

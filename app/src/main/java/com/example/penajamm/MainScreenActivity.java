@@ -15,7 +15,7 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
     private FirebaseAuth mAuth;
     private Button btnLogout;
     private ImageButton btnList;
-    private ImageButton btnAssig, btnSettings, btnMainScreen, btnProfile;
+    private ImageButton btnAssig, btnSettings, btnMainScreen, btnProfile, btnChat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
+        btnChat = findViewById(R.id.btn_Chat);
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
@@ -39,6 +40,8 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
         btnMainScreen.setOnClickListener(view -> goToMainPage());
 
         btnSettings.setOnClickListener(view -> goToSettings());
+
+        btnChat.setOnClickListener(view -> goToChat());
 
         btnAssig.setOnClickListener(view -> goToNewPosts());
 
@@ -67,6 +70,10 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
 
     public void goToMainPage() {
         startActivity(new Intent(MainScreenActivity.this, MainScreenActivity.class));
+    }
+
+    public void goToChat() {
+        startActivity(new Intent(MainScreenActivity.this, ChatActivity.class));
     }
 
     public void goToUsers() {
