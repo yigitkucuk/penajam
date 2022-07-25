@@ -148,7 +148,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
                         usernameView.setText(u.getName());
                         locationView.setText(u.getLocation());
                         instrumentsView.setText(u.getInstruments());
-                        pointView.setText("" + u.getPoint());
+                        pointView.setText(String.valueOf(u.getPoint()));
                         descriptionView.setText(u.getDescription());
                     }
                 }

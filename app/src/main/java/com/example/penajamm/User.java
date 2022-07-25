@@ -20,9 +20,9 @@ public class User implements Serializable
     private FirebaseAuth auth;
     private ArrayList<Post> userpost;
 
-    private int point;
-    private int totalpoint = 0;
-    private int number = 0;
+    private double point;
+    private double totalpoint;
+    private int number;
     private String imageUri;
     private String videoUri;
     private String location;
@@ -42,6 +42,8 @@ public class User implements Serializable
         this.realname = realname;
         this.userpost = new ArrayList<Post>();
         this.point = 0;
+        this.totalpoint = 0;
+        this.number = 0;
         this.imageUri = "";
         this.videoUri = "";
         this.location = "";
@@ -89,14 +91,28 @@ public class User implements Serializable
         this.description = description;
     }
 
-    public int getPoint() {
+    public double getPoint() {
         return this.point;
     }
 
-    public void setPoint(int p) {
-        this.totalpoint += p;
-        this.number ++;
+    public void setPoint() {
         this.point = this.totalpoint / this.number;
+    }
+
+    public double getTotalpoint() {
+        return this.totalpoint;
+    }
+
+    public void setTotalpoint(double totalpoint) {
+        this.totalpoint += totalpoint;
+    }
+
+    public void setRatingNum(int num) {
+        this.number += num;
+    }
+
+    public float getRatingNum() {
+        return this.number;
     }
 
     public String getEmail(){
