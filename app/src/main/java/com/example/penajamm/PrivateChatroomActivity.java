@@ -11,6 +11,7 @@ import android.provider.ContactsContract;
 
 import com.example.penajamm.messages.MessagesAdapter;
 import com.example.penajamm.messages.MessagesList;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,7 +43,7 @@ public class PrivateChatroomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_private_chatroom);
 
-        final CircleImageView puserProfilePic = findViewById(R.id.puserProfilePic);
+        final ShapeableImageView puserProfilePic = findViewById(R.id.puserProfilePic);
 
         pmessagesRecyclerView = findViewById(R.id.pmessagesRecyclerView);
 

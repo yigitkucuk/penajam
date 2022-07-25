@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -43,9 +44,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.point.setText(""+ user.getPoint());
         holder.description.setText(user.getDescription());
         Glide.with(context).load(user.getImageUri()).into(holder.profileicon);
-        //if(user.getVideoUri()!=null)
-            //holder.videoView.setVideoPath(user.getVideoUri());
 
+        if(user.getVideoUri()!=null) {
+            MediaController mediaController = new MediaController(context);
+            holder.videoView.setMediaController(mediaController);
+            mediaController.setAnchorView(holder.videoView);
+            holder.videoView.setVisibility(View.VISIBLE);
+            holder.videoView.setVideoPath(user.getVideoUri());
+        }
+        else
+            holder.videoView.setVisibility(View.INVISIBLE);
+
+        holder.pointBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
@@ -61,7 +76,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         TextView point;
         TextView description;
         ImageView profileicon;
-        //VideoView videoView;
+        VideoView videoView;
+        Button pointBtn;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -73,7 +89,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             instruments = itemView.findViewById(R.id.instruments);
             point = itemView.findViewById(R.id.point);
             description = itemView.findViewById(R.id.description);
-            //videoView = itemView.findViewById(R.id.videoView2);
+            videoView = itemView.findViewById(R.id.videoView2);
+            point = itemView.findViewById(R.id.fab2);
 
         }
     }
