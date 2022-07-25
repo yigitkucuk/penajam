@@ -30,3 +30,7 @@ I worked on general stuff.
 24.07.22
 We added e-mail verification and verification page.
 I also added forgot password part.
+
+25.07.22
+We added change password.
+We also created a new private chatroom.
