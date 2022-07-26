@@ -45,6 +45,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Set;
 import java.util.TimeZone;
 
 public class NewPostActivity extends AppCompatActivity implements Navigation {
@@ -407,7 +408,7 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
     }
 
     public void goToSettings() {
-        startActivity(new Intent(NewPostActivity.this, ChatActivity.class));
+        startActivity(new Intent(NewPostActivity.this, SettingsActivity.class));
     }
 
     public void goToNewPosts() {
