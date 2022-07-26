@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.penajamm.databinding.ActivityNewPostBinding;
+import com.example.penajamm.news.NewsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -49,7 +50,7 @@ import java.util.Set;
 import java.util.TimeZone;
 
 public class NewPostActivity extends AppCompatActivity implements Navigation {
-    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig, btnList;
+    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig, btnList, btnChat;
 
     NewRecyclerViewAdapter adapter;
     imageRecyclerView adapt;
@@ -111,11 +112,14 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
+        btnChat = findViewById(R.id.btn_News);
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
         btnList.setOnClickListener(view -> goToUsers());
 
+
+        btnChat.setOnClickListener(view -> goToChat());
 
         btnMainScreen.setOnClickListener(view -> goToMainPage());
 
@@ -425,6 +429,6 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
 
 
     public void goToChat() {
-        startActivity(new Intent(NewPostActivity.this, ChatActivity.class));
+        startActivity(new Intent(NewPostActivity.this, NewsActivity.class));
     }
 }

@@ -1,87 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".ProfilePageActivity">
+    tools:context=".news.NewsActivity"
+    android:background="@drawable/gradient1">
 
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/app_bar_height"
-        android:fitsSystemWindows="true"
-        android:theme="@style/Theme.PenaJamm.AppBarOverlay">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
+            android:layout_height="wrap_content">
 
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:toolbarId="@+id/toolbar">
-
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/profile_icon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/defaultpp"
-
-                android:padding="5dp"
-                app:shapeAppearanceOverlay="@style/Circular"
-                app:strokeColor="@color/transparan"
-                app:strokeWidth="4dp" />
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:popupTheme="@style/Theme.PenaJamm.AppBarOverlay" >
+                android:layout_height="wrap_content">
 
+                <ImageButton
+                    android:id="@+id/backbtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/transparan"
+                    android:contentDescription="@string/attachment_summary_on"
+                    android:padding="20dp"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
-            </androidx.appcompat.widget.Toolbar>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Today's Top News"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="-30dp"
+                    android:visibility="visible" />
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <include
-        android:id="@+id/include"
-        layout="@layout/content_profile_page" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:backgroundTint="#FFFFFF"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/baseline_settings_24" />
-
-    <ImageButton
-        android:id="@+id/backbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="10dp"
-        android:backgroundTint="@color/transparan"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="top|start"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -116,8 +82,8 @@
                 android:id="@+id/btnList"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="15dp"
                 android:layout_centerVertical="true"
+                android:layout_margin="15dp"
 
                 android:layout_toLeftOf="@id/btn_MainScreen"
                 android:background="@color/transparan"
@@ -142,24 +108,23 @@
                 android:id="@+id/center"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
 
-                android:layout_centerInParent="true"
-                android:background="@color/transparan"
-                />
+                android:layout_margin="10dp"
+                android:background="@color/transparan" />
 
             <ImageButton
                 android:id="@+id/btn_News"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="0dp"
 
 
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
                 android:layout_toRightOf="@id/center"
                 android:background="@color/transparan"
                 android:src="@drawable/ic_baseline_library_books_24" />
@@ -168,8 +133,8 @@
                 android:id="@+id/btn_Settings"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
                 android:layout_centerVertical="true"
+                android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
 
                 android:layout_marginBottom="10dp"
@@ -182,17 +147,16 @@
                 android:id="@+id/btn_Profile"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="15dp"
                 android:layout_centerVertical="true"
+                android:layout_margin="15dp"
                 android:layout_toRightOf="@id/btn_News"
                 android:background="@color/transparan"
                 android:src="@drawable/baseline_account_circle_24" />
 
 
-
         </RelativeLayout>
     </RelativeLayout>
 
+    <include layout="@layout/error"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-

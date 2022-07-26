@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.bumptech.glide.Glide;
+import com.example.penajamm.news.NewsActivity;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompatActivity implements Navigation{
 
-    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile, btnList ;
+    private ImageButton backbtn, btnAssig, btnMainScreen, btnProfile, btnList, btnChat;
     private Button btnLogout, btnEditProfile;
     private SwitchMaterial switchMaterial, switchMaterial2, switchMaterial3 ;
 
@@ -49,6 +50,7 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
         switchMaterial3 = findViewById(R.id.switch_material3);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
+        btnChat = findViewById(R.id.btn_News);
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
@@ -63,6 +65,8 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
         btnMainScreen.setOnClickListener(view -> goToMainPage());
 
         btnEditProfile.setOnClickListener(view -> goToEditProfile());
+
+        btnChat.setOnClickListener(view -> goToChat());
 
         //switchMaterial.isChecked = true;
         switchMaterial.setOnClickListener(view -> switchButton());
@@ -177,7 +181,7 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
 
     @Override
     public void goToChat() {
-        startActivity(new Intent(SettingsActivity.this, ChatActivity.class));
+        startActivity(new Intent(SettingsActivity.this, NewsActivity.class));
     }
 
     public void switchButton() {
