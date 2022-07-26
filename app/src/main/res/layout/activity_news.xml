@@ -17,18 +17,14 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/topheadelines"
-                    android:textColor="@color/colorTextTitle"
+                    android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:text="Top Headlines"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="17sp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="10dp"
-                    android:visibility="invisible"/>
+                    android:text="Today's Top News"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:visibility="visible"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
@@ -38,8 +34,115 @@
                 </androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
-
         </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/Menu_icons"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="0dp"
+
+            android:background="@drawable/round_back_third_100">
+
+            <ImageButton
+                android:id="@+id/btn_Assig"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toLeftOf="@id/btnList"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_lyrics_20" />
+
+            <ImageButton
+                android:id="@+id/btnList"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+
+                android:layout_toLeftOf="@id/btn_MainScreen"
+                android:background="@color/transparan"
+                android:src="@drawable/ic_baseline_person_search_24" />
+
+            <ImageButton
+                android:id="@+id/btn_MainScreen"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+
+                android:layout_margin="0dp"
+
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:layout_toLeftOf="@id/center"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_home_24" />
+
+            <ImageButton
+                android:id="@+id/center"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+
+                android:layout_margin="10dp"
+                android:background="@color/transparan" />
+
+            <ImageButton
+                android:id="@+id/btn_News"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+
+
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toRightOf="@id/center"
+                android:background="@color/transparan"
+                android:src="@drawable/ic_baseline_library_books_24" />
+
+            <ImageButton
+                android:id="@+id/btn_Settings"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:layout_marginTop="10dp"
+
+                android:layout_marginBottom="10dp"
+
+                android:layout_toRightOf="@id/btn_Profile"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_settings_24" />
+
+            <ImageButton
+                android:id="@+id/btn_Profile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@id/btn_News"
+                android:background="@color/transparan"
+                android:src="@drawable/baseline_account_circle_24" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
 
     <include layout="@layout/error"/>
 

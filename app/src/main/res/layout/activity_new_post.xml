@@ -113,7 +113,7 @@
                     />
 
                 <ImageButton
-                    android:id="@+id/btn_Chat"
+                    android:id="@+id/btn_News"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerVertical="true"
@@ -125,7 +125,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_toRightOf="@id/center"
                     android:background="@color/transparan"
-                    android:src="@drawable/baseline_question_answer_24" />
+                    android:src="@drawable/ic_baseline_library_books_24" />
 
                 <ImageButton
                     android:id="@+id/btn_Settings"
@@ -147,7 +147,7 @@
                     android:layout_height="50dp"
                     android:layout_margin="15dp"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/btn_Chat"
+                    android:layout_toRightOf="@id/btn_News"
                     android:background="@color/transparan"
                     android:src="@drawable/baseline_account_circle_24" />
 

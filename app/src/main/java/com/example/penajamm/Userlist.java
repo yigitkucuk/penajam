@@ -59,7 +59,7 @@ public class Userlist extends AppCompatActivity implements Navigation {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
-        btnChat = findViewById(R.id.btn_Chat);
+        btnChat = findViewById(R.id.btn_News);
         //final View contactcardView = getLayoutInflater().inflate(R.layout.activity_post, null);
         //videoView = contactcardView.findViewById(R.id.videoView2);
 

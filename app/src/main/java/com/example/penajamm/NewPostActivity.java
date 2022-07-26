@@ -112,7 +112,7 @@ public class NewPostActivity extends AppCompatActivity implements Navigation {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
-        btnChat = findViewById(R.id.btn_Chat);
+        btnChat = findViewById(R.id.btn_News);
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 

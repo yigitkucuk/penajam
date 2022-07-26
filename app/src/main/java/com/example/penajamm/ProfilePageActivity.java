@@ -89,7 +89,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
         videoView = findViewById(R.id.videoView);
-        btnChat = findViewById(R.id.btn_Chat);
+        btnChat = findViewById(R.id.btn_News);
 
 
         btnChat.setOnClickListener(view -> goToChat());

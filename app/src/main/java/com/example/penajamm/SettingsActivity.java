@@ -50,7 +50,7 @@ public class SettingsActivity extends AppCompatActivity implements Navigation{
         switchMaterial3 = findViewById(R.id.switch_material3);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
-        btnChat = findViewById(R.id.btn_Chat);
+        btnChat = findViewById(R.id.btn_News);
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
