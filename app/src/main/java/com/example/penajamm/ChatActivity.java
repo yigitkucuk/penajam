@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.penajamm.news.NewsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -233,7 +234,7 @@ public class ChatActivity extends AppCompatActivity implements Navigation {
 
     @Override
     public void goToChat() {
-        startActivity(new Intent(ChatActivity.this, ChatActivity.class));
+        startActivity(new Intent(ChatActivity.this, NewsActivity.class));
     }
 
     public void goToUsers() {

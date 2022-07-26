@@ -286,8 +286,8 @@
                 android:id="@+id/btnList"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="15dp"
                 android:layout_centerVertical="true"
+                android:layout_margin="15dp"
 
                 android:layout_toLeftOf="@id/btn_MainScreen"
                 android:background="@color/transparan"
@@ -312,34 +312,33 @@
                 android:id="@+id/center"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
 
-                android:layout_centerInParent="true"
-                android:background="@color/transparan"
-                />
+                android:layout_margin="10dp"
+                android:background="@color/transparan" />
 
             <ImageButton
-                android:id="@+id/btn_Chat"
+                android:id="@+id/btn_News"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="0dp"
 
 
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
                 android:layout_toRightOf="@id/center"
                 android:background="@color/transparan"
-                android:src="@drawable/baseline_question_answer_24" />
+                android:src="@drawable/ic_baseline_library_books_24" />
 
             <ImageButton
                 android:id="@+id/btn_Settings"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
                 android:layout_centerVertical="true"
+                android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
 
                 android:layout_marginBottom="10dp"
@@ -352,12 +351,11 @@
                 android:id="@+id/btn_Profile"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_margin="15dp"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/btn_Chat"
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@id/btn_News"
                 android:background="@color/transparan"
                 android:src="@drawable/baseline_account_circle_24" />
-
 
 
         </RelativeLayout>

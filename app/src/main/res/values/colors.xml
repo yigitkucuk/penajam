@@ -11,6 +11,11 @@
     <color name="primary">#1B023B</color>
     <color name="secondary">#FF03DAC5</color>
 
+    <color name="colorAccent">#1e344b</color>
+    <color name="colorBackground">#f9f9fa</color>
+    <color name="colorTextSubtitle">#4e4e4e</color>
+    <color name="colorTextTitle">#262626</color>
+
     <color name="night_mode">#6124B1</color>
     <color name="notifications">#13B2C3</color>
     <color name="private_account">#E6A326</color>
