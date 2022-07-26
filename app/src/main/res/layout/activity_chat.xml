@@ -5,15 +5,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient1"
     tools:context=".ChatActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="75dp"
         android:background="@drawable/gradient1"
         app:layout_constraintBottom_toTopOf="@+id/message"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <RelativeLayout
+        android:id="@+id/chart2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/round_back_whiite10_20"
+            android:orientation="vertical"
+            android:padding="15dp" >
+
+
+            <TextView
+                android:id="@+id/titleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PenaJam"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_marginStart="100dp"
+                />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/transparan"
+            android:contentDescription="@string/attachment_summary_on"
+            android:padding="20dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@id/backbtn"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+
+            android:src="@drawable/defaultpp"
+            android:padding="5dp"
+            app:shapeAppearanceOverlay="@style/Circular"
+            app:strokeColor="@color/transparan"
+            app:strokeWidth="4dp" />
+    </RelativeLayout>
+
+
+
 
     <com.google.android.material.textfield.TextInputLayout
 

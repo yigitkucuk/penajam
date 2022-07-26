@@ -1,6 +1,7 @@
 package com.example.penajamm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Formatter;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     Context context;
@@ -58,7 +60,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         holder.realname.setText(user.getRealname());
         holder.location.setText(user.getLocation());
         holder.instruments.setText(user.getInstruments());
-        holder.point.setText( "" + user.getPoint());
+        Double d = user.getPoint();
+        Formatter formatter = new Formatter();
+        formatter.format("%.2f", d);
+        holder.point.setText(formatter.toString() );
         holder.description.setText(user.getDescription());
         Glide.with(context).load(user.getImageUri()).into(holder.profileicon);
         //if(user.getVideoUri()!=null)
@@ -166,6 +171,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 });
 
                 dialog.dismiss();
+                context.startActivity(new Intent(context, Userlist.class));
+                context.startActivity(new Intent(context, Userlist.class));
             }
         });
 

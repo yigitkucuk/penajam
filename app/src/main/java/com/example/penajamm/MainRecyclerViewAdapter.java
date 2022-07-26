@@ -50,58 +50,15 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         Chat chat = list.get(position);
         holder.realname.setText(chat.getUserOneName());
         holder.title.setText("Related Post Title: " + chat.getPosttitle());
         Glide.with(context).load(chat.getUserOnePPUri()).into(holder.profileicon);
+
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
-
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("User");
-        Query query = rootRef.orderByKey().limitToLast(20);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-
-                    System.out.println(childSnapshot.getKey());
-                    String modelId = childSnapshot.getKey();
-                    User usertmp = childSnapshot.getValue(User.class);
-                    if (usertmp.getEmail().equals(user.getEmail()) && !(FirebaseAuth.getInstance().getCurrentUser().getEmail().equals(user.getEmail()))) {
-                        DatabaseReference rootRef2 = FirebaseDatabase.getInstance().getReference("Chat");
-                        Query query2 = rootRef2.orderByKey().limitToLast(20);
-                        query2.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-
-                                    System.out.println(childSnapshot.getKey());
-                                    String modelId = childSnapshot.getKey();
-                                    Chat chattmp = childSnapshot.getValue(Chat.class);
-                                    if (chattmp.getUserTwoName().equals(usertmp.getRealname()) ) {
-
-
-
-
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         holder.chatBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -41,6 +41,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.Formatter;
 
 public class ProfilePageActivity extends AppCompatActivity implements Navigation{
 
@@ -148,7 +149,10 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
                         usernameView.setText(u.getName());
                         locationView.setText(u.getLocation());
                         instrumentsView.setText(u.getInstruments());
-                        pointView.setText(String.valueOf(u.getPoint()));
+                        Double d = u.getPoint();
+                        Formatter formatter = new Formatter();
+                        formatter.format("%.2f", d);
+                        pointView.setText(formatter.toString() );
                         descriptionView.setText(u.getDescription());
                     }
                 }

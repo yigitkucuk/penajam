@@ -82,10 +82,10 @@
         <entry key="app/src/main/res/drawable/ic_baseline_star_rate_24_white.xml" value="0.1225" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/rounded_corners2.xml" value="0.1465" />
-        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1887031408308004" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.3272425781671659" />
         <entry key="app/src/main/res/layout/activity_chat2.xml" value="0.11388888888888889" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main_screen.xml" value="0.19174041748046874" />
         <entry key="app/src/main/res/layout/activity_new_post.xml" value="0.15384615384615385" />
         <entry key="app/src/main/res/layout/activity_post 2.xml" value="0.20516304347826086" />
         <entry key="app/src/main/res/layout/activity_post.xml" value="0.33" />
