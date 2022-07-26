@@ -169,7 +169,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="130dp"
-            android:text="@string/action_nightmode"
+            android:text="Change Theme"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -218,7 +218,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="130dp"
-            android:text = "Sound"
+            android:text="Sound"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
             android:textStyle="bold" />
