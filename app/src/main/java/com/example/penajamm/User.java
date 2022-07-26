@@ -7,7 +7,7 @@ import com.google.firebase.database.Exclude;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User implements Serializable
+public class User implements Serializable, Comparable
 {
 
     @Exclude
@@ -168,9 +168,21 @@ public class User implements Serializable
     @Override
     public boolean equals(Object o) {
         User user1 = (User) o;
-        if (this.user == user1.getUser())
+        if (this.user == user1.getUser()){
             return true;
+        }
+
         return false;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(this.getPoint() > ((User) o).getPoint()){
+            return 1;
+        }else{
+            return -1;
+        }
+
     }
 
     /*
