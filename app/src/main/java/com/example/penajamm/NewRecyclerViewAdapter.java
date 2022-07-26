@@ -95,9 +95,10 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
                                 String userOnePPUri = usertmp.getImageUri();
                                 String userTwoName = post.getUserEmail();
                                 String userTwoPPUri = post.getProfileImageUrl();
+                                String postTitle = post.getPostTitle();
                                 String chatroomName = "Chatroom: " + usertmp.getRealname() + post.getUserEmail();
                                 db.child("Chatrooms").child("Chatroom: " + user.getUid() + post.getUserEmail()).child("Messages");
-                                Chat chat = new Chat(chatroomName, userOneName, userTwoName, userOnePPUri, userTwoPPUri);
+                                Chat chat = new Chat(chatroomName, userOneName, userTwoName, userOnePPUri, userTwoPPUri, postTitle);
                                 databaseReference.push().setValue(chat);
 
                             }
@@ -148,3 +149,47 @@ public class NewRecyclerViewAdapter extends RecyclerView.Adapter<NewRecyclerView
         }
     }
 }
+
+/*                             if (usertmp.getEmail().equals(user.getEmail()) ) {
+
+                                DatabaseReference rootRef2 = FirebaseDatabase.getInstance().getReference("Chat");
+                                Query query2 = rootRef2.orderByKey().limitToLast(20);
+                                query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+
+                                            System.out.println(childSnapshot.getKey());
+                                            String modelId = childSnapshot.getKey();
+                                            Chat chattmp = childSnapshot.getValue(Chat.class);
+
+                                            String userOneName = usertmp.getRealname();
+                                            String userOnePPUri = usertmp.getImageUri();
+                                            String userTwoName = post.getUserEmail();
+                                            String userTwoPPUri = post.getProfileImageUrl();
+                                            String chatroomName = "Chatroom: " + usertmp.getRealname() + post.getUserEmail();
+                                            String chatroomName2 = "Chatroom: " + post.getUserEmail() + usertmp.getRealname();
+
+                                            if( ((userOneName.equals(chattmp.getUserOneName()) || userOneName.equals(chattmp.getUserTwoName())) && (userTwoName.equals(chattmp.getUserOneName()) || userTwoName.equals(chattmp.getUserTwoName())))  ) {
+
+                                                db.child("Chatrooms").child(chatroomName2).child("Messages");
+                                                Chat chat = new Chat(chatroomName2, userOneName, userTwoName, userOnePPUri, userTwoPPUri);
+                                                databaseReference.push().setValue(chat);
+                                            }
+
+                                            else {
+                                                db.child("Chatrooms").child(chatroomName).child("Messages");
+                                                Chat chat = new Chat(chatroomName, userOneName, userTwoName, userOnePPUri, userTwoPPUri);
+                                                databaseReference.push().setValue(chat);
+                                            }
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        //chatroomName2.equals(chattmp.getChatRoomName()
+                                    }
+                                });
+
+                            }*/

@@ -51,7 +51,9 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Chat chat = list.get(position);
-
+        holder.realname.setText(chat.getUserOneName());
+        holder.title.setText("Related Post Title: " + chat.getPosttitle());
+        Glide.with(context).load(chat.getUserOnePPUri()).into(holder.profileicon);
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
@@ -79,8 +81,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
                                     Chat chattmp = childSnapshot.getValue(Chat.class);
                                     if (chattmp.getUserTwoName().equals(usertmp.getRealname()) ) {
 
-                                        holder.realname.setText(chattmp.getUserOneName());
-                                        Glide.with(context).load(chattmp.getUserOnePPUri()).into(holder.profileicon);
+
 
 
                                     }
@@ -147,6 +148,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView realname;
+        TextView title;
         ImageView profileicon;
         FloatingActionButton chatBtn;
 
@@ -154,6 +156,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             realname = itemView.findViewById(R.id.user_realname);
+            title = itemView.findViewById(R.id.title);
             profileicon = itemView.findViewById(R.id.profile_icon);
             chatBtn = itemView.findViewById(R.id.fab);
 

@@ -107,9 +107,9 @@
         <entry key="app/src/main/res/layout/list_layout.xml" value="0.24537037037037038" />
         <entry key="app/src/main/res/layout/message_design.xml" value="0.2818580480573629" />
         <entry key="app/src/main/res/layout/messages_adapter_layout.xml" value="0.24537037037037038" />
-        <entry key="app/src/main/res/layout/new_message_design.xml" value="0.19731509625126648" />
+        <entry key="app/src/main/res/layout/new_message_design.xml" value="0.33" />
         <entry key="app/src/main/res/layout/new_post_design.xml" value="0.20669291338582677" />
-        <entry key="app/src/main/res/layout/point_design.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/point_design.xml" value="0.1" />
         <entry key="app/src/main/res/layout/userentry.xml" value="0.16717325227963525" />
         <entry key="app/src/main/res/layout/userlist_design.xml" value="0.25" />
         <entry key="app/src/main/res/menu/menu_chat.xml" value="0.2601851851851852" />

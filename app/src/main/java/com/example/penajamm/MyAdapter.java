@@ -117,6 +117,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         MediaController mediaController = new MediaController(context);
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
+        videoView.start();
+
+
 
         if(user.getVideoUri()!=null)
             videoView.setVideoPath(user.getVideoUri());

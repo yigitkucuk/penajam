@@ -7,20 +7,30 @@ public class Chat {
         private String userOnePPUri;
         private String userTwoName;
         private String userTwoPPUri;
+        private String posttitle;
 
         public Chat(){
 
         }
 
-        public Chat(String chatRoomName, String userOneName, String userTwoName, String userOnePPUri, String userTwoPPUri){
+        public Chat(String chatRoomName, String userOneName, String userTwoName, String userOnePPUri, String userTwoPPUri, String postTitle){
             this.chatRoomName = chatRoomName;
             this.userOneName = userOneName;
             this.userOnePPUri = userOnePPUri;
             this.userTwoName = userTwoName;
             this.userTwoPPUri = userTwoPPUri;
+            this.posttitle = postTitle;
         }
 
-        public String getUserOnePPUri() {
+    public String getPosttitle() {
+        return posttitle;
+    }
+
+    public void setPosttitle(String posttitle) {
+        this.posttitle = posttitle;
+    }
+
+    public String getUserOnePPUri() {
             return userOnePPUri;
         }
 
