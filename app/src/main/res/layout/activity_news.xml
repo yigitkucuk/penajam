@@ -16,15 +16,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <ImageButton
+                    android:id="@+id/backbtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/transparan"
+                    android:contentDescription="@string/attachment_summary_on"
+                    android:padding="20dp"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
                 <TextView
-                    android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="Today's Top News"
-                    android:textSize="18sp"
                     android:gravity="center"
-                    android:visibility="visible"/>
+                    android:text="Today's Top News"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="-30dp"
+                    android:visibility="visible" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"

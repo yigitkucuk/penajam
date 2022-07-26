@@ -42,7 +42,7 @@ public class NewsActivity extends AppCompatActivity implements Navigation {
     private ArrayList<Article> articles = new ArrayList<>();
     private Adapter adapter;
     private final String TAG = NewsActivity.class.getSimpleName();
-    private ImageButton btnList, btnAssig, btnSettings, btnMainScreen, btnProfile, btnChat;
+    private ImageButton btnList, btnAssig, btnSettings, btnMainScreen, btnProfile, btnChat, backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +55,15 @@ public class NewsActivity extends AppCompatActivity implements Navigation {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setNestedScrollingEnabled(false);
 
+        backbtn = findViewById(R.id.backbtn);
         btnAssig = findViewById(R.id.btn_Assig);
         btnSettings = findViewById(R.id.btn_Settings);
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
         btnChat = findViewById(R.id.btn_News);
+
+        backbtn.setOnClickListener(view -> goToMainPage());
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
