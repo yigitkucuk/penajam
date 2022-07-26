@@ -1,56 +1,53 @@
-## PenaJam
+## OVERVIEW
+This is our project for Bilkent University CS102. Penajam is a mobile application where people interested in music can connect from all over the world to find their passion and meet with like-minded musicians. We do not only allow users to create their unique profile and be on display, but they can also share their posts and learn about recent news regarding music.
+   
+## FEATURES
+**Easy Register and Login:**
+Users can easily sign in using their social media accounts or create one within our application
 
-# 18.06.22 LOG
-User registration with email and password is now available.
+**Welcoming Main Page:** 
+Users can see recent posts or messages through the main screen where they can also navigate to the other screens. There is also a button for logging out.
 
-# 22.06.22 LOG
-Improvements in layouts
+**News:**
+As a PenaJam user, you do not even need another application to check the recent music news. We have a seperate section where the most recent updated news feed is played so that the users can get to know about the music industry.
 
-# 28.06.22 LOG
-Now user data, such as username and realname is also stored in database, across platforms.
-Layouts are gone for a short time to be revised, will be added later.
-Profile customization is ready, will be added later.
+**Posts:** 
+In PenaJam, any user can see other posts or create one if he/she wants to. This helps our beloved musicians to find suitable people for their interests and connect with them. Here can also directly send a message to the owner of a post.
 
-# 29.06.22 LOG
-Main screen, Settings, Profile, Login pages added.
-Now users can transition between screens. Users can now upload profile pictures.
-Little bugs fixed.
+**Chat:**
+Speaking of connections, your messages sent via our chat functionality are completely private! In chat page, you can see the recent list of people who have sent you a message or you have talked to.
 
-# 30.06.22 BIIIG LOG
-Huh, changed a lot.
-All of the layouts, button designs, text designs are changed. Color themes are changed. App Bar is removed.
-Bug fixes, added functionality to one go-back button. Changed default profile picture.
+**List of Users:** 
+Struggling to find new people? Try to see the list of recent users from our users page where you can see their profile details or you can just send a message. Here users can also rate each others' profiles by giving stars to them.
 
-# 02.07.22 LOG
-We improved settings part, profile part.
-Also user is now kept signed in unless logout.
-We changed title of auditions.
+**Profile and Settings:** 
+Every user in our application can edit their profile data through settings or add information such as played instruments, description or location. This is your chance to make some sound, so make sure you use it the right way ^^
+   
+## SETUP INSTRUCTIONS
+You can download and open PenaJam through the .apk file. Once you manage to run the application, you can check the above features to get to know about PenaJam and follow along. Start with creating an account and make sure to have fun with the rest :)
+   
+## PROJECT TEAM
+Özgür Ege Şire - Backend Developlment and Documentation
 
-# 14.07.22 LOG
-We added chatroom but not fully functional yet. 
-Also we started to work on sending posts.
+Yiğit Küçük - Backend Development and Database Connection
 
-# 16.07.22 LOG
-Chatroom is functional now.
-We changed date-time format of the chatroom. 
-We created the Post and Model classes.
-We improved layouts.
+Barış Çelik - Backend Development and Activities
 
-# 19.07.22 LOG
-On profile page, now each user's email is displayed.
-We created NewRecyclerViewAdapter and imageRecyclerView.
+Defne Gürbüz - Frontend Development and Layouts
 
-# 21.07.22 LOG
-We optimized Post system and Firebase database issues.
-Navigation interface is changed.
-Also, userlist layouts is changed.
+Alphan Tulukcu - Frontend Development and Layouts
 
-# 23.07.22 LOG
-Fixed database and equality constraints.
-Profile page data-fetch completed.
-Added e-mail verification and verification page.
+## TECHNOLOGIES
+Android Studio
 
-# 24.07.22 LOG
-Added change password page.
-We created a new private chatroom.
-Forgot password part is now available.
+Java
+
+Firebase Real-time Database
+
+Firestore
+
+Photoshop
+
+Canva
+
+Other Android Studio Libraries
