@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.penajamm.news.News;
+import com.example.penajamm.news.NewsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +27,7 @@ import java.util.Collections;
 
 public class Userlist extends AppCompatActivity implements Navigation {
 
-    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig, btnList;
+    private ImageButton btnBack, btnSettings, btnMainScreen, btnProfile, btnAssig, btnList, btnChat;
 
     RecyclerView recyclerView;
     ArrayList<User> list;
@@ -57,12 +59,15 @@ public class Userlist extends AppCompatActivity implements Navigation {
         btnMainScreen = findViewById(R.id.btn_MainScreen);
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
+        btnChat = findViewById(R.id.btn_Chat);
         //final View contactcardView = getLayoutInflater().inflate(R.layout.activity_post, null);
         //videoView = contactcardView.findViewById(R.id.videoView2);
 
         //MediaController mediaController = new MediaController(this);
         //videoView.setMediaController(mediaController);
         //mediaController.setAnchorView(videoView);
+
+        btnChat.setOnClickListener(view -> goToChat());
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
@@ -137,7 +142,7 @@ public class Userlist extends AppCompatActivity implements Navigation {
 
     @Override
     public void goToChat() {
-        startActivity(new Intent(Userlist.this, ChatActivity.class));
+        startActivity(new Intent(Userlist.this, NewsActivity.class));
     }
 
 

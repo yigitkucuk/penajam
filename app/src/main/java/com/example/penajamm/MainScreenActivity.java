@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.penajamm.news.NewsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -110,7 +111,7 @@ public class MainScreenActivity extends AppCompatActivity implements Navigation 
     }
 
     public void goToChat() {
-        startActivity(new Intent(MainScreenActivity.this, ChatActivity.class));
+        startActivity(new Intent(MainScreenActivity.this, NewsActivity.class));
     }
 
     public void goToUsers() {

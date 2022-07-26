@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.penajamm.databinding.ActivityProfilePageBinding;
+import com.example.penajamm.news.NewsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,7 +47,7 @@ import java.util.Formatter;
 public class ProfilePageActivity extends AppCompatActivity implements Navigation{
 
     private ActivityProfilePageBinding binding;
-    private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack, btnProfile, btnList;
+    private ImageButton btnSettings, btnMainScreen, btnAssig, btnBack, btnProfile, btnList, btnChat;
     private VideoView videoView;
     private Button uploadBtn;
     private  FloatingActionButton sendBtn;
@@ -88,11 +89,14 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
         btnProfile = findViewById(R.id.btn_Profile);
         btnList = findViewById(R.id.btnList);
         videoView = findViewById(R.id.videoView);
+        btnChat = findViewById(R.id.btn_Chat);
+
+
+        btnChat.setOnClickListener(view -> goToChat());
 
         btnProfile.setOnClickListener(view -> goToProfilePage());
 
         btnList.setOnClickListener(view -> goToUsers());
-
 
         btnMainScreen.setOnClickListener(view -> goToMainPage());
 
@@ -335,7 +339,7 @@ public class ProfilePageActivity extends AppCompatActivity implements Navigation
 
     @Override
     public void goToChat() {
-        startActivity(new Intent(ProfilePageActivity.this, ChatActivity.class));
+        startActivity(new Intent(ProfilePageActivity.this, NewsActivity.class));
     }
 
     public void goToUsers() {
