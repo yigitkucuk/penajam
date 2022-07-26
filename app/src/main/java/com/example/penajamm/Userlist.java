@@ -120,7 +120,7 @@ public class Userlist extends AppCompatActivity implements Navigation {
     }
 
     public void goToSettings() {
-        startActivity(new Intent(Userlist.this, ChatActivity.class));
+        startActivity(new Intent(Userlist.this, SettingsActivity.class));
     }
 
     public void goToNewPosts() {
@@ -137,7 +137,7 @@ public class Userlist extends AppCompatActivity implements Navigation {
 
     @Override
     public void goToChat() {
-
+        startActivity(new Intent(Userlist.this, ChatActivity.class));
     }
 
 
