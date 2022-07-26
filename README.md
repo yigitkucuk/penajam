@@ -30,15 +30,15 @@ Every user in our application can edit their profile data through settings or ad
 You can download and open PenaJam through the .apk file. Once you manage to run the application, you can check the above features to get to know about PenaJam and follow along. Start with creating an account and make sure to have fun with the rest :)
    
 ## PROJECT TEAM
-Özgür Ege Şire - Backend Developlment and Documentation
+Özgür Ege Şire - Backend Development and Documentation
 
-Yiğit Küçük - Backend Development and Database Connection
+Yiğit Küçük - Backend Development, Design and Database Connection
 
-Barış Çelik - Backend Development and Activities
+Barış Çelik - Backend Development, Design and Activities
 
 Defne Gürbüz - Frontend Development and Layouts
 
-Alphan Tulukcu - Frontend Development and Layouts
+Alphan Tulukcu - Frontend Development, Backend Development and Layouts
 
 ## TECHNOLOGIES
 Android Studio
