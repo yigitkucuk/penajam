@@ -1,4 +1,4 @@
-## LOG - Yigit Kucuk
+## DEV LOG - Yiğit Küçük
 
 # 18.06.22
 I implemented user registration and user sign in systems. Now, authentication is complete.
