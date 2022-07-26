@@ -45,3 +45,24 @@ Replaced some deprecated methods and added some lambda expressions, also made sm
 Fixed database and equality constraints
 Profile page data-fetch completed
 Added e-mail verification and verification page
+
+# 24.07.22
+Added UserSearchActivity
+Added sound settings
+Helped implemetation of forgot password and change password
+Updated Navigation interface
+Updated Navigation bar
+Designed change password layout
+Fixed profile page
+
+# 25.07.22
+Implemented circle images
+Designed private chatroom layouts
+Chatrooms gone completely private 
+
+# 26.07.22
+Filter by star level system added
+Changable themes added
+Helped implement user search
+Helped implement message room
+Extended the database so that storage is sufficient (Modify database settings)
