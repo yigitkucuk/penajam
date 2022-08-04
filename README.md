@@ -1,5 +1,5 @@
 ## IMPORTANT!!!
-You can reach the .apk file in the APK folder above.
+You can reach the .apk file in the APK folder above..
 
 ## OVERVIEW
 This is our project for Bilkent University CS102. Penajam is a mobile application where people interested in music can connect from all over the world to find their passion and meet with like-minded musicians. We do not only allow users to create their unique profile and be on display, but they can also share their posts and learn about recent news regarding music.
